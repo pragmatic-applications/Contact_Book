@@ -1,0 +1,29 @@
+﻿@inherits HomeBase
+
+<div class="large_screen_container zero_auto">
+    <table class="table">
+        <thead class="thead">
+            <tr class="@this.GridCssClass margin_bottom_10">
+                <th>#</th>
+                <th>Contact Name</th>
+                <th>Check</th>
+
+                @if(this.IsCrudCascadingParameter)
+                {
+                    <th>Detail</th>
+                }
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <UIEntityRepeater TEntity="ContactEntity" Entities="@this.EntitiesCascadingParameter">
+                <Entity Context="item">
+                    <CascadingValue Value="@item" Name="@nameof(CascadingData.EntityParameterValue)" IsFixed="false">
+                        <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(CascadingData.IsCrudParameterValue)">
+                            <TableData />
+                        </CascadingValue>
+                    </CascadingValue>
+                </Entity>
+            </UIEntityRepeater>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,59 @@
+﻿@page "/Admin/Delete/{id:int}"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container">
+    @if(this.Item?.Id == 0)
+    {
+        <h1>Nothing to Delete</h1>
+    }
+    else
+    {
+        <h5 class="text_center">@this.FormTitle</h5>
+
+        <div class="EditForm">
+            <EditForm Model="@this.Item" OnValidSubmit="@this.DeleteAsync">
+                <DataAnnotationsValidator />
+                <input type="hidden" @bind="this.Item.Id" />
+
+                <div class="form_group">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">
+                                #@this.EntryId: @this.Item.ContactName
+                            </p>
+                            <p class="card-text">
+                                First Name: @this.Item.FirstName
+                            </p>
+                            <p class="card-text">
+                                Last Name: @this.Item.LastName
+                            </p>
+                            <p class="card-text">
+                                Email: @this.Item.Email
+                            </p>
+                            <p class="card-text">
+                                Phone: @this.Item.Phone
+                            </p>
+                            <p class="card-text">
+                                Address: @this.Item.Address
+                            </p>
+                            <p class="card-text">
+                                Done: @this.IsDone
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <a class="btn btn_primary btn_sm" href="@PageRoute.Admin">Cancel</a>
+                    <button type="submit" class="btn btn_danger btn_sm">Delete</button>
+                </div>
+            </EditForm>
+        </div>
+    }
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.AdminDelete" class="top"></NavLink>
+</div>

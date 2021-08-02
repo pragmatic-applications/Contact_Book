@@ -1,0 +1,29 @@
+﻿@page "/"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="max_width_lg">
+
+    @if(this.Items == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <CascadingValue Value="@this.Items" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
+            <CascadingValue Value="@this.IsCrudValue" Name="@nameof(CascadingData.IsCrudParameterValue)">
+                <CascadingValue Value="@this.IsPageAdminValue" Name="@nameof(CascadingData.IsPageAdminParameterValue)">
+                    <IndexContainer />
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+    }
+
+    <PageFeature PagerDataParameter="@this.PagerData" OnSelectedPage="this.SelectedPage" OnSortChanged="this.SortChanged" OnSearchChanged="SearchChanged" SelectParameter="@this.ItemSelect" SpreadParameter="@SharedData.Spread" />
+</div>
+
+<div class="page-top">
+    <NavLink href="/" class="top"></NavLink>
+</div>

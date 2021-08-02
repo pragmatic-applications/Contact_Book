@@ -1,0 +1,61 @@
+﻿@page "/admin/details/{Id:int}"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container_a">
+    @if(this.Item?.Id == 0)
+    {
+        <div class="card">
+            <div class="card_body">
+                <p class="card-text">No Item to show.</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <ImageContainer ImageParameter="@this.Item.Image" MaxWidthParameter="max_width_sm card_img_top" />
+            <div class="card_body">
+                <h5 class="card_title">
+                    #@this.EntryId: @this.Item.ContactName
+                </h5>
+                <p class="card_text">
+                    First Name: @this.Item.FirstName
+                </p>
+                <p class="card_text">
+                    Last Name: @this.Item.LastName
+                </p>
+                <p class="card_text">
+                    Email: @this.Item.Email
+                </p>
+                <p class="card_text">
+                    Phone: @this.Item.Phone
+                </p>
+                <p class="card_text">
+                    Address: @this.Item.Address
+                </p>
+                @*<p class="card_text">
+                    Contact Entity Category Id: @this.Item.ContactEntityCategoryId
+                </p>*@
+                <p class="card_text">
+                    Done: @this.IsDone
+                </p>
+                <a class="btn btn_primary btn_sm" href="@PageRoute.Admin">
+                    Back
+                </a>
+                <a class="btn btn_primary btn_sm" href="@this.UrlUpdate">
+                    Edit
+                </a>
+                <a class="btn btn_danger btn_sm" href="@this.UrlDelete">
+                    X
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.AdminDetails" class="top"></NavLink>
+</div>

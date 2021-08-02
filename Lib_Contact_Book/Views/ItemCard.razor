@@ -1,0 +1,13 @@
+﻿@inherits HomeBase
+
+<div class="small_screen_container zero_auto">
+    <UIEntityRepeater TEntity="ContactEntity" Entities="@this.EntitiesCascadingParameter">
+        <Entity Context="item">
+            <CascadingValue Value="@item" Name="@nameof(CascadingData.EntityParameterValue)" IsFixed="false">
+                <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(CascadingData.IsCrudParameterValue)">
+                    <ItemContainer />
+                </CascadingValue>
+            </CascadingValue>
+        </Entity>
+    </UIEntityRepeater>
+</div>

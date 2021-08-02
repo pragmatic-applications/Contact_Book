@@ -1,0 +1,135 @@
+﻿@page "/Admin/Update/{Id:int}"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container_a">
+
+    @if(this.Item?.Id == 0)
+    {
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">No Item to edit.</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <ImageContainer ImageParameter="@this.Item.Image" MaxWidthParameter="max_width_sm card_img_top" />
+            <div class="card_body">
+                <p class="card_title">
+                    Contact Name: @this.Item.ContactName
+                </p>
+                <p class="card_text">
+                    First Name: @this.Item.FirstName
+                </p>
+                <p class="card_text">
+                    Last Name: @this.Item.LastName
+                </p>
+                <p class="card_text">
+                    Email: @this.Item.Email
+                </p>
+                <p class="card_text">
+                    Phone: @this.Item.Phone
+                </p>
+                <p class="card_text">
+                    Address: @this.Item.Address
+                </p>
+                <p class="card_text">
+                    Done: @this.IsDone
+                </p>
+                <p class="card_text">
+                    Id: #@this.EntryId
+                </p>
+            </div>
+        </div>
+
+        <EditForm Model="@this.Item" OnValidSubmit="@this.UpdateAsync">
+            <DataAnnotationsValidator />
+            <input type="hidden" @bind="this.Item.Id" />
+
+            <div class="form_group">
+                <label for="ContactName" class="control_label">Contact Name</label>
+                <InputText @bind-Value="this.Item.ContactName" id="ContactName" class="form_control" placeholder="Contact Name"></InputText>
+                <ValidationMessage For="@(() => this.Item.ContactName)" />
+            </div>
+            <div class="form_group">
+                <label for="FirstName" class="control_label">First Name</label>
+                <InputText @bind-Value="this.Item.FirstName" id="FirstName" class="form_control" placeholder="First Name"></InputText>
+                <ValidationMessage For="@(() => this.Item.FirstName)" />
+            </div>
+            <div class="form_group">
+                <label for="LastName" class="control_label">Last Name</label>
+                <InputText @bind-Value="this.Item.LastName" id="LastName" class="form_control" placeholder="Last Name"></InputText>
+                <ValidationMessage For="@(() => this.Item.LastName)" />
+            </div>
+            <div class="form_group">
+                <label for="Email" class="control_label">Email</label>
+                <InputText @bind-Value="this.Item.Email" id="Email" class="form_control" placeholder="Email"></InputText>
+                <ValidationMessage For="@(() => this.Item.Email)" />
+            </div>
+            <div class="form_group">
+                <label for="Phone" class="control_label">Phone</label>
+                <InputText @bind-Value="this.Item.Phone" id="Phone" class="form_control" placeholder="Phone"></InputText>
+                <ValidationMessage For="@(() => this.Item.Phone)" />
+            </div>
+            <div class="form_group">
+                <label for="Address" class="control_label">Address</label>
+                <InputTextArea @bind-Value="this.Item.Address" id="Address" class="form_control" rows="3" />
+                <ValidationMessage For="@(() => this.Item.Address)" />
+            </div>
+
+            <h1>Num Categories: @this.Categories.Count</h1>
+
+            <div class="form-group">
+                <input type="hidden" @bind="this.CategoryId" />
+                <label for="ContactEntityCategoryId" class="control_label">Category</label>
+                <InputSelect @bind-Value="@this.CategoryId" id="ContactEntityCategoryId" class="form_control">
+                    <option value="0">-- Select a Category --</option>
+
+                    @foreach(var item in this.Categories)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+
+                    @{
+                        this.Item.ContactEntityCategoryId = this.GetCategoryId(categoryId: this.CategoryId);
+                    }
+                </InputSelect>
+            </div>
+            <div class="form_group checkboxes grid_col_repeat_1_1fr">
+                <label for="@this.Item.Id" class="control_label option_item">
+                    <InputCheckbox @bind-Value="this.Item.IsChecked" class="checkbox" id="@this.Item.Id" />
+                    <span class="option_inner theme">
+                        <span class="tickmark"></span>
+                        <span class="name">
+                            Check?
+                        </span>
+                    </span>
+
+                    <ValidationMessage For="@(() => this.Item.IsChecked)" />
+                </label>
+            </div>
+            <div class="form_group">
+                <label for="Image" class="control_label">Image:</label>
+                <div class="col-md-10">
+                    <Uploader OnChange="this.AssignImageUrl" />
+                </div>
+            </div>
+            <div class="form_group">
+                <a class="btn btn_primary btn_sm" href="@PageRoute.Admin">
+                    Cancel
+                </a>
+                <button type="submit" class="btn btn_primary btn_sm" disabled="@this.IsDisabled">
+                    Save
+                </button>
+            </div>
+        </EditForm>
+    }
+</div>
+
+<div class="page-top">
+    <NavLink href="Items/Admin/Update/{Id:int}" class="top"></NavLink>
+</div>

@@ -1,0 +1,17 @@
+{
+    "profiles":
+    {
+        "Contact_Book_Blazor_Server":
+        {
+            "commandName": "Project",
+            "dotnetRunMessages": "true",
+            "launchBrowser": true,
+            "applicationUrl": "https://localhost:5003",
+            "environmentVariables":
+            {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}
+
