@@ -14,40 +14,44 @@
             <input type="hidden" @bind="this.Item.Id" />
 
             <div class="form_group">
-                <label for="ContactName" class="control_label">Contact Name</label>
-                <InputText @bind-Value="this.Item.ContactName" class="form_control" id="ContactName" placeholder="Contact Name" @onchange="(_) => this.OnContactNameChange()" />
+                <label for="Name" class="control_label">Contact Name</label>
+                <InputText @bind-Value="this.Item.ContactName" class="form_control" id="ContactName" placeholder="Contact Name: Jane Doe or Health Medical Practice" @onchange="(_) => this.HandleContactNameFormField()" />
                 <ValidationMessage For="@(() => this.Item.ContactName)" />
             </div>
+
             <div class="form_group">
                 <label for="FirstName" class="control_label">First Name</label>
-                <InputText @bind-Value="this.Item.FirstName" class="form_control" id="FirstName" placeholder="First Name" @onchange="(_) => this.OnFirstNameChange()" />
+                <InputText @bind-Value="this.Item.FirstName" class="form_control" id="FirstName" placeholder="First Name: Jane" @onchange="(_) => this.HandleFirstNameFormField()" />
                 <ValidationMessage For="@(() => this.Item.FirstName)" />
             </div>
+
             <div class="form_group">
                 <label for="LastName" class="control_label">Last Name</label>
-                <InputText @bind-Value="this.Item.LastName" class="form_control" id="LastName" placeholder="Last Name" @onchange="(_) => this.OnLastNameChange()" />
+                <InputText @bind-Value="this.Item.LastName" class="form_control" id="LastName" placeholder="Last Name Doe" rows="3" @onchange="(_) => this.HandleLastNameFormField()" />
                 <ValidationMessage For="@(() => this.Item.LastName)" />
             </div>
+
             <div class="form_group">
                 <label for="Email" class="control_label">Email</label>
-                <InputText @bind-Value="this.Item.Email" class="form_control" id="Email" placeholder="Email" @onchange="(_) => this.OnEmailChange()" />
+                <InputText @bind-Value="this.Item.Email" class="form_control" id="Email" placeholder="Email" @onchange="(_) => this.HandleEmailFormField()" />
                 <ValidationMessage For="@(() => this.Item.Email)" />
             </div>
+
             <div class="form_group">
                 <label for="Phone" class="control_label">Phone</label>
-                <InputText @bind-Value="this.Item.Phone" class="form_control" id="Phone" placeholder="Phone" @onchange="(_) => this.OnPhoneChange()" />
+                <InputText @bind-Value="this.Item.Phone" class="form_control" id="Phone" placeholder="Phone" @onchange="(_) => this.HandlePhoneFormField()" />
                 <ValidationMessage For="@(() => this.Item.Phone)" />
             </div>
+
             <div class="form_group">
-                <label for="Address" class="control_label">Address</label>
-                <InputTextArea @bind-Value="this.Item.Address" class="form_control" id="Address" placeholder="Address" rows="3" @onchange="(_) => this.OnAddressChange()" />
+                <InputTextArea @bind-Value="this.Item.Address" class="form_control" id="Address" placeholder="Address: 21 Some Plase, London UK" rows="3" @onblur="this.HandleAddressFormField" />
                 <ValidationMessage For="@(() => this.Item.Address)" />
             </div>
 
             <div class="form_group">
                 <input type="hidden" @bind="this.CategoryId" />
                 <label for="CategoryId" class="control_label">Category</label>
-                <InputSelect @bind-Value="@this.CategoryId" id="CategoryId" class="form_control">
+                <InputSelect id="CategoryId" @bind-Value="@this.CategoryId" class="form_control">
                     <option value="0">-- Select a Category --</option>
                     @foreach(var item in this.Categories)
                     {
@@ -91,11 +95,8 @@
                         Save
                     </button>
                 }
-
             </div>
         </EditForm>
-
-        
 
         <p>Entry List</p>
 

@@ -39,10 +39,16 @@ namespace Domain
         [Display(Name = "Last Name"), MinLength(2)]
         public string LastName { get; set; }
 
-        [Display(Name = "Email"), Required, DataType(DataType.EmailAddress)]
+        //Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        [Display(Name = "Email"), Required, EmailAddress]
         public string Email { get; set; }
 
-        [Display(Name = "Phone"), DataType(DataType.PhoneNumber)]
+
+        //const string PhoneNumberPattern = @"^0(\d ?){10}$"; // Simple and works.
+        // Best e.g. (####) ### ####
+        const string PhoneNumberPattern = @"^\s*(([+]\s?\d[-\s]?\d|0)?\s?\d([-\s]?\d){9}|[(]\s?\d([-\s]?\d)+\s*[)]([-\s]?\d)+)\s*$"; 
+
+        [Display(Name = "Phone"), Phone, RegularExpression(PhoneNumberPattern, ErrorMessage = "Invalid Phone Number")]
         public string Phone { get; set; }
 
         [Display(Name = "Contact Address"), MinLength(2), MaxLength(200)]
@@ -57,7 +63,7 @@ namespace Domain
         [Display(Name = "Created Date")]
         public DateTimeOffset CreatedDate { get; set; } = DateTimeOffset.UtcNow;
 
-        [Display(Name = "Category Name")]
+        [Display(Name = "Contact Category")]
         public int ContactEntityCategoryId { get; set; } = (int)ContactCategoryType.Unspecified;
         public ContactEntityCategory ContactEntityCategory { get; set; }
     }

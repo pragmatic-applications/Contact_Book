@@ -4,11 +4,11 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-02
-// Stop: 17:00
+// Date: 2021-08-03
+// Stop: 18:00
 //=================================================================
 
-// First commit from VS
+// Update the Create form and UX
 
 //==========================================================================
 // Migrations S (2021-08-02)
@@ -35,8 +35,6 @@
 
 /*
 
-T https://localhost:5001/Default.png 404
 
-551/api/ItemCategories
 
 //*/

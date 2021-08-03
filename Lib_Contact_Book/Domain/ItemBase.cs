@@ -149,27 +149,75 @@ namespace Domain
             this.Reload();
         }
 
-        public int CurrentCheckboxId { get; set; }
-        public int GetCheckboxId()
+        //// S SRC
+
+        //public bool NameChange { get; set; }
+        //protected void OnNameChange() => this.NameChange = string.IsNullOrWhiteSpace(this.Item.Name);
+
+        //public bool DetailChange { get; set; }
+        //protected void OnDetailChange() => this.DetailChange = string.IsNullOrWhiteSpace(this.Item.Detail);
+
+        //protected bool CanAdd => string.IsNullOrWhiteSpace(this.Item.Name) || string.IsNullOrWhiteSpace(this.Item.Detail) || this.NameChange || this.DetailChange || this.IsDisabled;
+
+        //protected void AddItem()
+        //{
+        //    this.ITaskService.AddItem(this.Item);
+        //    this.Item = new();
+        //}
+        //protected bool CanSave => this.ITaskService.CanSave;
+
+        //// Todo: Update to AddRange for collection...
+        //protected override async Task InsertAsync()
+        //{
+        //    foreach(var item in this.ITaskService.Items)
+        //    {
+        //        await this.ItemService.AddEntityAsync(item);
+        //    }
+
+        //    this.ITaskService.Clear();
+        //    this.Reload();
+        //}
+
+        //public string CategoryId { get; set; } = "0";
+        //public string Zero { get; set; } = "0";
+        //protected bool IsDisabled => this.CategoryId == this.Zero;
+
+        //public int GetCategoryId(string categoryId)
+        //{
+        //    int.TryParse(categoryId, out var result);
+
+        //    return result;
+        //}
+
+        //// E SRC
+
+        // S NNN State
+        //NameChange => ContactNameState
+        public bool ContactNameState { get; set; }
+        protected void HandleContactNameFormField() => this.ContactNameState = string.IsNullOrWhiteSpace(this.Item.ContactName);
+
+        public bool FirstNameState { get; set; }
+        protected void HandleFirstNameFormField() => this.FirstNameState = string.IsNullOrWhiteSpace(this.Item.FirstName);
+
+        public bool LastNameState { get; set; }
+        protected void HandleLastNameFormField() => this.LastNameState = string.IsNullOrWhiteSpace(this.Item.LastName);
+
+        public bool EmailState { get; set; }
+        protected void HandleEmailFormField() => this.EmailState = string.IsNullOrWhiteSpace(this.Item.Email);
+
+        public bool PhoneState { get; set; }
+        protected void HandlePhoneFormField() => this.PhoneState = string.IsNullOrWhiteSpace(this.Item.Phone);
+
+        //// Orig
+        //public bool AddressState { get; set; }
+        //protected void HandleAddressFormField() => this.AddressState = string.IsNullOrWhiteSpace(this.Item.Address);
+
+        // Orig
+        public bool AddressState { get; set; }
+        protected void HandleAddressFormField()
         {
-            var id = 1;
-
-            return ++id;
+            this.AddressState = string.IsNullOrWhiteSpace(this.Item.Address) || this.Item.Address.Length < 2;
         }
-
-        public bool ContactNameChange { get; set; }
-        public bool FirstNameChange { get; set; }
-        public bool LastNameChange { get; set; }
-        public bool EmailChange { get; set; }
-        public bool PhoneChange { get; set; }
-        public bool AddressChange { get; set; }
-
-        protected void OnContactNameChange() => this.ContactNameChange = string.IsNullOrWhiteSpace(this.Item.ContactName);
-        protected void OnFirstNameChange() => this.FirstNameChange = string.IsNullOrWhiteSpace(this.Item.FirstName);
-        protected void OnLastNameChange() => this.LastNameChange = string.IsNullOrWhiteSpace(this.Item.LastName);
-        protected void OnEmailChange() => this.EmailChange = string.IsNullOrWhiteSpace(this.Item.Email);
-        protected void OnPhoneChange() => this.PhoneChange = string.IsNullOrWhiteSpace(this.Item.Phone);
-        protected void OnAddressChange() => this.AddressChange = string.IsNullOrWhiteSpace(this.Item.Address);
 
         protected bool CanAdd =>
         string.IsNullOrWhiteSpace(this.Item.ContactName) ||
@@ -178,12 +226,14 @@ namespace Domain
         string.IsNullOrWhiteSpace(this.Item.Email) ||
         string.IsNullOrWhiteSpace(this.Item.Phone) ||
         string.IsNullOrWhiteSpace(this.Item.Address) ||
-        this.ContactNameChange ||
-        this.FirstNameChange ||
-        this.LastNameChange ||
-        this.EmailChange ||
-        this.PhoneChange ||
-        this.AddressChange ||
+
+        this.ContactNameState ||
+        this.FirstNameState ||
+        this.LastNameState ||
+        this.EmailState ||
+        this.PhoneState ||
+        this.AddressState ||
+
         this.IsDisabled;
 
         protected void AddItem()
@@ -191,6 +241,7 @@ namespace Domain
             this.ITaskService.AddItem(this.Item);
             this.Item = new();
         }
+
         protected bool CanSave => this.ITaskService.CanSave;
 
         protected override async Task InsertAsync()
@@ -214,6 +265,64 @@ namespace Domain
 
             return result;
         }
+        // E NNN
+
+        //// S Form State
+        //public int CurrentCheckboxId { get; set; }
+        //public int GetCheckboxId()
+        //{
+        //    var id = 1;
+
+        //    return ++id;
+        //}
+
+        //public bool ContactNameInvalid { get; set; }
+        //public bool FirstNameInvalid { get; set; }
+        //public bool LastNameInvalid { get; set; }
+        //public bool EmailInvalid { get; set; }
+        //public bool PhoneInvalid { get; set; }
+        //protected bool AddressInvalid { get; set; }
+
+        //protected void HandleContactNameFormField() => this.ContactNameInvalid = this.Item.ContactName.Length < 2;
+        //protected void HandleFirstNameFormField() => this.FirstNameInvalid = this.Item.FirstName.Length < 2;
+        //protected void HandleLastNameFormField() => this.LastNameInvalid = this.Item.LastName.Length < 2;
+        //protected void HandleEmailFormField() => this.EmailInvalid = this.Item.Email.Length < 2;
+        //protected void HandlePhoneFormField() => this.PhoneInvalid = this.Item.Phone.Length < 2;
+        //protected void HandleAddressFormField() => this.AddressInvalid = this.Item.Address.Length < 2;
+
+        //protected int CurrentCategoryId;
+
+        //public bool AddDisabled => this.ContactNameInvalid || this.AddressInvalid;
+
+        //protected void AddItem()
+        //{
+        //    this.ITaskService.AddItem(this.Item);
+        //    this.Item = new();
+        //}
+        //protected bool CanSave => this.ITaskService.CanSave;
+
+        //protected override async Task InsertAsync()
+        //{
+        //    foreach(var item in this.ITaskService.Items)
+        //    {
+        //        await this.ItemService.AddEntityAsync(item);
+        //    }
+
+        //    this.ITaskService.Clear();
+        //    this.Reload();
+        //}
+
+        //public string CategoryId { get; set; } = "0";
+        //public string Zero { get; set; } = "0";
+        //protected bool IsDisabled => this.CategoryId == this.Zero;
+
+        //public int GetCategoryId(string categoryId)
+        //{
+        //    int.TryParse(categoryId, out var result);
+
+        //    return result;
+        //}
+        //// E Form State
 
         public void Dispose()
         {
@@ -227,20 +336,3 @@ namespace Domain
         }
     }
 }
-
-//====================
-/*public class ContactEntity
-{
-    public int Id { get; set; }
-    public string ContactName { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
-    public string Phone { get; set; }
-    public string Address { get; set; }
-    public string Image { get; set; } = "Default.png";
-    public bool IsChecked { get; set; } = false;
-    public int ContactEntityCategoryId { get; set; } = (int)ContactCategoryType.Unspecified;
-}//*/
-
-//Contact_Book_Server_Api
