@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Threading.Tasks;
-using System;
+
+using AppConfigSettings;
+
+using Constants;
 
 using DTOs;
 
@@ -9,9 +12,9 @@ using Extensions;
 using Interfaces;
 
 using Microsoft.AspNetCore.Mvc;
-using AppConfigSettings;
-using Constants;
+
 using Newtonsoft.Json;
+
 using PageFeatures;
 
 namespace Controllers
@@ -39,36 +42,23 @@ namespace Controllers
                 }
 
                 var modelToCreate = model.Map();
-                await this.UnitOfWork.ContactEntityRepository.PostAsync(modelToCreate);
+                await this.UnitOfWork.ContactEntityRepository.PostRangeAsync(modelToCreate);
                 await this.UnitOfWork.SaveChangesAsync();
 
-                var createdModel = modelToCreate.Map();
+                var createdModel = modelToCreate.MapDefault();
 
-                return this.CreatedAtAction(nameof(Get), new { id = createdModel.Id }, createdModel);
+                return this.CreatedAtAction(nameof(GetDetail), new { id = createdModel.Id }, createdModel);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
         }
 
-        //nn
         // GET: api/ContactEntities
         [HttpGet]
         public async Task<ActionResult<PagedList<ContactEntityDto>>> Get([FromQuery] PagingEntity entityParameter)
         {
-            //var items = await this.UnitOfWork.ContactEntityRepository.GetPagedList(entityParameter);
-
-            //if(items is null)
-            //{
-            //    return this.NotFound();
-            //}
-
-            //this.Response.Headers.Add(HttpConstant.X_Pagination, JsonConvert.SerializeObject(items.PagerData));
-
-            //return this.Ok(items.MapList());
-
-
             try
             {
                 var items = await this.UnitOfWork.ContactEntityRepository.GetPagedList(entityParameter);
@@ -82,34 +72,15 @@ namespace Controllers
 
                 return this.Ok(items.MapList());
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
         }
-        //nn
-
-        //// Orig
-        //// GET: api/ContactEntities
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<ContactEntityDto>>> Get()
-        //{
-        //    try
-        //    {
-        //        var models = await this.UnitOfWork.ContactEntityRepository.GetAllAsync();
-
-        //        return models is null ? this.NotFound() : this.Ok(models.MapList());
-
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        return this.StatusCode(500, "Internal server error");
-        //    }
-        //}
 
         // GET: api/ContactEntities/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ContactEntityDto>> Get(int id)
+        [HttpGet("{id}", Name = nameof(GetDetail))]
+        public async Task<ActionResult<ContactEntityDto>> GetDetail(int id)
         {
             try
             {
@@ -117,13 +88,12 @@ namespace Controllers
 
                 return model is null ? this.NotFound() : this.Ok(model.Map());
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
         }
 
-        // S Orig using class
         // PUT: api/ContactEntities/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] ContactEntityDtoUpdate model)
@@ -135,12 +105,7 @@ namespace Controllers
                     return this.BadRequest("Model is null");
                 }
 
-                if(!this.ModelState.IsValid)
-                {
-                    return this.BadRequest("Invalid Model");
-                }
-
-                var modelToUpdate = await this.UnitOfWork.ContactEntityRepository.GetAsync(id);
+                var modelToUpdate = await this.UnitOfWork.ContactEntityRepository.FindAsync(id);
 
                 if(modelToUpdate is null)
                 {
@@ -185,17 +150,16 @@ namespace Controllers
                     model.ContactEntityCategoryId = modelToUpdate.ContactEntityCategoryId;
                 }
 
-                this.UnitOfWork.ContactEntityRepository.Put(model.Map(modelToUpdate));
+                await this.UnitOfWork.ContactEntityRepository.PutRangeAsync(model.Map(modelToUpdate));
                 await this.UnitOfWork.SaveChangesAsync();
 
                 return this.NoContent();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
         }
-        // E Orig using class
 
         // DELETE: api/ContactEntities/{id}
         [HttpDelete("{id}")]
@@ -203,19 +167,19 @@ namespace Controllers
         {
             try
             {
-                var modelToDelete = await this.UnitOfWork.ContactEntityRepository.GetAsync(id);
+                var modelToDelete = await this.UnitOfWork.ContactEntityRepository.FindAsync(id);
 
                 if(modelToDelete == null)
                 {
                     return this.NotFound();
                 }
 
-                this.UnitOfWork.ContactEntityRepository.Delete(modelToDelete);
+                await this.UnitOfWork.ContactEntityRepository.DeleteRangeAsync(modelToDelete);
                 await this.UnitOfWork.SaveChangesAsync();
 
                 return this.NoContent();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }

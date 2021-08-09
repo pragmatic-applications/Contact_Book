@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 using Domain;
 
+// New -2021-08-07
+
 namespace DTOs
 {
     public class ContactEntityDto
@@ -73,6 +75,11 @@ namespace DTOs
 
         [Display(Name = "Category Name")]
         public int ContactEntityCategoryId { get; set; } = (int)ContactCategoryType.Unspecified;
-        public ContactEntityCategory ContactEntityCategory { get; set; }
+        public ContactEntityCategory ContactEntityCategory { get; set; } // Temp comment...
+
+        //nn??
+        [Display(Name = "Contact Category")]
+        public string ContactCategory { get; set; } // May remove...
+        //nn??
     }
 }

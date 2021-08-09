@@ -14,10 +14,10 @@ namespace Services
         public IServiceCollection AddServices(IServiceCollection services, IConfiguration configuration = null)
         {
             services.AddScoped<IContactEntityCategoryRepository, ContactEntityCategoryRepository>();
-            services.AddScoped<IRepository<ContactEntityCategory>, Repository<ContactEntityCategory>>();
+            services.AddScoped<IRepository<ContactEntityCategory, int>, Repository<ContactEntityCategory, int>>();
 
             services.AddScoped<IContactEntityRepository, ContactEntityRepository>();
-            services.AddScoped<IRepository<ContactEntity>, Repository<ContactEntity>>();
+            services.AddScoped<IRepository<ContactEntity, int>, Repository<ContactEntity, int>>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

@@ -36,7 +36,7 @@ namespace Controllers
                 }
 
                 var modelToCreate = model.Map();
-                await this.UnitOfWork.ContactEntityCategoryRepository.PostAsync(modelToCreate);
+                await this.UnitOfWork.ContactEntityCategoryRepository.PutRangeAsync(modelToCreate);
                 await this.UnitOfWork.SaveChangesAsync();
 
                 var createdModel = modelToCreate.Map();
@@ -60,7 +60,7 @@ namespace Controllers
                 return models is null ? this.NotFound() : this.Ok(models.MapList());
 
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
@@ -72,11 +72,12 @@ namespace Controllers
         {
             try
             {
-                var model = await this.UnitOfWork.ContactEntityCategoryRepository.GetAsync(id);
+                //var model = await this.UnitOfWork.ContactEntityCategoryRepository.GetAsync(id);
+                var model = await this.UnitOfWork.ContactEntityCategoryRepository.FindAsync(id);
 
                 return model is null ? this.NotFound() : this.Ok(model.Map());
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
@@ -98,7 +99,7 @@ namespace Controllers
                     return this.BadRequest("Invalid Model");
                 }
 
-                var modelToUpdate = await this.UnitOfWork.ContactEntityCategoryRepository.GetAsync(id);
+                var modelToUpdate = await this.UnitOfWork.ContactEntityCategoryRepository.FindAsync(id);
 
                 if(modelToUpdate is null)
                 {
@@ -110,12 +111,12 @@ namespace Controllers
                     model.Name = modelToUpdate.Name;
                 }
 
-                this.UnitOfWork.ContactEntityCategoryRepository.Put(model.Map(modelToUpdate));
+                await this.UnitOfWork.ContactEntityCategoryRepository.PutRangeAsync(model.Map(modelToUpdate));
                 await this.UnitOfWork.SaveChangesAsync();
 
                 return this.NoContent();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }
@@ -127,19 +128,19 @@ namespace Controllers
         {
             try
             {
-                var modelToDelete = await this.UnitOfWork.ContactEntityCategoryRepository.GetAsync(id);
+                var modelToDelete = await this.UnitOfWork.ContactEntityCategoryRepository.FindAsync(id);
 
                 if(modelToDelete == null)
                 {
                     return this.NotFound();
                 }
 
-                this.UnitOfWork.ContactEntityCategoryRepository.Delete(modelToDelete);
+                await this.UnitOfWork.ContactEntityCategoryRepository.DeleteRangeAsync(modelToDelete);
                 await this.UnitOfWork.SaveChangesAsync();
 
                 return this.NoContent();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }

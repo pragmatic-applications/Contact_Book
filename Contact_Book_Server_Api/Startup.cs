@@ -7,9 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-// 2021-08-02
-// Todo: update missing bits...
-
 namespace Contact_Book_Server_Api
 {
     public class Startup

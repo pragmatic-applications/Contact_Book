@@ -39,8 +39,29 @@ namespace Extensions
             };
         }
 
+        public static ContactEntityDto MapDefault(this ContactEntity item)
+        {
+            return new ContactEntityDto
+            {
+                ContactName = item.ContactName,
+                FirstName = item.FirstName,
+                LastName = item.LastName,
+                Email = item.Email,
+                Phone = item.Phone,
+                Address = item.Address,
+                Image = item.Image,
+                IsChecked = item.IsChecked,
+                ContactEntityCategoryId = item.ContactEntityCategoryId
+            };
+        }
         public static ContactEntityDto Map(this ContactEntity item)
         {
+            var contactEntityCategory = new ContactEntityCategory
+            {
+                Id = item.ContactEntityCategoryId,
+                Name = item.ContactEntityCategory.Name
+            };
+
             return new ContactEntityDto
             {
                 Id = item.Id,
@@ -54,7 +75,8 @@ namespace Extensions
                 IsChecked = item.IsChecked,
                 CreatedDate = item.CreatedDate,
                 ContactEntityCategoryId = item.ContactEntityCategoryId,
-                ContactEntityCategory = item.ContactEntityCategory // May not use...
+                ContactEntityCategory = contactEntityCategory,
+                ContactCategory = item.ContactEntityCategory.Name
             };
         }
         public static ContactEntity Map(this ContactEntityDto item)
@@ -72,7 +94,7 @@ namespace Extensions
                 IsChecked = item.IsChecked,
                 CreatedDate = item.CreatedDate,
                 ContactEntityCategoryId = item.ContactEntityCategoryId,
-                ContactEntityCategory = item.ContactEntityCategory // May not use...
+                ContactEntityCategory = item.ContactEntityCategory
             };
         }
 
@@ -95,7 +117,7 @@ namespace Extensions
                     IsChecked = item.IsChecked,
                     CreatedDate = item.CreatedDate,
                     ContactEntityCategoryId = item.ContactEntityCategoryId,
-                    ContactEntityCategory = item.ContactEntityCategory // May not use...
+                    ContactEntityCategory = item.ContactEntityCategory
                 };
 
                 newItems.Add(newItem);
@@ -122,7 +144,7 @@ namespace Extensions
                     IsChecked = item.IsChecked,
                     CreatedDate = item.CreatedDate,
                     ContactEntityCategoryId = item.ContactEntityCategoryId,
-                    ContactEntityCategory = item.ContactEntityCategory // May not use...
+                    ContactEntityCategory = item.ContactEntityCategory
                 };
 
                 newItems.Add(newItem);
@@ -146,7 +168,7 @@ namespace Extensions
                 IsChecked = item.IsChecked,
                 CreatedDate = item.CreatedDate,
                 ContactEntityCategoryId = item.ContactEntityCategoryId,
-                ContactEntityCategory = item.ContactEntityCategory // May not use...
+                ContactEntityCategory = item.ContactEntityCategory
             };
         }
         public static ContactEntity ToContactEntity(this ContactEntityDto item)
@@ -164,7 +186,7 @@ namespace Extensions
                 IsChecked = item.IsChecked,
                 CreatedDate = item.CreatedDate,
                 ContactEntityCategoryId = item.ContactEntityCategoryId,
-                ContactEntityCategory = item.ContactEntityCategory // May not use...
+                ContactEntityCategory = item.ContactEntityCategory
             };
         }
     }

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 using Constants;
 
+using DTOs;
+
 using HttpServices;
 
 using Interfaces;
@@ -35,7 +37,12 @@ namespace Domain
         public string DangerBtnCssClass { get; set; } = "btn btn_danger btn_sm margin_bottom_10";
 
 
-        [Inject] public ITaskService<ContactEntity> ITaskService { get; set; }
+        //// Orig - YYY
+        //[Inject] public ITaskService<ContactEntity> TaskService { get; set; }
+
+        //ContactEntityDto
+        [Inject] public ITaskService<ContactEntityDto> TaskService { get; set; }
+
         [Inject] public HttpItemService ItemService { get; set; }
         [Inject] public HttpItemCategoryService ItemCategoryService { get; set; }
 
@@ -54,7 +61,8 @@ namespace Domain
         public string IsDone => this.Item.IsChecked ? "Yes" : "No";
         public string EntryId => this.Item.Id < 10 ? $"0{this.Item.Id}" : $"{this.Item.Id}";
 
-        protected void AssignImageUrl(string imgUrl) => this.Item.Image = imgUrl;
+        //protected void AssignImageUrl(string imgUrl) => this.Item.Image = imgUrl;
+        protected void AssignImageUrl(string imgUrl) => this.ContactEntityDto.Image = imgUrl;
 
         protected override void ClearFields()
         {
@@ -135,11 +143,67 @@ namespace Domain
 
         protected override async Task GetAsync() => await this.TryLoadAsync(this.LoadDataSuccess, this.LoadDataFail);
         protected override async Task GetEntityCategoryAsync() => await this.TryLoadAsync(this.LoadEntityCategoryDataSuccess, this.LoadDataCategoryFail);
-        protected override async Task GetAsync(int id) => this.Item = await this.ItemService.GetEntityByIdAsync(id: id);
+
+        //protected override async Task GetAsync(int id) => this.Item = await this.ItemService.GetEntityByIdAsync(id: id); // Orig - YYY
+
+        [Inject] public ContactEntityDto ContactEntityDto { get; set; }
+        [Inject] public HttpContactEntityService HttpContactEntityGetService { get; set; }
+        protected override async Task GetAsync(int id) => this.ContactEntityDto = await this.HttpContactEntityGetService.GetEntityByIdAsync(id: id);
+
+        //// Orig - YYY
+        //protected override async Task InsertAsync()
+        //{
+        //    foreach(var item in this.TaskService.Items)
+        //    {
+        //        await this.ItemService.AddEntityAsync(item);
+        //    }
+
+        //    this.TaskService.Clear();
+        //    this.Reload();
+        //}
+
+        protected override async Task InsertAsync()
+        {
+            //// Otig - YYY
+            //foreach(var item in this.TaskService.Items)
+            //{
+            //    await this.ItemService.AddEntityAsync(item);
+            //}
+
+            //this.TaskService.Clear();
+            //this.Reload();
+
+            foreach(var item in this.TaskService.Items)
+            {
+                await this.HttpContactEntityGetService.PostEntityAsync(item);
+            }
+
+            this.TaskService.Clear();
+            this.Reload();
+        }
+
+
+
+        //// Orig - YYY
+        //protected override async Task UpdateAsync()
+        //{
+        //    await this.ItemService.EditEntityAsync(this.Item.Id, this.Item);
+        //    this.Reload();
+        //}
+
+        //[Inject] public ContactEntityDtoUpdate ContactEntityDtoUpdate { get; set; }
+        //[Inject] public HttpContactEntityPutService HttpContactEntityPutService { get; set; }
+
+        ////NNN...
+        //protected override async Task UpdateAsync()
+        //{
+        //    await this.HttpContactEntityPutService.PutEntityAsync(this.ContactEntityDto.Id, this.ContactEntityDtoUpdate);
+        //    this.Reload();
+        //}
 
         protected override async Task UpdateAsync()
         {
-            await this.ItemService.EditEntityAsync(this.Item.Id, this.Item);
+            await this.HttpContactEntityGetService.PutEntityAsync(this.ContactEntityDto.Id, this.ContactEntityDto);
             this.Reload();
         }
 
@@ -149,24 +213,63 @@ namespace Domain
             this.Reload();
         }
 
-        //// S SRC
+        public bool ContactNameState { get; set; }
+        protected void HandleContactNameFormField() => this.ContactNameState = string.IsNullOrWhiteSpace(this.ContactEntityDto.ContactName);
 
-        //public bool NameChange { get; set; }
-        //protected void OnNameChange() => this.NameChange = string.IsNullOrWhiteSpace(this.Item.Name);
+        public bool FirstNameState { get; set; }
+        protected void HandleFirstNameFormField() => this.FirstNameState = string.IsNullOrWhiteSpace(this.ContactEntityDto.FirstName);
 
-        //public bool DetailChange { get; set; }
-        //protected void OnDetailChange() => this.DetailChange = string.IsNullOrWhiteSpace(this.Item.Detail);
+        public bool LastNameState { get; set; }
+        protected void HandleLastNameFormField() => this.LastNameState = string.IsNullOrWhiteSpace(this.ContactEntityDto.LastName);
 
-        //protected bool CanAdd => string.IsNullOrWhiteSpace(this.Item.Name) || string.IsNullOrWhiteSpace(this.Item.Detail) || this.NameChange || this.DetailChange || this.IsDisabled;
+        public bool EmailState { get; set; }
+        protected void HandleEmailFormField() => this.EmailState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Email);
 
+        public bool PhoneState { get; set; }
+        protected void HandlePhoneFormField() => this.PhoneState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Phone);
+
+
+        public bool AddressState { get; set; }
+        protected void HandleAddressFormField()
+        {
+            this.AddressState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Address) || this.ContactEntityDto.Address.Length < 2;
+        }
+
+        protected bool CanAdd =>
+        string.IsNullOrWhiteSpace(this.ContactEntityDto.ContactName) ||
+        string.IsNullOrWhiteSpace(this.ContactEntityDto.FirstName) ||
+        string.IsNullOrWhiteSpace(this.ContactEntityDto.LastName) ||
+        string.IsNullOrWhiteSpace(this.ContactEntityDto.Email) ||
+        string.IsNullOrWhiteSpace(this.ContactEntityDto.Phone) ||
+        string.IsNullOrWhiteSpace(this.ContactEntityDto.Address) ||
+
+        this.ContactNameState ||
+        this.FirstNameState ||
+        this.LastNameState ||
+        this.EmailState ||
+        this.PhoneState ||
+        this.AddressState ||
+
+        this.IsDisabled;
+
+        //ContactEntityDto
+
+        //// Orig - YYY
         //protected void AddItem()
         //{
-        //    this.ITaskService.AddItem(this.Item);
+        //    this.TaskService.AddItem(this.Item);
         //    this.Item = new();
         //}
-        //protected bool CanSave => this.ITaskService.CanSave;
 
-        //// Todo: Update to AddRange for collection...
+        protected void AddItem()
+        {
+            this.TaskService.AddItem(this.ContactEntityDto);
+            this.ContactEntityDto = new();
+        }
+
+        protected bool CanSave => this.TaskService.CanSave;
+
+        //// Orig - YYY
         //protected override async Task InsertAsync()
         //{
         //    foreach(var item in this.ITaskService.Items)
@@ -178,82 +281,14 @@ namespace Domain
         //    this.Reload();
         //}
 
-        //public string CategoryId { get; set; } = "0";
-        //public string Zero { get; set; } = "0";
-        //protected bool IsDisabled => this.CategoryId == this.Zero;
+        /*
 
-        //public int GetCategoryId(string categoryId)
-        //{
-        //    int.TryParse(categoryId, out var result);
+        services.AddHttpClient<HttpContactEntityPostService>();
+            services.AddHttpClient<HttpContactEntityPutService>();
 
-        //    return result;
-        //}
+        //*/
 
-        //// E SRC
-
-        // S NNN State
-        //NameChange => ContactNameState
-        public bool ContactNameState { get; set; }
-        protected void HandleContactNameFormField() => this.ContactNameState = string.IsNullOrWhiteSpace(this.Item.ContactName);
-
-        public bool FirstNameState { get; set; }
-        protected void HandleFirstNameFormField() => this.FirstNameState = string.IsNullOrWhiteSpace(this.Item.FirstName);
-
-        public bool LastNameState { get; set; }
-        protected void HandleLastNameFormField() => this.LastNameState = string.IsNullOrWhiteSpace(this.Item.LastName);
-
-        public bool EmailState { get; set; }
-        protected void HandleEmailFormField() => this.EmailState = string.IsNullOrWhiteSpace(this.Item.Email);
-
-        public bool PhoneState { get; set; }
-        protected void HandlePhoneFormField() => this.PhoneState = string.IsNullOrWhiteSpace(this.Item.Phone);
-
-        //// Orig
-        //public bool AddressState { get; set; }
-        //protected void HandleAddressFormField() => this.AddressState = string.IsNullOrWhiteSpace(this.Item.Address);
-
-        // Orig
-        public bool AddressState { get; set; }
-        protected void HandleAddressFormField()
-        {
-            this.AddressState = string.IsNullOrWhiteSpace(this.Item.Address) || this.Item.Address.Length < 2;
-        }
-
-        protected bool CanAdd =>
-        string.IsNullOrWhiteSpace(this.Item.ContactName) ||
-        string.IsNullOrWhiteSpace(this.Item.FirstName) ||
-        string.IsNullOrWhiteSpace(this.Item.LastName) ||
-        string.IsNullOrWhiteSpace(this.Item.Email) ||
-        string.IsNullOrWhiteSpace(this.Item.Phone) ||
-        string.IsNullOrWhiteSpace(this.Item.Address) ||
-
-        this.ContactNameState ||
-        this.FirstNameState ||
-        this.LastNameState ||
-        this.EmailState ||
-        this.PhoneState ||
-        this.AddressState ||
-
-        this.IsDisabled;
-
-        protected void AddItem()
-        {
-            this.ITaskService.AddItem(this.Item);
-            this.Item = new();
-        }
-
-        protected bool CanSave => this.ITaskService.CanSave;
-
-        protected override async Task InsertAsync()
-        {
-            foreach(var item in this.ITaskService.Items)
-            {
-                await this.ItemService.AddEntityAsync(item);
-            }
-
-            this.ITaskService.Clear();
-            this.Reload();
-        }
+        
 
         public string CategoryId { get; set; } = "0";
         public string Zero { get; set; } = "0";
@@ -265,64 +300,6 @@ namespace Domain
 
             return result;
         }
-        // E NNN
-
-        //// S Form State
-        //public int CurrentCheckboxId { get; set; }
-        //public int GetCheckboxId()
-        //{
-        //    var id = 1;
-
-        //    return ++id;
-        //}
-
-        //public bool ContactNameInvalid { get; set; }
-        //public bool FirstNameInvalid { get; set; }
-        //public bool LastNameInvalid { get; set; }
-        //public bool EmailInvalid { get; set; }
-        //public bool PhoneInvalid { get; set; }
-        //protected bool AddressInvalid { get; set; }
-
-        //protected void HandleContactNameFormField() => this.ContactNameInvalid = this.Item.ContactName.Length < 2;
-        //protected void HandleFirstNameFormField() => this.FirstNameInvalid = this.Item.FirstName.Length < 2;
-        //protected void HandleLastNameFormField() => this.LastNameInvalid = this.Item.LastName.Length < 2;
-        //protected void HandleEmailFormField() => this.EmailInvalid = this.Item.Email.Length < 2;
-        //protected void HandlePhoneFormField() => this.PhoneInvalid = this.Item.Phone.Length < 2;
-        //protected void HandleAddressFormField() => this.AddressInvalid = this.Item.Address.Length < 2;
-
-        //protected int CurrentCategoryId;
-
-        //public bool AddDisabled => this.ContactNameInvalid || this.AddressInvalid;
-
-        //protected void AddItem()
-        //{
-        //    this.ITaskService.AddItem(this.Item);
-        //    this.Item = new();
-        //}
-        //protected bool CanSave => this.ITaskService.CanSave;
-
-        //protected override async Task InsertAsync()
-        //{
-        //    foreach(var item in this.ITaskService.Items)
-        //    {
-        //        await this.ItemService.AddEntityAsync(item);
-        //    }
-
-        //    this.ITaskService.Clear();
-        //    this.Reload();
-        //}
-
-        //public string CategoryId { get; set; } = "0";
-        //public string Zero { get; set; } = "0";
-        //protected bool IsDisabled => this.CategoryId == this.Zero;
-
-        //public int GetCategoryId(string categoryId)
-        //{
-        //    int.TryParse(categoryId, out var result);
-
-        //    return result;
-        //}
-        //// E Form State
 
         public void Dispose()
         {

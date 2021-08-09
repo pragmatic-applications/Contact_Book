@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Lib_Generic_Crud_Interface" Version="1.0.0" />
+      <PackageReference Include="Lib_Generic_Crud_Interface" Version="0.0.0.2" />
       <PackageReference Include="Lib_Http_Interface" Version="0.0.0.1" />
     </ItemGroup>
 

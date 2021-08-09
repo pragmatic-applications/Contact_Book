@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+using Constants;
+
 namespace Domain
 {
     public class ContactEntity
@@ -55,7 +57,7 @@ namespace Domain
         public string Address { get; set; }
 
         [Display(Name = "Image")]
-        public string Image { get; set; } = "Default.png";
+        public string Image { get; set; } = ApiUrl.DefaultImage;
 
         [Display(Name = "Is Checked")]
         public bool IsChecked { get; set; } = false;

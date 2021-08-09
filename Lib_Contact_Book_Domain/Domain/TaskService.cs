@@ -10,11 +10,7 @@ namespace Domain
         private readonly Stack<List<ContactEntity>> undoStack = new();
         private readonly Stack<List<ContactEntity>> redoStack = new();
 
-
         public List<ContactEntity> Items => this.undoStack.Any() ? this.undoStack.Peek() : new List<ContactEntity>();
-
-        //public List<ContactEntity> UndoItems => this.undoStack.Any() ? this.undoStack.Peek() : new List<Item>();
-        //public List<ContactEntity> RedoItems => this.redoStack.Any() ? this.redoStack.Peek() : new List<Item>();
 
         public void AddItem(ContactEntity item)
         {

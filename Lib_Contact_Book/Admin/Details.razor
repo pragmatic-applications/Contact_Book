@@ -5,7 +5,7 @@
 <Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
 
 <div class="container_a">
-    @if(this.Item?.Id == 0)
+    @if(this.ContactEntityDto?.Id == 0)
     {
         <div class="card">
             <div class="card_body">
@@ -16,32 +16,37 @@
     else
     {
         <div class="card">
-            <ImageContainer ImageParameter="@this.Item.Image" MaxWidthParameter="max_width_sm card_img_top" />
+            <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
             <div class="card_body">
                 <h5 class="card_title">
-                    #@this.EntryId: @this.Item.ContactName
+                    #@this.ContactEntityDto.Id: @this.ContactEntityDto.ContactName
                 </h5>
                 <p class="card_text">
-                    First Name: @this.Item.FirstName
+                    First Name: @this.ContactEntityDto.FirstName
                 </p>
                 <p class="card_text">
-                    Last Name: @this.Item.LastName
+                    Last Name: @this.ContactEntityDto.LastName
                 </p>
                 <p class="card_text">
-                    Email: @this.Item.Email
+                    Email: @this.ContactEntityDto.Email
                 </p>
                 <p class="card_text">
-                    Phone: @this.Item.Phone
+                    Phone: @this.ContactEntityDto.Phone
                 </p>
                 <p class="card_text">
-                    Address: @this.Item.Address
+                    Address: @this.ContactEntityDto.Address
                 </p>
-                @*<p class="card_text">
-                    Contact Entity Category Id: @this.Item.ContactEntityCategoryId
-                </p>*@
                 <p class="card_text">
                     Done: @this.IsDone
                 </p>
+
+                <p class="card_text">
+                    Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+                </p>
+                <p class="card_text">
+                    Contact Category: @this.ContactEntityDto.ContactCategory
+                </p>
+
                 <a class="btn btn_primary btn_sm" href="@PageRoute.Admin">
                     Back
                 </a>

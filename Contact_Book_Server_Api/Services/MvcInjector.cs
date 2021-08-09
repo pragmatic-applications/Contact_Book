@@ -9,7 +9,7 @@ namespace Services
     {
         public IServiceCollection AddServices(IServiceCollection services, IConfiguration configuration = null)
         {
-            services.AddControllers();
+            services.AddControllers(option => option.SuppressAsyncSuffixInActionNames = false);
             services.AddRazorPages();
             services.AddRouting(options => options.LowercaseUrls = true);
 
