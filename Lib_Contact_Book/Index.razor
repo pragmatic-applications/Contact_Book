@@ -6,13 +6,13 @@
 
 <div class="max_width_lg">
 
-    @if(this.Items == null)
+    @if(this.ContactEntityDtos == null)
     {
         <p><em>Loading...</em></p>
     }
     else
     {
-        <CascadingValue Value="@this.Items" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
+        <CascadingValue Value="@this.ContactEntityDtos" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
             <CascadingValue Value="@this.IsCrudValue" Name="@nameof(CascadingData.IsCrudParameterValue)">
                 <CascadingValue Value="@this.IsPageAdminValue" Name="@nameof(CascadingData.IsPageAdminParameterValue)">
                     <IndexContainer />

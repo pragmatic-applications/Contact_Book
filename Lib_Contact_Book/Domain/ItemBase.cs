@@ -18,7 +18,7 @@ using PageFeatures;
 
 namespace Domain
 {
-    public class ItemBase : AppComponent<ContactEntity, ContactEntityCategory>, IDisposable
+    public class ItemBase : AppComponent<ContactEntityDto, ContactEntityCategory>, IDisposable
     {
         protected override async Task OnInitializedAsync()
         {
@@ -27,65 +27,72 @@ namespace Domain
             this.ItemSelect = new ItemSelect();
             this.AppNameValue = "eItem";
 
-            this.Item = new();
+            this.ContactEntityDto = new();
 
             await this.GetEntityCategoryAsync();
             await this.GetAsync();
         }
 
         public string PrimaryBtnCssClass { get; set; } = "btn btn_primary btn_sm margin_bottom_10";
+
         public string DangerBtnCssClass { get; set; } = "btn btn_danger btn_sm margin_bottom_10";
 
-
-        //// Orig - YYY
-        //[Inject] public ITaskService<ContactEntity> TaskService { get; set; }
-
-        //ContactEntityDto
         [Inject] public ITaskService<ContactEntityDto> TaskService { get; set; }
 
-        [Inject] public HttpItemService ItemService { get; set; }
         [Inject] public HttpItemCategoryService ItemCategoryService { get; set; }
 
         [Parameter] public ContactEntity ItemParameter { get; set; }
-        [Parameter] public List<ContactEntity> ItemsParameter { get; set; }
-        [Inject] public ContactEntity Item { get; set; }
-        [Inject] public List<ContactEntity> Items { get; set; }
 
-        protected bool IsCrudValue { get; set; } = true;
-        protected bool IsPageAdminValue { get; set; } = true;
+        [Parameter] public List<ContactEntity> ItemsParameter { get; set; }
+
+        [Inject] public ContactEntityDto ContactEntityDto { get; set; }
+
+        [Inject] public List<ContactEntityDto> ContactEntityDtos { get; set; }
+
+        [Inject] public HttpContactEntityService HttpContactEntityService { get; set; }
 
         [Inject] public List<ContactEntityCategory> Categories { get; set; }
 
-        public PagingResponse<ContactEntity> PagingResponse { get; set; }
+        public PagingResponse<ContactEntityDto> PagingResponse { get; set; }
 
-        public string IsDone => this.Item.IsChecked ? "Yes" : "No";
-        public string EntryId => this.Item.Id < 10 ? $"0{this.Item.Id}" : $"{this.Item.Id}";
+        protected bool IsCrudValue { get; set; } = true;
 
-        //protected void AssignImageUrl(string imgUrl) => this.Item.Image = imgUrl;
+        protected bool IsPageAdminValue { get; set; } = true;
+
+        public string IsDone => this.ContactEntityDto.IsChecked ? "Yes" : "No";
+
+        public string EntryId => this.ContactEntityDto.Id < 10 ? $"0{this.ContactEntityDto.Id}" : $"{this.ContactEntityDto.Id}";
+
+
         protected void AssignImageUrl(string imgUrl) => this.ContactEntityDto.Image = imgUrl;
+
 
         protected override void ClearFields()
         {
-            this.Item.Id = 0;
-            this.Item.ContactName = string.Empty;
-            this.Item.FirstName = string.Empty;
-            this.Item.LastName = string.Empty;
-            this.Item.Email = string.Empty;
-            this.Item.Phone = string.Empty;
-            this.Item.Address = string.Empty;
-            this.Item.Image = string.Empty;
-            this.Item.IsChecked = false;
+            this.ContactEntityDto.Id = 0;
+            this.ContactEntityDto.ContactName = string.Empty;
+            this.ContactEntityDto.FirstName = string.Empty;
+            this.ContactEntityDto.LastName = string.Empty;
+            this.ContactEntityDto.Email = string.Empty;
+            this.ContactEntityDto.Phone = string.Empty;
+            this.ContactEntityDto.Address = string.Empty;
+            this.ContactEntityDto.Image = string.Empty;
+            this.ContactEntityDto.IsChecked = false;
         }
+
 
         protected override void Reload() => this.GoToPage(PageRoute.Admin);
 
-        protected override void LoadDataSuccess(PagingResponse<ContactEntity> data)
+
+        protected override void LoadDataSuccess(PagingResponse<ContactEntityDto> data)
         {
-            this.Items = data.Items;
+            this.ContactEntityDtos = data.Items;
             this.PagerData = data.PagerData;
             this.IsLoading = false;
             this.IsError = false;
         }
+
+
         protected override void LoadEntityCategoryDataSuccess(List<ContactEntityCategory> data)
         {
             this.Categories = data;
@@ -93,22 +100,26 @@ namespace Domain
             this.IsError = false;
         }
 
+
         protected override void LoadDataFail(Exception exception)
         {
-            this.Items = null;
+            this.ContactEntityDtos = null;
             this.IsError = true;
         }
+
+
         protected override void LoadDataCategoryFail(Exception exception)
         {
             this.Categories = null;
             this.IsError = true;
         }
 
-        protected override async Task TryLoadAsync(Action<PagingResponse<ContactEntity>> success, Action<Exception> fail)
+
+        protected override async Task TryLoadAsync(Action<PagingResponse<ContactEntityDto>> success, Action<Exception> fail)
         {
             try
             {
-                this.PagingResponse = await this.ItemService.GetEntitiesAsync(this.PagingEntity);
+                this.PagingResponse = await this.HttpContactEntityService.GetEntitiesAsync(this.PagingEntity);
                 success(this.PagingResponse);
             }
             catch(Exception ex)
@@ -121,6 +132,8 @@ namespace Domain
                 this.IsLoading = false;
             }
         }
+
+        
         protected override async Task TryLoadAsync(Action<List<ContactEntityCategory>> success, Action<Exception> fail)
         {
             List<ContactEntityCategory> data;
@@ -141,41 +154,21 @@ namespace Domain
             }
         }
 
+
         protected override async Task GetAsync() => await this.TryLoadAsync(this.LoadDataSuccess, this.LoadDataFail);
+
+
         protected override async Task GetEntityCategoryAsync() => await this.TryLoadAsync(this.LoadEntityCategoryDataSuccess, this.LoadDataCategoryFail);
 
-        //protected override async Task GetAsync(int id) => this.Item = await this.ItemService.GetEntityByIdAsync(id: id); // Orig - YYY
 
-        [Inject] public ContactEntityDto ContactEntityDto { get; set; }
-        [Inject] public HttpContactEntityService HttpContactEntityGetService { get; set; }
-        protected override async Task GetAsync(int id) => this.ContactEntityDto = await this.HttpContactEntityGetService.GetEntityByIdAsync(id: id);
+        protected override async Task GetAsync(int id) => this.ContactEntityDto = await this.HttpContactEntityService.GetEntityByIdAsync(id: id);
 
-        //// Orig - YYY
-        //protected override async Task InsertAsync()
-        //{
-        //    foreach(var item in this.TaskService.Items)
-        //    {
-        //        await this.ItemService.AddEntityAsync(item);
-        //    }
-
-        //    this.TaskService.Clear();
-        //    this.Reload();
-        //}
 
         protected override async Task InsertAsync()
         {
-            //// Otig - YYY
-            //foreach(var item in this.TaskService.Items)
-            //{
-            //    await this.ItemService.AddEntityAsync(item);
-            //}
-
-            //this.TaskService.Clear();
-            //this.Reload();
-
             foreach(var item in this.TaskService.Items)
             {
-                await this.HttpContactEntityGetService.PostEntityAsync(item);
+                await this.HttpContactEntityService.PostEntityAsync(item);
             }
 
             this.TaskService.Clear();
@@ -183,57 +176,56 @@ namespace Domain
         }
 
 
-
-        //// Orig - YYY
-        //protected override async Task UpdateAsync()
-        //{
-        //    await this.ItemService.EditEntityAsync(this.Item.Id, this.Item);
-        //    this.Reload();
-        //}
-
-        //[Inject] public ContactEntityDtoUpdate ContactEntityDtoUpdate { get; set; }
-        //[Inject] public HttpContactEntityPutService HttpContactEntityPutService { get; set; }
-
-        ////NNN...
-        //protected override async Task UpdateAsync()
-        //{
-        //    await this.HttpContactEntityPutService.PutEntityAsync(this.ContactEntityDto.Id, this.ContactEntityDtoUpdate);
-        //    this.Reload();
-        //}
-
         protected override async Task UpdateAsync()
         {
-            await this.HttpContactEntityGetService.PutEntityAsync(this.ContactEntityDto.Id, this.ContactEntityDto);
+            await this.HttpContactEntityService.PutEntityAsync(this.ContactEntityDto.Id, this.ContactEntityDto);
             this.Reload();
         }
+
 
         protected override async Task DeleteAsync()
         {
-            await this.ItemService.DeleteEntityAsync(this.Item.Id);
+            await this.HttpContactEntityService.DeleteEntityAsync(this.ContactEntityDto.Id);
             this.Reload();
         }
 
+
         public bool ContactNameState { get; set; }
+
         protected void HandleContactNameFormField() => this.ContactNameState = string.IsNullOrWhiteSpace(this.ContactEntityDto.ContactName);
 
+
         public bool FirstNameState { get; set; }
+
         protected void HandleFirstNameFormField() => this.FirstNameState = string.IsNullOrWhiteSpace(this.ContactEntityDto.FirstName);
 
+
         public bool LastNameState { get; set; }
+
         protected void HandleLastNameFormField() => this.LastNameState = string.IsNullOrWhiteSpace(this.ContactEntityDto.LastName);
 
+
         public bool EmailState { get; set; }
+
         protected void HandleEmailFormField() => this.EmailState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Email);
 
+
         public bool PhoneState { get; set; }
+
         protected void HandlePhoneFormField() => this.PhoneState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Phone);
 
 
         public bool AddressState { get; set; }
-        protected void HandleAddressFormField()
-        {
-            this.AddressState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Address) || this.ContactEntityDto.Address.Length < 2;
-        }
+
+        protected void HandleAddressFormField() => this.AddressState = string.IsNullOrWhiteSpace(this.ContactEntityDto.Address) || this.ContactEntityDto.Address.Length < 2;
+
+
+        public string CategoryId { get; set; } = "0";
+
+        public string Zero { get; set; } = "0";
+
+        protected bool IsDisabled => this.CategoryId == this.Zero;
+
 
         protected bool CanAdd =>
         string.IsNullOrWhiteSpace(this.ContactEntityDto.ContactName) ||
@@ -252,14 +244,6 @@ namespace Domain
 
         this.IsDisabled;
 
-        //ContactEntityDto
-
-        //// Orig - YYY
-        //protected void AddItem()
-        //{
-        //    this.TaskService.AddItem(this.Item);
-        //    this.Item = new();
-        //}
 
         protected void AddItem()
         {
@@ -267,32 +251,9 @@ namespace Domain
             this.ContactEntityDto = new();
         }
 
+
         protected bool CanSave => this.TaskService.CanSave;
 
-        //// Orig - YYY
-        //protected override async Task InsertAsync()
-        //{
-        //    foreach(var item in this.ITaskService.Items)
-        //    {
-        //        await this.ItemService.AddEntityAsync(item);
-        //    }
-
-        //    this.ITaskService.Clear();
-        //    this.Reload();
-        //}
-
-        /*
-
-        services.AddHttpClient<HttpContactEntityPostService>();
-            services.AddHttpClient<HttpContactEntityPutService>();
-
-        //*/
-
-        
-
-        public string CategoryId { get; set; } = "0";
-        public string Zero { get; set; } = "0";
-        protected bool IsDisabled => this.CategoryId == this.Zero;
 
         public int GetCategoryId(string categoryId)
         {
@@ -301,12 +262,13 @@ namespace Domain
             return result;
         }
 
+
         public void Dispose()
         {
             this.ItemSelect = null;
-            this.ItemService = null;
-            this.Item = null;
-            this.Items = null;
+            this.HttpContactEntityService = null;
+            this.ContactEntityDto = null;
+            this.ContactEntityDtos = null;
             this.ItemCategoryService = null;
             this.Categories = null;
             this.PagingResponse = null;

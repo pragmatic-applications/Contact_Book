@@ -28,17 +28,6 @@ namespace Domain
           { "Check" },
           { "Check DESC" }
         };
-        //public List<string> OptionsDisplay => new List<string>
-        //{
-        //  { "Id" },
-        //  { "Id DESC" },
-        //  { "Name" },
-        //  { "Name DESC" },
-        //  { "Detail" },
-        //  { "Detail DESC" },
-        //  { "Check" },
-        //  { "Check DESC" }
-        //};
     }
 }
 

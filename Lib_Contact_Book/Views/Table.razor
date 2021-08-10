@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody class="tbody">
-            <UIEntityRepeater TEntity="ContactEntity" Entities="@this.EntitiesCascadingParameter">
+            <UIEntityRepeater TEntity="ContactEntityDto" Entities="@this.EntitiesCascadingParameter">
                 <Entity Context="item">
                     <CascadingValue Value="@item" Name="@nameof(CascadingData.EntityParameterValue)" IsFixed="false">
                         <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(CascadingData.IsCrudParameterValue)">

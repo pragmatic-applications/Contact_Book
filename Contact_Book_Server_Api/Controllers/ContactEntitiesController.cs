@@ -26,7 +26,7 @@ namespace Controllers
         }
 
         // POST: api/ContactEntities
-        [HttpPost]
+        [HttpPost(Name = nameof(Post))]
         public async Task<ActionResult<ContactEntityDto>> Post([FromBody] ContactEntityDtoCreate model)
         {
             try
@@ -56,7 +56,7 @@ namespace Controllers
         }
 
         // GET: api/ContactEntities
-        [HttpGet]
+        [HttpGet(Name = nameof(Get))]
         public async Task<ActionResult<PagedList<ContactEntityDto>>> Get([FromQuery] PagingEntity entityParameter)
         {
             try
@@ -70,7 +70,7 @@ namespace Controllers
 
                 this.Response.Headers.Add(HttpConstant.X_Pagination, JsonConvert.SerializeObject(items.PagerData));
 
-                return this.Ok(items.MapList());
+                return this.Ok(items.Map());
             }
             catch(Exception)
             {
@@ -95,7 +95,7 @@ namespace Controllers
         }
 
         // PUT: api/ContactEntities/{id}
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name = nameof(Put))]
         public async Task<ActionResult> Put(int id, [FromBody] ContactEntityDtoUpdate model)
         {
             try
@@ -162,7 +162,7 @@ namespace Controllers
         }
 
         // DELETE: api/ContactEntities/{id}
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = nameof(Delete))]
         public async Task<ActionResult> Delete(int id)
         {
             try

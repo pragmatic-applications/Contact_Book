@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 using Domain;
 
-// New -2021-08-07
-
 namespace DTOs
 {
     public class ContactEntityDto
@@ -41,8 +39,6 @@ namespace DTOs
                 this.firstName = value;
             }
         }
-        //[Display(Name = "First Name"), MinLength(2)]
-        //public string FirstName { get; set; }
 
 
         [Display(Name = "Last Name"), MinLength(2)]
@@ -75,11 +71,9 @@ namespace DTOs
 
         [Display(Name = "Category Name")]
         public int ContactEntityCategoryId { get; set; } = (int)ContactCategoryType.Unspecified;
-        public ContactEntityCategory ContactEntityCategory { get; set; } // Temp comment...
+        public ContactEntityCategory ContactEntityCategory { get; set; }
 
-        //nn??
         [Display(Name = "Contact Category")]
-        public string ContactCategory { get; set; } // May remove...
-        //nn??
+        public string ContactCategory { get; set; }
     }
 }

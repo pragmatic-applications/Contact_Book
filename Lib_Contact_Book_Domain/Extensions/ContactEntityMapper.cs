@@ -98,7 +98,7 @@ namespace Extensions
             };
         }
 
-        public static IEnumerable<ContactEntityDto> MapList(this IEnumerable<ContactEntity> models)
+        public static IEnumerable<ContactEntityDto> Map(this IEnumerable<ContactEntity> models)
         {
             List<ContactEntityDto> newItems = new();
 
@@ -125,7 +125,7 @@ namespace Extensions
 
             return newItems;
         }
-        public static List<ContactEntity> MapList(this List<ContactEntityDto> models)
+        public static List<ContactEntity> Map(this List<ContactEntityDto> models)
         {
             List<ContactEntity> newItems = new();
 
@@ -151,43 +151,6 @@ namespace Extensions
             }
 
             return newItems;
-        }
-
-        public static ContactEntityDto ToContactEntityDto(this ContactEntity item)
-        {
-            return new ContactEntityDto
-            {
-                Id = item.Id,
-                ContactName = item.ContactName,
-                FirstName = item.FirstName,
-                LastName = item.LastName,
-                Email = item.Email,
-                Phone = item.Phone,
-                Address = item.Address,
-                Image = item.Image,
-                IsChecked = item.IsChecked,
-                CreatedDate = item.CreatedDate,
-                ContactEntityCategoryId = item.ContactEntityCategoryId,
-                ContactEntityCategory = item.ContactEntityCategory
-            };
-        }
-        public static ContactEntity ToContactEntity(this ContactEntityDto item)
-        {
-            return new ContactEntity
-            {
-                Id = item.Id,
-                ContactName = item.ContactName,
-                FirstName = item.FirstName,
-                LastName = item.LastName,
-                Email = item.Email,
-                Phone = item.Phone,
-                Address = item.Address,
-                Image = item.Image,
-                IsChecked = item.IsChecked,
-                CreatedDate = item.CreatedDate,
-                ContactEntityCategoryId = item.ContactEntityCategoryId,
-                ContactEntityCategory = item.ContactEntityCategory
-            };
         }
     }
 }

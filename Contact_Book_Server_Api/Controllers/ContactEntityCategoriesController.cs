@@ -43,7 +43,7 @@ namespace Controllers
 
                 return this.CreatedAtAction(nameof(Get), new { id = createdModel.Id }, createdModel);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return this.StatusCode(500, "Internal server error");
             }

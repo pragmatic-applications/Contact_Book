@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 
 using Constants;
 
-using Domain;
-
 using DTOs;
 
 using Lib_Blazor_UI;
@@ -32,8 +30,6 @@ namespace HttpServices
 
         public async Task<ContactEntityDto> GetEntityByIdAsync(int id) => await this.GetAsync(id);
 
-
-        //????
         public async Task PutEntityAsync(int id, ContactEntityDto model) => await this.PutAsync(id, model);
 
         public async Task PostEntityAsync(ContactEntityDto model) => await this.PostAsync(model);
