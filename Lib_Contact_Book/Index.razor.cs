@@ -12,6 +12,8 @@ namespace Lib_Contact_Book
 
             this.IsCrudValue = false;
             this.IsPageAdminValue = false;
+            this.IsCrudCascadingParameter = false;
+            this.IsPageAdminCascadingParameter = false;
         }
     }
 }

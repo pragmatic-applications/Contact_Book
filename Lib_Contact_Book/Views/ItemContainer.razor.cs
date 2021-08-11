@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Lib_Contact_Book.Views
 {
-    public partial class ItemContainer : UIEntityBase
+    public partial class ItemContainer : Component
     {
         [CascadingParameter(Name = nameof(CascadingData.EntityParameterValue))]
         public ContactEntityDto EntityCascadingParameter { get; set; }

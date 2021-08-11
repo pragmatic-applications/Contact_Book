@@ -31,11 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{49ACC446-9D1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor_App", "Blazor_App", "{4C749B2D-0BD1-45A6-BE6A-A2116DF61DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib_Repository", "Lib_Repository\Lib_Repository.csproj", "{DC79FB35-C3D1-4B24-ADB7-8BB108987A7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib_Repository", "Lib_Repository\Lib_Repository.csproj", "{DC79FB35-C3D1-4B24-ADB7-8BB108987A7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib_Database", "Lib_Database\Lib_Database.csproj", "{7064FD33-0B61-48BC-B7A1-CAF440BD3D4D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library_Temp_NuGet", "Library_Temp_NuGet", "{2AB6D498-7CF0-40CB-906D-3097FF17A0D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib_Database", "Lib_Database\Lib_Database.csproj", "{7064FD33-0B61-48BC-B7A1-CAF440BD3D4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

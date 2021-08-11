@@ -4,11 +4,11 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-10
-// Stop: 21:00
+// Date: 2021-08-11
+// Stop: 16:00
 //=================================================================
 
-// Using ContactEntityDto instead of ContactEntity for all user-facing operations to protect the business entity.
+// Update cascading parameter properties.
 
 //==========================================================================
 // Migrations S (2021-08-09)

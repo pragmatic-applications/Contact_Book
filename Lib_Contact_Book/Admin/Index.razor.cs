@@ -16,6 +16,8 @@ namespace Lib_Contact_Book.Admin
 
             this.IsCrudValue = true;
             this.IsPageAdminValue = true;
+            this.IsPageAdminCascadingParameter = true;
+            this.IsCrudCascadingParameter = true;
         }
     }
 }

@@ -14,15 +14,15 @@
     else
     {
         <CascadingValue Value="@this.ContactEntityDtos" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
-            <CascadingValue Value="@this.IsCrudValue" Name="@nameof(CascadingData.IsCrudParameterValue)">
-                <CascadingValue Value="@this.IsPageAdminValue" Name="@nameof(CascadingData.IsPageAdminParameterValue)">
+            <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(this.IsCrudValue)">
+                <CascadingValue Value="@this.IsPageAdminCascadingParameter" Name="@nameof(this.IsPageAdminValue)">
                     <IndexContainer />
                 </CascadingValue>
             </CascadingValue>
         </CascadingValue>
     }
 
-    <PageFeature PagerDataParameter="@this.PagerData" OnSelectedPage="this.SelectedPage" OnSortChanged="this.SortChanged" OnSearchChanged="this.SearchChanged" SelectParameter="@this.ItemSelect" SpreadParameter="@SharedData.Spread" />
+    <PageFeature OnSelectedPage="this.SelectedPage" OnSortChanged="this.SortChanged" OnSearchChanged="this.SearchChanged" PagerDataParameter="@this.PagerData" SelectParameter="@this.ItemSelect" SpreadParameter="@SharedData.Spread" PositionCssClassParameter="@this.PositionCssClass" />
 
 </div>
 

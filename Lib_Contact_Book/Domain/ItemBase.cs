@@ -24,6 +24,8 @@ namespace Domain
         {
             await base.OnInitializedAsync();
 
+            this.PositionCssClass = "sort_container";
+
             this.ItemSelect = new ItemSelect();
             this.AppNameValue = "eItem";
 
@@ -33,6 +35,7 @@ namespace Domain
             await this.GetAsync();
         }
 
+        // Todo: create a CSS utility calss...
         public string PrimaryBtnCssClass { get; set; } = "btn btn_primary btn_sm margin_bottom_10";
 
         public string DangerBtnCssClass { get; set; } = "btn btn_danger btn_sm margin_bottom_10";
@@ -54,10 +57,6 @@ namespace Domain
         [Inject] public List<ContactEntityCategory> Categories { get; set; }
 
         public PagingResponse<ContactEntityDto> PagingResponse { get; set; }
-
-        protected bool IsCrudValue { get; set; } = true;
-
-        protected bool IsPageAdminValue { get; set; } = true;
 
         public string IsDone => this.ContactEntityDto.IsChecked ? "Yes" : "No";
 

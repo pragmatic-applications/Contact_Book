@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Lib_Contact_Book.Views
 {
-    public partial class IndexContainer : HomeBase
+    public partial class IndexContainer : Component
     {
 
         [CascadingParameter(Name = nameof(CascadingData.EntitiesParameterValue))]
