@@ -17,20 +17,14 @@ namespace Database
 
         public DbSet<ContactEntityCategory> ContactEntityCategories { get; set; }
 
+        public DbSet<AppModel> AppModels { get; set; }
+        public DbSet<DevUser> DevUser { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Orig
-            //modelBuilder.CreateIdentityRoles();
-            //modelBuilder.CreateContactEntities();
-            //modelBuilder.CreateContactEntityCategories();
-
-            //???
-            //modelBuilder.ApplyConfiguration(new ContactEntityConfiguration());
-            // Or
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            //???
         }
     }
 }

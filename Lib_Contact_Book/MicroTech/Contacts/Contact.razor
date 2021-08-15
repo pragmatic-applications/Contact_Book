@@ -1,0 +1,17 @@
+﻿@page "/MicroTech/contact"
+
+@inherits ContactBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container">
+    <ContactForm EntityParameter="this.AppContact"
+                 OnValidSubmit="this.SendContactAsync"
+                 ButtonTextParameter="@this.ButtonText"
+                 FormTitleParameter="@this.FormTitle"
+                 FormModeParameter="this.FormMode" />
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.MicroTechContact" class="top"></NavLink>
+</div>

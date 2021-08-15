@@ -1,0 +1,69 @@
+﻿@page "/MicroTech"
+
+@inherits ClientBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container BackgroundImg">
+    <div class="BannerLowerTint pad_top_bottom_30">
+
+        <div class="grid_center">
+            <h4 class="TextThemeA text_center">MicroTech</h4>
+            <hr class="hr_a margin_top_bottom_20 width_40" />
+        </div>
+
+        <p class="pad_bottom_50 text_normal TextContainerDefault">
+            We offer a wide range of IT solutions for growing small and medium sized businesses. We mainly specialise in cyber security, web design and development, and digital marketing. We also offer full IT solutions for home-based businesses. Detailed below is an overview of our services.
+        </p>
+
+        <div class="container_grid_3 container_default main_max_width_default">
+
+            <div class="ImageButtonContainer pad_bottom_50">
+                <NavLink href="@PageRoute.MicroTechSecurity" class="ImgLinkThemeA text_center"></NavLink>
+                <h5 class="pad_top_bottom_15 text_center letter_spacing_0_2">Security</h5>
+
+                <p class="pad_left_right">
+                    Many businesses lack internal networking expertise, especially cyber security.
+                    We are committed to resolving your IT problems; all you need to do is focus on running your business. Our highly skilled IT specialists will take care of the IT part of your business.
+                </p>
+                <br />
+                <p class="pad_left_right">
+                    Our engineers not only resolve day-to-day issues but also look at your overall business processes and are able to suggest better practices and infrastructure solutions to help keeping your network operating smoothly and securely.
+                </p>
+            </div>
+
+            <div class="ImageButtonContainer pad_bottom_50">
+                <NavLink href="@PageRoute.MicroTechWeb" class="ImgLinkThemeB"></NavLink>
+                <h5 class="pad_top_bottom_15 text_center letter_spacing_0_2">Web</h5>
+
+                <p class="pad_left_right">
+                    Your website is your digital online business and your marketing and sales tool.
+                    An impressive website conveys brand quality and immediately builds trust with your audience.
+                </p>
+                <br />
+                <p class="pad_left_right">
+                    We design custom websites that reflects your business, at the same time, we make sure that, you stand out from the cloud from your competitors, as well as making sure that your website it fully mobile responsive for business automation.
+                </p>
+            </div>
+
+            <div class="ImageButtonContainer pad_bottom_50">
+                <NavLink href="@PageRoute.MicroTechDigitalMarketing" class="ImgLinkThemeC text_center"></NavLink>
+                <h5 class="pad_top_bottom_15 text_center letter_spacing_0_2">Digital Marketing</h5>
+
+                <p class="pad_left_right">
+                    We work as an extension to your business, guiding you through the digital maze to increase brand exposure and market dominance.
+                </p>
+                <br />
+                <p class="pad_left_right">
+                    Our digital marketing experts will tailor services that deliver real results for your business.
+                    We will make sure your business is well integrated with the tops three social media platforms, to help your business grow and reach new customers.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.MicroTech" class="top"></NavLink>
+</div>

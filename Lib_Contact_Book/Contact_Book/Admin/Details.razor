@@ -1,0 +1,66 @@
+﻿@page "/ContactBook/admin/details/{Id:int}"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container_a">
+    @if(this.ContactEntityDto?.Id == 0)
+    {
+        <div class="card">
+            <div class="card_body">
+                <p class="card-text">No Item to show.</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
+            <div class="card_body">
+                <h5 class="card_title">
+                    #@this.ContactEntityDto.Id: @this.ContactEntityDto.ContactName
+                </h5>
+                <p class="card_text">
+                    First Name: @this.ContactEntityDto.FirstName
+                </p>
+                <p class="card_text">
+                    Last Name: @this.ContactEntityDto.LastName
+                </p>
+                <p class="card_text">
+                    Email: @this.ContactEntityDto.Email
+                </p>
+                <p class="card_text">
+                    Phone: @this.ContactEntityDto.Phone
+                </p>
+                <p class="card_text">
+                    Address: @this.ContactEntityDto.Address
+                </p>
+                <p class="card_text">
+                    Done: @this.IsDone
+                </p>
+
+                <p class="card_text">
+                    Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+                </p>
+                <p class="card_text">
+                    Contact Category: @this.ContactEntityDto.ContactCategory
+                </p>
+
+                <a class="btn btn_primary btn_sm" href="@PageRoute.ContactBookAdmin">
+                    Back
+                </a>
+                <a class="btn btn_primary btn_sm" href="@this.UrlUpdate">
+                    Edit
+                </a>
+                <a class="btn btn_danger btn_sm" href="@this.UrlDelete">
+                    X
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.ContactBookAdminDetails" class="top"></NavLink>
+</div>

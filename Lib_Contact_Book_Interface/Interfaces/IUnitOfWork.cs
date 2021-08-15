@@ -8,6 +8,9 @@ namespace Interfaces
 
         IContactEntityCategoryRepository ContactEntityCategoryRepository { get; }
 
+        IAppRepository AppRepository { get; }
+        IDevUserRepository DevUserRepository { get; }
+
         Task SaveChangesAsync();
     }
 }

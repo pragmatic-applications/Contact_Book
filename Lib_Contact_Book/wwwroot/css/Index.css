@@ -13,9 +13,6 @@
 @import url('Spacing.css');
 @import url('Sort.css');
 
-
-
-
 /*--- S NN -----------------*/
 /*@import url('PageFeature.css');*/
 /*@import url('RenderModeSwitch.css');*/
@@ -32,9 +29,17 @@ hr
 
 .BackgroundImg
 {
-    /*background: url('_content/Lib_Contact_Book/Images/00.jpg') no-repeat center center;*/
-    /*background: url('_content/Lib_Blazor_UI/Images/00.jpg') no-repeat center center;*/
-    background: url('../Images/00.jpg') no-repeat center center;
+    /* background: url('../Images/00.jpg') no-repeat center center; */
+    background: url('../Images/bg00.jpg') no-repeat fixed center center;
+    background-size: cover;
+
+
+    /* background: lightblue url("img_tree.gif") no-repeat fixed center; */
+}
+
+.banner_background_image
+{
+    background: url('/_content/Lib_Blazor_UI/Images/00.jpg') no-repeat center center;
     background-size: cover;
 }
 
@@ -98,7 +103,9 @@ hr
 {
     width: 100%;
     margin: 0 auto;
-    background-color: var(--BannerLowerTint);
+    /* background-color: var(--BannerLowerTint); */
+    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(134 134 134 / 75%);
 }
 
 .BannerLowerTintA

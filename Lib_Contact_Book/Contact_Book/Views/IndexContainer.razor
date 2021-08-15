@@ -1,0 +1,13 @@
+﻿@inherits Component
+
+@if(this.IsPageAdminCascadingParameter)
+{
+    <p class="text table">
+        <a class="btn btn_primary btn_sm" href="@PageRoute.ContactBookAdminCreate">
+            Create
+        </a>
+    </p>
+}
+
+<ItemCard />
+<Table />

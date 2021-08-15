@@ -30,6 +30,10 @@ namespace Services
             services.AddHttpClient<HttpItemCategoryService>();
             services.AddHttpClient<HttpImageUploaderService>();
 
+            services.AddScoped<AppContact>();
+            services.AddScoped<List<AppContact>>();
+            services.AddHttpClient<HttpContactService>();
+
             services.AddScoped<PagerData>();
             services.AddScoped<List<PagerData>>();
             services.AddScoped<PagingEntity>();
@@ -43,5 +47,4 @@ namespace Services
             return services;
         }
     }
-
 }

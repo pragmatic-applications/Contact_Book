@@ -19,6 +19,12 @@ namespace Services
             services.AddScoped<IContactEntityRepository, ContactEntityRepository>();
             services.AddScoped<IRepository<ContactEntity, int>, Repository<ContactEntity, int>>();
 
+            services.AddScoped<IAppRepository, AppRepository>();
+            services.AddScoped<IRepository<AppModel, int>, Repository<AppModel, int>>();
+
+            services.AddScoped<IDevUserRepository, DevUserRepository>();
+            services.AddScoped<IRepository<DevUser, int>, Repository<DevUser, int>>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

@@ -1,0 +1,57 @@
+﻿@inherits FormCore
+
+<h5 class="text-center">@this.FormTitleParameter</h5>
+
+<div class="form">
+    <EditForm Model="@this.EntityParameter" OnValidSubmit="@this.OnValidSubmit">
+        <DataAnnotationsValidator />
+        <input type="hidden" @bind="this.EntityParameter.Id" />
+
+        <h4 class="pad_top_15 pad_bottom_5">Personal Details</h4>
+
+        <div class="form_group">
+            <input type="hidden" @bind="this.EntityParameter.Title" />
+            <InputSelect id="Title" @bind-Value="@this.EntityParameter.Title" class="form_control">
+                <option value="">-- Select a Title --</option>
+                @foreach(var item in this.EntityParameter.Titles)
+                {
+                    <option value="@item">@item</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="() => this.EntityParameter.Title" />
+        </div>
+        <div class="form_group">
+            <InputText @bind-Value="this.EntityParameter.FirstName" class="form_control" placeholder="First Name" />
+            <ValidationMessage For="@(() => this.EntityParameter.FirstName)" />
+        </div>
+        <div class="form_group">
+            <InputText @bind-Value="this.EntityParameter.LastName" class="form_control" placeholder="Last Name" />
+            <ValidationMessage For="@(() => this.EntityParameter.LastName)" />
+        </div>
+        <div class="form_group">
+            <InputText @bind-Value="this.EntityParameter.Email" class="form_control" placeholder="Email" />
+            <ValidationMessage For="@(() => this.EntityParameter.Email)" />
+        </div>
+
+
+        <h4 class="pad_top_15 pad_bottom_5">Your Message</h4>
+
+        <div class="form_group">
+            <InputTextArea @bind-Value="this.EntityParameter.Message" placeholder="Your Message" class="form_control" id="Message" rows="3" />
+            <ValidationMessage For="@(() => this.EntityParameter.Message)" />
+        </div>
+
+        <div class="form_group">
+            <span class="BasicButtonWrap">
+                <NavLink href="/" class="BasicButton">
+                    Cancel
+                </NavLink>
+            </span>
+            <span class="BasicButtonWrap">
+                <button type="submit" class="PrimaryButton">
+                    @this.ButtonTextParameter
+                </button>
+            </span>
+        </div>
+    </EditForm>
+</div>

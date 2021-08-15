@@ -1,0 +1,48 @@
+﻿@page "/MicroTech/contact-feedback"
+
+@inherits ContactBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="main HRuleA ImageRoundDefault ImageRadiusBackgroundDefault">
+    @if(ContactFeedbackViewModel.IsVisible)
+    {
+        <div class="container text_center">
+            <h2 class="guest">Thank you, @ContactFeedbackViewModel.FullName for contacting us.</h2>
+            <p>We will try to respont as soon as possible.</p>
+        </div>
+
+        <div class="photo">
+            <img class="img-circle" src="@this.Images[this.ImageCount++]" />
+        </div>
+    }
+    else
+    {
+        <div class="container text_center">
+            <h4 class="pad_bottom_20">Hello there!</h4>
+            <h4 class="pad_bottom_20">Click below to contact us.</h4>
+            <div class="ButtonDefaultContainer">
+                <p>
+                    <span class="BasicButtonWrap">
+                        <NavLink href="@PageRoute.MicroTech" class="BasicButton">
+                            MicroTech Home
+                        </NavLink>
+                    </span>
+                    <span class="BasicButtonWrap">
+                        <NavLink href="@PageRoute.MicroTechContact" class="PrimaryButton">
+                            MicroTech Contact
+                        </NavLink>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="photo">
+            <img class="img-circle" src="@this.Images[this.ImageCount++]" />
+        </div>
+    }
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.MicroTechContactFeedback" class="top"></NavLink>
+</div>

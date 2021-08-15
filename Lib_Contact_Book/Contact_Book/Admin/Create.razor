@@ -1,0 +1,123 @@
+﻿@page "/ContactBook/Admin/Create"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container_a- max_width_lg">
+    <h5 class="text_center">@this.FormTitle</h5>
+    <p>Add entries to create a list of tasks to do. After adding to the list you can check and remove what you do not wish to save. You can even undo and redo operations. When you have completed your list click Save to store your entries to the database.</p>
+
+    <div class="EditForm">
+        <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.AddItem">
+            <DataAnnotationsValidator />
+
+            <div class="form_group">
+                <label for="Name" class="control_label">Contact Name</label>
+                <InputText @bind-Value="this.ContactEntityDto.ContactName" class="form_control" id="ContactName" placeholder="Contact Name: Jane Doe or Health Medical Practice" @onchange="(_) => this.HandleContactNameFormField()" />
+                <ValidationMessage For="@(() => this.ContactEntityDto.ContactName)" />
+            </div>
+
+            <div class="form_group">
+                <label for="FirstName" class="control_label">First Name</label>
+                <InputText @bind-Value="this.ContactEntityDto.FirstName" class="form_control" id="FirstName" placeholder="First Name: Jane" @onchange="(_) => this.HandleFirstNameFormField()" />
+                <ValidationMessage For="@(() => this.ContactEntityDto.FirstName)" />
+            </div>
+
+            <div class="form_group">
+                <label for="LastName" class="control_label">Last Name</label>
+                <InputText @bind-Value="this.ContactEntityDto.LastName" class="form_control" id="LastName" placeholder="Last Name Doe" rows="3" @onchange="(_) => this.HandleLastNameFormField()" />
+                <ValidationMessage For="@(() => this.ContactEntityDto.LastName)" />
+            </div>
+
+            <div class="form_group">
+                <label for="Email" class="control_label">Email</label>
+                <InputText @bind-Value="this.ContactEntityDto.Email" class="form_control" id="Email" placeholder="Email" @onchange="(_) => this.HandleEmailFormField()" />
+                <ValidationMessage For="@(() => this.ContactEntityDto.Email)" />
+            </div>
+
+            <div class="form_group">
+                <label for="Phone" class="control_label">Phone</label>
+                <InputText @bind-Value="this.ContactEntityDto.Phone" class="form_control" id="Phone" placeholder="Phone" @onchange="(_) => this.HandlePhoneFormField()" />
+                <ValidationMessage For="@(() => this.ContactEntityDto.Phone)" />
+            </div>
+
+            <div class="form_group">
+                <InputTextArea @bind-Value="this.ContactEntityDto.Address" class="form_control" id="Address" placeholder="Address: 21 Some Plase, London UK" rows="3" @onblur="this.HandleAddressFormField" />
+                <ValidationMessage For="@(() => this.ContactEntityDto.Address)" />
+            </div>
+
+            <div class="form_group">
+                <input type="hidden" @bind="this.CategoryId" />
+                <label for="CategoryId" class="control_label">Category</label>
+                <InputSelect id="CategoryId" @bind-Value="@this.CategoryId" class="form_control">
+                    <option value="0">-- Select a Category --</option>
+                    @foreach(var item in this.Categories)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                    @{
+                        this.ContactEntityDto.ContactEntityCategoryId = this.GetCategoryId(categoryId: this.CategoryId);
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form_group">
+                <label for="Image" class="control_label">Image:</label>
+                <div class="form_control">
+                    <Uploader OnChange="this.AssignImageUrl" />
+                </div>
+            </div>
+
+            <div class="form_group">
+                <button type="button" class="@this.PrimaryBtnCssClass" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
+                    Undo
+                </button>
+                <button type="button" class="@this.PrimaryBtnCssClass" disabled="@(!this.TaskService.CanRedo)" @onclick="this.TaskService.Redo">
+                    Redo
+                </button>
+                <button type="button" class="@this.DangerBtnCssClass" disabled="@(!this.TaskService.CanRemove)" @onclick="this.TaskService.RemoveDone">
+                    Remove
+                </button>
+                <button type="submit" class="@this.PrimaryBtnCssClass" disabled="@this.CanAdd">
+                    Add Entry
+                </button>
+
+                @if(this.TaskService.Items.Count < 1)
+                {
+                    <h1>Add One or more Items to the list before saving.</h1>
+                    <p>A save button will appear.</p>
+                }
+                else
+                {
+                    <button type="button" class="@this.PrimaryBtnCssClass" @onclick="this.InsertAsync" disabled="@this.CanSave">
+                        Save
+                    </button>
+                }
+            </div>
+        </EditForm>
+
+        <p>Entry List</p>
+
+        <div class="checkbox_list_container- checkboxes grid_col_repeat_4_1fr pad_bottom_20">
+            @foreach(var item in this.TaskService.Items)
+            {
+                var CheckboxId = Guid.NewGuid();
+                <label for="@CheckboxId" class="option_item">
+                    <input type="checkbox" @bind="@item.IsChecked" id="@CheckboxId" class="checkbox" />
+
+                    <span class="option_inner theme">
+                        <span class="tickmark"></span>
+                        <span class="name">
+                            @item.ContactName
+                        </span>
+                    </span>
+                </label>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.ContactBookAdminCreate" class="top"></NavLink>
+</div>

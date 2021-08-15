@@ -92,6 +92,39 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Domain.AppModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MailServerUserName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MailServerUserPassword")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SmtpServer")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ToEmailAddress")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppModels");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            MailServerUserName = "===============",
+                            MailServerUserPassword = "===============",
+                            SmtpServer = "===============",
+                            ToEmailAddress = "==============="
+                        });
+                });
+
             modelBuilder.Entity("Domain.ContactEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -144,7 +177,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "5 Grand Lodge, London UK",
                             ContactEntityCategoryId = 3,
                             ContactName = "Jane Doe",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 9, 15, 34, 29, 109, DateTimeKind.Unspecified).AddTicks(8134), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 395, DateTimeKind.Unspecified).AddTicks(9128), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "jane@doe.com",
                             FirstName = "Jane",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -158,7 +191,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "14 The Glades, New York US",
                             ContactEntityCategoryId = 4,
                             ContactName = "Tom Browne",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 9, 15, 34, 29, 110, DateTimeKind.Unspecified).AddTicks(738), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1744), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "tom@browne.com",
                             FirstName = "Tom",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -172,7 +205,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "5 Hoble House, Penge, London UK",
                             ContactEntityCategoryId = 6,
                             ContactName = "Lucy Smith",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 9, 15, 34, 29, 110, DateTimeKind.Unspecified).AddTicks(745), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1751), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "lucy@smith.com",
                             FirstName = "Lucy",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -186,7 +219,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "11 Broad Lane, Paris France",
                             ContactEntityCategoryId = 7,
                             ContactName = "Halie Jones",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 9, 15, 34, 29, 110, DateTimeKind.Unspecified).AddTicks(747), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1753), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "halie@jones.com",
                             FirstName = "Halie",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -248,6 +281,27 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                         });
                 });
 
+            modelBuilder.Entity("Domain.DevUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ToEmailAddress")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DevUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ToEmailAddress = "curious-coder@outlook.com"
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -277,28 +331,28 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "26cda7be-6ea9-4fe6-8c77-9a4ef132e853",
+                            ConcurrencyStamp = "e7dd2d83-3c07-4cb4-ad81-f738c4440677",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "6a394ce6-e3d1-4a30-a58e-c70e813d29af",
+                            ConcurrencyStamp = "3029ac2c-9f9d-4987-b5bf-73a9f245ae2a",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "19621cd3-98d4-45a9-9964-21e80afaffc5",
+                            ConcurrencyStamp = "ba96b1f6-3d08-41ec-b63b-9eb01852bbe2",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "0e11251f-0983-49a5-be37-29fcf44ea4c3",
+                            ConcurrencyStamp = "b30a4757-7d65-402f-b5be-5e2bcbeb741d",
                             Name = "RegularUser",
                             NormalizedName = "REGULARUSER"
                         });

@@ -1,0 +1,32 @@
+﻿@inherits Component
+
+<tr class="@this.GridCssClass margin_bottom_10">
+    <td>
+        <p>
+            @this.EntryId
+        </p>
+    </td>
+    <td>
+        <p>
+            @this.EntityCascadingParameter.ContactName
+        </p>
+    </td>
+    <td>
+        <p>
+            @this.IsDone
+        </p>
+    </td>
+
+    @if(this.IsCrudCascadingParameter)
+    {
+        this.UrlDetail = $"{PageRoute.S_AdminDetails}/{this.EntityCascadingParameter.Id}";
+        this.UrlEdit = $"{PageRoute.S_AdminUpdate}/{this.EntityCascadingParameter.Id}";
+        this.UrlDelete = $"{PageRoute.S_AdminDelete}/{this.EntityCascadingParameter.Id}";
+
+        <td>
+            <a class="btn btn_theme_b btn_sm btn_min_width" href="@this.UrlDetail">
+                Detail
+            </a>
+        </td>
+    }
+</tr>

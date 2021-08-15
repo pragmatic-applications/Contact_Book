@@ -4,14 +4,14 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-11
-// Stop: 16:00
+// Date: 2021-08-15
+// Stop: 17:00
 //=================================================================
 
-// Update cascading parameter properties.
+// Move main cascading values to MainLayout
 
 //==========================================================================
-// Migrations S (2021-08-09)
+// Migrations S (2021-08-14)
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
 // CLI

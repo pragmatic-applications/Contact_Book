@@ -1,0 +1,31 @@
+﻿@page "/ContactBook/Admin"
+@page "/ContactBook/Admin/{Id:int}"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="max_width_lg">
+
+    @if(this.ContactEntityDtos == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <CascadingValue Value="@this.ContactEntityDtos" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
+            <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(this.IsCrudValue)" IsFixed="true">
+                <CascadingValue Value="@this.IsPageAdminCascadingParameter" Name="@nameof(this.IsPageAdminValue)" IsFixed="true">
+                    <IndexContainer />
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+    }
+
+    <PageFeature OnSelectedPage="this.SelectedPage" OnSortChanged="this.SortChanged" OnSearchChanged="this.SearchChanged" PagerDataParameter="@this.PagerData" />
+
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.ContactBookAdmin" class="top"></NavLink>
+</div>

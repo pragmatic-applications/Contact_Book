@@ -9,8 +9,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Lib_Blazor_UI" Version="0.0.0.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.8" />
+        <PackageReference Include="Lib_Blazor_UI" Version="0.0.0.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.9" />
     </ItemGroup>
 
     <ItemGroup>

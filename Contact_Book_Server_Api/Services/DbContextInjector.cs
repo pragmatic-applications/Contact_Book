@@ -12,7 +12,7 @@ namespace Services
     {
         public IServiceCollection AddServices(IServiceCollection services, IConfiguration configuration = null)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=Sqlite.sqlite"));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=Sqlite.db"));
 
             return services;
         }
