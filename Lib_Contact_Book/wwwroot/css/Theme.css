@@ -1,0 +1,39 @@
+﻿
+.border_success
+{
+    border: solid 1px #6f826f;
+}
+
+.text_white
+{
+    color: #FFF;
+}
+
+.bg_secondary
+{
+    background: #6a757e;
+    border: solid 1px #FFF;
+}
+
+.btn_secondary_a
+{
+    color: #FFF;
+    background: #788b9a;
+    background: #5c676f;
+
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.btn_secondary_a:active,
+.btn_secondary_a:hover,
+.btn_secondary_a:focus
+{
+    background: #61707a;
+    background: #505b63;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}

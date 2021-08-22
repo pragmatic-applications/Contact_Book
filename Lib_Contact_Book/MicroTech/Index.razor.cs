@@ -6,6 +6,7 @@ using Domain;
 
 namespace Lib_Contact_Book.MicroTech
 {
+    [PageTitle("MicroTech", true, true)]
     public partial class Index : ClientBase
     {
         public List<string> Images
@@ -31,7 +32,7 @@ namespace Lib_Contact_Book.MicroTech
         {
             base.OnInitialized();
 
-            this.BannerTitleValue = "Home";
+            this.BannerTitleValue = "MicroTech";
         }
     }
 }

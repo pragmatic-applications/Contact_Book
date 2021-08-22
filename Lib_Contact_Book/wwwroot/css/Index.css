@@ -12,8 +12,9 @@
 @import url('Card.css');
 @import url('Spacing.css');
 @import url('Sort.css');
+@import url('Theme.css');
 
-/*--- S NN -----------------*/
+/*--- S NN ------------  -----*/
 /*@import url('PageFeature.css');*/
 /*@import url('RenderModeSwitch.css');*/
 /*@import url('SmallCart.css');*/
@@ -106,6 +107,9 @@ hr
     /* background-color: var(--BannerLowerTint); */
     background-color: rgba(255, 255, 255, 0.5);
     background-color: rgb(134 134 134 / 75%);
+    background-color: rgb(39 39 39 / 80%);
+    background-color: rgb(93 93 93 / 85%);
+    background-color: rgb(189 189 189 / 75%);
 }
 
 .BannerLowerTintA

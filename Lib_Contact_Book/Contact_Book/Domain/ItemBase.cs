@@ -10,8 +10,6 @@ using HttpServices;
 
 using Interfaces;
 
-using Lib_Blazor_UI;
-
 using Microsoft.AspNetCore.Components;
 
 using PageFeatures;
@@ -129,7 +127,7 @@ namespace Domain
             }
         }
 
-        
+
         protected override async Task TryLoadAsync(Action<List<ContactEntityCategory>> success, Action<Exception> fail)
         {
             List<ContactEntityCategory> data;

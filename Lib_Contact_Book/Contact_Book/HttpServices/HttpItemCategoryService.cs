@@ -7,8 +7,6 @@ using Constants;
 
 using Domain;
 
-using Lib_Blazor_UI;
-
 namespace HttpServices
 {
     public class HttpItemCategoryService : HttpEntityService<ContactEntityCategory>

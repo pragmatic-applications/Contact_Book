@@ -1,0 +1,138 @@
+﻿
+
+@*<header class="HideOrShow MAK">
+    <div id="close_menu" class="navbar-nav top_nav_container">
+
+        @for(int i = 0; i < this.NavLinks.Count(); i++)
+        {
+            var count = i;
+
+            <div class="nav_link">
+                <NavLink href="@this.NavLinks[count].Route" @onclick="MenuState.CloseMenu">
+                    @this.NavLinks[count].Link
+                </NavLink>
+            </div>
+        }
+
+    </div>
+</header>*@
+
+@*<header class="HideOrShow MAK">
+        <div id="close_menu" class="navbar-nav top_nav_container" @onclick="MenuState.CloseMenu">
+            <Repeater @key="this" TEntity="MenuData" Entities="@this.Menu">
+                <Entity Context="url">
+                    <div class="nav_link">
+                        @if(string.IsNullOrWhiteSpace(url.RelativeUrl))
+                        {
+                            <NavLink href="" Match="NavLinkMatch.All">
+                                @url.MenuTitle
+                            </NavLink>
+                        }
+                        else
+                        {
+                            <NavLink href=@url.RelativeUrl>
+                                @url.MenuTitle
+                            </NavLink>
+                        }
+                    </div>
+                </Entity>
+            </Repeater>
+        </div>
+    </header>*@
+
+@*<header class="HideOrShow MAK">
+        <div id="close_menu" class="navbar-nav top_nav_container" @onclick="this.CloseMenu">
+            <CascadingValue Value="MenuState.ToggleSwitch" Name="@nameof(CascadingData.ToggleSwitchCascadingValue)" IsFixed="false">
+                <Repeater @key="this" TEntity="MenuData" Entities="@this.Menu">
+                    <Entity Context="url">
+                        <div class="nav_link">
+                            @if(string.IsNullOrWhiteSpace(url.RelativeUrl))
+                            {
+                                <NavLink href="" Match="NavLinkMatch.All">
+                                    @url.MenuTitle
+                                </NavLink>
+                            }
+                            else
+                            {
+                                <NavLink href=@url.RelativeUrl>
+                                    @url.MenuTitle
+                                </NavLink>
+                            }
+                        </div>
+                    </Entity>
+                </Repeater>
+            </CascadingValue>
+        </div>
+    </header>*@
+
+
+
+@*<header class="HideOrShow MAK">
+        <div id="close_menu" class="navbar-nav top_nav_container" @onclick="MenuState.CloseMenu">
+            <Repeater @key="this" TEntity="MenuData" Entities="@this.Menu">
+                <Entity Context="url">
+                    <div class="nav_link">
+                        @if(string.IsNullOrWhiteSpace(url.RelativeUrl))
+                        {
+                            <NavLink href="" Match="NavLinkMatch.All">
+                                @url.MenuTitle
+                            </NavLink>
+                        }
+                        else
+                        {
+                            <NavLink href=@url.RelativeUrl>
+                                @url.MenuTitle
+                            </NavLink>
+                        }
+                    </div>
+                </Entity>
+            </Repeater>
+        </div>
+    </header>*@
+
+
+@*<CascadingValue Value="this.MainCascadingValue.ItemSelect" Name="@nameof(CascadingData.SelectParameterValue)" IsFixed="false">
+
+    </CascadingValue>*@
+
+
+@*<Repeater @key="this" TEntity="MenuData" Entities="@this.Menu">
+        <Entity Context="url">
+
+            <div class="nav_link">
+                @if(string.IsNullOrWhiteSpace(url.RelativeUrl))
+                {
+                    <NavLink href="" Match="NavLinkMatch.All" class="nav-link NavLink">
+                        @url.MenuTitle
+                    </NavLink>
+                }
+                else
+                {
+                    <NavLink href=@url.RelativeUrl class="nav-link NavLink">
+                        @url.MenuTitle
+                    </NavLink>
+                }
+            </div>
+
+        </Entity>
+    </Repeater>*@
+
+
+
+@*<header class="HideOrShow MAK">
+        <div id="close_menu" class="navbar-nav top_nav_container">
+
+            @for(int i = 0; i < this.NavLinks.Count(); i++)
+            {
+                var count = i;
+
+                <div class="nav_link">
+                    <NavLink href="@this.NavLinks[count].Route" @onclick="MenuState.CloseMenu">
+                        @this.NavLinks[count].Link
+                    </NavLink>
+                </div>
+            }
+
+        </div>
+    </header>*@
+

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Lib_Contact_Book.Contact_Book.Admin
 {
+    [PageTitle("Admin")]
     public partial class Index : ItemBase
     {
         [Parameter] public int Id { get; set; }
@@ -12,7 +13,7 @@ namespace Lib_Contact_Book.Contact_Book.Admin
         {
             base.OnInitialized();
 
-            this.BannerTitleValue = "Admin - Home";
+            this.BannerTitleValue = "Admin";
 
             this.IsCrudValue = true;
             this.IsPageAdminValue = true;

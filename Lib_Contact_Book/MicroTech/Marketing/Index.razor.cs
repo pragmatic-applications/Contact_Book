@@ -6,6 +6,7 @@ using Domain;
 
 namespace Lib_Contact_Book.MicroTech.Marketing
 {
+    [PageTitle("Marketing")]
     public partial class Index : ClientBase
     {
         protected string GeneralEnglishImg => !string.IsNullOrWhiteSpace(ClientConstant.Static_Content_Path) ? ClientConstant.Static_Content_Path + "Images/AEE/RoundAEE/07.jpg" : "Images/AEE/RoundAEE/07.jpg";
@@ -35,7 +36,7 @@ namespace Lib_Contact_Book.MicroTech.Marketing
         {
             base.OnInitialized();
 
-            this.BannerTitleValue = "Home";
+            this.BannerTitleValue = "MicroTech Marketing";
         }
     }
 }

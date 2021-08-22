@@ -4,14 +4,19 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-15
-// Stop: 17:00
+// Date: 2021-08-22
+// Stop: 21:00
 //=================================================================
 
-// Move main cascading values to MainLayout
+// Todo: Finish Card styles so I can commit to GitHub... ExtraContent...
+
+// Todo: test and update... BIS related features...
+// Todo: set time to add feature for HTML Table with all the various elements of a table such as TR...
+
+// Update Repeater, Card and Grid
 
 //==========================================================================
-// Migrations S (2021-08-14)
+// Migrations S (2021-08-22)
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
 // CLI
@@ -35,6 +40,12 @@
 
 /*
 
-
+// To style...
+<CardHeader TEntity="ContactEntityDto">
+    Header Text
+</CardHeader>
+<CardFooter TEntity="ContactEntityDto">
+    (An ID: @this.EntityCascadingParameter.Id)
+</CardFooter>
 
 //*/

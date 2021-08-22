@@ -1,17 +1,39 @@
-﻿@inherits LayoutComponentBase
+﻿
+@inherits LayoutComponentBase
 
-<Navigation NavLinks="this.NavigationPageLinks" />
-
-<CascadingValue Value="@this.MainCascadingValue.BannerBackgroundImageCssClass" Name="@nameof(CascadingData.BannerBackgroundImageCssClassParameterValue)" IsFixed="true">
-    <CascadingValue Value="this.MainCascadingValue.PositionCssClass" Name="@nameof(CascadingData.PositionCssClassParameterValue)" IsFixed="true">
-        <CascadingValue Value="this.MainCascadingValue.Spread" Name="@nameof(CascadingData.SpreadValue)" IsFixed="true">
-            <CascadingValue Value="this.MainCascadingValue.ItemSelect" Name="@nameof(CascadingData.SelectParameterValue)" IsFixed="false">
-                <PageContainer NavLinks="this.PageLinks">
+<main>
+    <CascadingValue Value="@this.MainCascadingValue.BannerBackgroundImageCssClass" Name="@nameof(CascadingData.BannerBackgroundImageCssClassParameterValue)" IsFixed="true">
+        <CascadingValue Value="this.MainCascadingValue.PositionCssClass" Name="@nameof(CascadingData.PositionCssClassParameterValue)" IsFixed="true">
+            <CascadingValue Value="this.MainCascadingValue.Spread" Name="@nameof(CascadingData.SpreadValue)" IsFixed="true">
+                <CascadingValue Value="this.MainCascadingValue.ItemSelect" Name="@nameof(CascadingData.SelectParameterValue)" IsFixed="false">
+                    <NavMenu />
                     @Body
-                </PageContainer>
+                </CascadingValue>
             </CascadingValue>
         </CascadingValue>
     </CascadingValue>
-</CascadingValue>
+</main>
+
+<Footer BisName="Pragmatic Applications" />
+
+
+@*
+
+@inherits LayoutComponentBase
+
+<main>
+    <CascadingValue Value="@this.MainCascadingValue.BannerBackgroundImageCssClass" Name="@nameof(CascadingData.BannerBackgroundImageCssClassParameterValue)" IsFixed="true">
+        <CascadingValue Value="this.MainCascadingValue.PositionCssClass" Name="@nameof(CascadingData.PositionCssClassParameterValue)" IsFixed="true">
+            <CascadingValue Value="this.MainCascadingValue.Spread" Name="@nameof(CascadingData.SpreadValue)" IsFixed="true">
+                <CascadingValue Value="this.MainCascadingValue.ItemSelect" Name="@nameof(CascadingData.SelectParameterValue)" IsFixed="false">
+                    <NavMenu NavLinks="this.NavigationPageLinks" />
+                    @Body
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+    </CascadingValue>
+</main>
 
 <Footer NavLinks="this.FooterPageLinks" BisName="Pragmatic Applications" />
+
+*@

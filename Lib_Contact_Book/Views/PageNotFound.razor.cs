@@ -1,4 +1,4 @@
-﻿using Lib_Blazor_UI;
+﻿using Domain;
 
 using Microsoft.AspNetCore.Components;
 

@@ -13,4 +13,8 @@
     <ProjectReference Include="..\Lib_Contact_Book\Lib_Contact_Book.csproj" />
   </ItemGroup>
 
+  <!--<ItemGroup>
+    <ProjectReference Include="..\Lib_Contact_Book\Lib_Contact_Book.csproj" />
+  </ItemGroup>-->
+
 </Project>

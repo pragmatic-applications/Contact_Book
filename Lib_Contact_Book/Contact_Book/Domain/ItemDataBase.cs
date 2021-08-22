@@ -2,13 +2,11 @@
 
 using DTOs;
 
-using Lib_Blazor_UI;
-
 using Microsoft.AspNetCore.Components;
 
-namespace Lib_Contact_Book.Contact_Book.Views
+namespace Domain
 {
-    public partial class ItemContainer : Component
+    public class ItemDataBase : Component
     {
         [CascadingParameter(Name = nameof(CascadingData.EntityParameterValue))]
         public ContactEntityDto EntityCascadingParameter { get; set; }

@@ -1,13 +1,110 @@
-﻿@inherits Component
+﻿
+@inherits ItemDataBase
 
-<div class="small_screen_container zero_auto">
-    <UIEntityRepeater TEntity="ContactEntityDto" Entities="@this.EntitiesCascadingParameter">
-        <Entity Context="item">
-            <CascadingValue Value="@item" Name="@nameof(CascadingData.EntityParameterValue)" IsFixed="false">
-                <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(this.IsCrudValue)" IsFixed="false">
-                    <ItemContainer />
-                </CascadingValue>
-            </CascadingValue>
-        </Entity>
-    </UIEntityRepeater>
-</div>
+@{
+    var currentId = this.EntityCascadingParameter.Id;
+
+    if(this.IsCrudCascadingParameter)
+    {
+        this.UrlDetail = $"{PageRoute.S_AdminDetails}/{currentId}";
+        this.UrlEdit = $"{PageRoute.S_AdminUpdate}/{currentId}";
+        this.UrlDelete = $"{PageRoute.S_AdminDelete}/{currentId}";
+    }
+}
+
+<CascadingValue Value="this.UrlDetail" Name="@nameof(CascadingData.TargetUrlCascadingValue)" IsFixed="false">
+    <CascadingValue Value="@CssData.CardLinkCssCascadingValue" Name="@nameof(CascadingData.CardLinkCssCascadingValue)" IsFixed="false">
+
+        <Card TEntity="ContactEntityDto" class="@CssData.CardCss">
+            <CardHeader TEntity="ContactEntityDto">
+                @this.EntityCascadingParameter.ContactName
+            </CardHeader>
+
+            <CardBody TEntity="ContactEntityDto">
+                @*<CardTitle>
+                    @this.EntityCascadingParameter.FirstName
+                </CardTitle>*@
+                <CardText>
+                    @this.EntityCascadingParameter.FirstName
+                </CardText>
+                <CardText>
+                    @this.EntityCascadingParameter.Email
+                </CardText>
+                <CardText>
+                    Checked: @this.IsDone
+                </CardText>
+
+                @if(this.IsCrudCascadingParameter)
+                {
+                    <CardLink>
+                        Detail
+                    </CardLink>
+                }
+            </CardBody>
+
+            <CardFooter TEntity="ContactEntityDto">
+                ID: #@this.EntityCascadingParameter.Id
+            </CardFooter>
+        </Card>
+
+    </CascadingValue>
+</CascadingValue>
+
+
+@*<div class="card border_success mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-success">Header</div>
+    <div class="card-body text-success">
+        <h5 class="card-title">Success card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+</div>*@
+
+
+
+@*Main - YYY
+
+    @{
+        var currentId = this.EntityCascadingParameter.Id;
+
+        if(this.IsCrudCascadingParameter)
+        {
+            this.UrlDetail = $"{PageRoute.S_AdminDetails}/{currentId}";
+            this.UrlEdit = $"{PageRoute.S_AdminUpdate}/{currentId}";
+            this.UrlDelete = $"{PageRoute.S_AdminDelete}/{currentId}";
+        }
+    }
+
+    <CascadingValue Value="this.UrlDetail" Name="@nameof(CascadingData.TargetUrlCascadingValue)" IsFixed="false">
+        <Card TEntity="ContactEntityDto">
+
+            <CardHeader TEntity="ContactEntityDto">
+                @this.EntityCascadingParameter.ContactName
+            </CardHeader>
+
+            <CardBody TEntity="ContactEntityDto">
+                <CardTitle>
+                    @this.EntityCascadingParameter.FirstName
+                </CardTitle>
+                <CardText>
+                    Email: @this.EntityCascadingParameter.Email
+                </CardText>
+                <CardText>
+                    Checked: @this.IsDone
+                </CardText>
+
+                @if(this.IsCrudCascadingParameter)
+                {
+                    <CardLink>
+                        Detail
+                    </CardLink>
+                }
+            </CardBody>
+
+            <CardFooter TEntity="ContactEntityDto">
+                ID: #@this.EntityCascadingParameter.Id
+            </CardFooter>
+
+        </Card>
+    </CascadingValue>*@
+

@@ -234,22 +234,22 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1", "e7dd2d83-3c07-4cb4-ad81-f738c4440677", "Admin", "ADMIN" });
+                values: new object[] { "1", "5ecee26e-0f1e-4897-832c-71ed71abefc5", "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2", "3029ac2c-9f9d-4987-b5bf-73a9f245ae2a", "SuperAdmin", "SUPERADMIN" });
+                values: new object[] { "2", "a1db822d-d800-4dcd-8602-ace0cb3f8126", "SuperAdmin", "SUPERADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "3", "ba96b1f6-3d08-41ec-b63b-9eb01852bbe2", "Editor", "EDITOR" });
+                values: new object[] { "3", "98f47ce2-06bc-4019-964a-16e396d2bd1d", "Editor", "EDITOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "4", "b30a4757-7d65-402f-b5be-5e2bcbeb741d", "RegularUser", "REGULARUSER" });
+                values: new object[] { "4", "5db46efd-c596-45d9-8cb7-3bfab099142a", "RegularUser", "REGULARUSER" });
 
             migrationBuilder.InsertData(
                 table: "ContactEntityCategories",
@@ -294,22 +294,82 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
             migrationBuilder.InsertData(
                 table: "ContactEntities",
                 columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
-                values: new object[] { 1, "5 Grand Lodge, London UK", 3, "Jane Doe", new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 395, DateTimeKind.Unspecified).AddTicks(9128), new TimeSpan(0, 0, 0, 0, 0)), "jane@doe.com", "Jane", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Doe", "01111111111" });
+                values: new object[] { 7, "McKenzie Address, Clidesdale Scotland", 1, "McKenzie Porter", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3231), new TimeSpan(0, 0, 0, 0, 0)), "McKenzie@Email.com", "McKenzie", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Porter", "07111112211" });
 
             migrationBuilder.InsertData(
                 table: "ContactEntities",
                 columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
-                values: new object[] { 2, "14 The Glades, New York US", 4, "Tom Browne", new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1744), new TimeSpan(0, 0, 0, 0, 0)), "tom@browne.com", "Tom", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Browne", "02111111111" });
+                values: new object[] { 8, "Barry's Address, St. Kitts", 1, "Barry Holland", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3233), new TimeSpan(0, 0, 0, 0, 0)), "Barry@Email.com", "Barry", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Holland", "08111111111" });
 
             migrationBuilder.InsertData(
                 table: "ContactEntities",
                 columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
-                values: new object[] { 3, "5 Hoble House, Penge, London UK", 6, "Lucy Smith", new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1751), new TimeSpan(0, 0, 0, 0, 0)), "lucy@smith.com", "Lucy", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Smith", "03111111111" });
+                values: new object[] { 9, "Millie's Address, Gre Ireland", 1, "Millie Higgins", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3234), new TimeSpan(0, 0, 0, 0, 0)), "Millie@Email.com", "Millie", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Jones", "09111111111" });
 
             migrationBuilder.InsertData(
                 table: "ContactEntities",
                 columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
-                values: new object[] { 4, "11 Broad Lane, Paris France", 7, "Halie Jones", new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1753), new TimeSpan(0, 0, 0, 0, 0)), "halie@jones.com", "Halie", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Jones", "04111111111" });
+                values: new object[] { 12, "Sharon's Address, Barbados", 1, "Sharon Clark", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3239), new TimeSpan(0, 0, 0, 0, 0)), "Sharon@Email.com", "Sharon", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Jones", "04171111113" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 16, "Mygonne's Address, Jamaica", 1, "Mygonne McNally", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3245), new TimeSpan(0, 0, 0, 0, 0)), "Mygonne@Email.com", "Mygonne", "https://localhost:5551/Images/UploadFiles/Default.png", false, "McNally", "04119111713" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 1, "5 Grand Lodge, London UK", 3, "Jane Doe", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(575), new TimeSpan(0, 0, 0, 0, 0)), "jane@doe.com", "Jane", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Doe", "01111111111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 2, "14 The Glades, New York US", 4, "Tom Browne", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3214), new TimeSpan(0, 0, 0, 0, 0)), "tom@browne.com", "Tom", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Browne", "02111111111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 11, "Clive's Address, Ilford UK", 4, "Clive Hilton", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3238), new TimeSpan(0, 0, 0, 0, 0)), "Clive@Email.com", "Clive", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Hilton", "04111111112" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 14, "Junie's Address, USA", 4, "Junie Pascal", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3242), new TimeSpan(0, 0, 0, 0, 0)), "Junie@Email.com", "Junie", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Jones", "01011331111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 4, "11 Broad Lane, Paris France", 5, "Halie Jones", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3224), new TimeSpan(0, 0, 0, 0, 0)), "halie@jones.com", "Halie", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Jones", "04111111111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 3, "5 Hoble House, Penge, London UK", 6, "Lucy Smith", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3222), new TimeSpan(0, 0, 0, 0, 0)), "lucy@smith.com", "Lucy", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Smith", "03111111111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 13, "Tony's Address, London", 6, "Tony Blaze", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3241), new TimeSpan(0, 0, 0, 0, 0)), "Tony@Email.com", "Tony", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Blaze", "09111111111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 15, "Mark's Address, Canada", 6, "Mark Landis", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3244), new TimeSpan(0, 0, 0, 0, 0)), "Mark@Email.com", "Mark", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Jones", "04111117512" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 5, "A List Ltd Address, NY USA", 7, "A List Ltd.", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3225), new TimeSpan(0, 0, 0, 0, 0)), "Steve@AListLtd.com", "Steve", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Marriott", "05111144111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 6, "Antonio's Address, Siville Spain", 7, "MicroTech", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3230), new TimeSpan(0, 0, 0, 0, 0)), "Antonio@MicroTech.com", "Antonio", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Bolt", "06111111111" });
+
+            migrationBuilder.InsertData(
+                table: "ContactEntities",
+                columns: new[] { "Id", "Address", "ContactEntityCategoryId", "ContactName", "CreatedDate", "Email", "FirstName", "Image", "IsChecked", "LastName", "Phone" },
+                values: new object[] { 10, "The Artz Address, Canada", 7, "The Artz", new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3236), new TimeSpan(0, 0, 0, 0, 0)), "Emma@TheArtz.com", "Emma", "https://localhost:5551/Images/UploadFiles/Default.png", false, "Pradas", "01011191111" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

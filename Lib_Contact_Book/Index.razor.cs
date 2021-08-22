@@ -6,6 +6,7 @@ using Domain;
 
 namespace Lib_Contact_Book
 {
+    [PageTitle("Home", true, true)]
     public partial class Index : ClientBase
     {
         public List<string> Images

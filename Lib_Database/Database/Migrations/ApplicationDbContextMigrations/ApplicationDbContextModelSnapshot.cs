@@ -177,7 +177,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "5 Grand Lodge, London UK",
                             ContactEntityCategoryId = 3,
                             ContactName = "Jane Doe",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 395, DateTimeKind.Unspecified).AddTicks(9128), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(575), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "jane@doe.com",
                             FirstName = "Jane",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -191,7 +191,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "14 The Glades, New York US",
                             ContactEntityCategoryId = 4,
                             ContactName = "Tom Browne",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1744), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3214), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "tom@browne.com",
                             FirstName = "Tom",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -205,7 +205,7 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                             Address = "5 Hoble House, Penge, London UK",
                             ContactEntityCategoryId = 6,
                             ContactName = "Lucy Smith",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1751), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3222), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "lucy@smith.com",
                             FirstName = "Lucy",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
@@ -217,15 +217,183 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                         {
                             Id = 4,
                             Address = "11 Broad Lane, Paris France",
-                            ContactEntityCategoryId = 7,
+                            ContactEntityCategoryId = 5,
                             ContactName = "Halie Jones",
-                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 14, 11, 57, 8, 396, DateTimeKind.Unspecified).AddTicks(1753), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3224), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "halie@jones.com",
                             FirstName = "Halie",
                             Image = "https://localhost:5551/Images/UploadFiles/Default.png",
                             IsChecked = false,
                             LastName = "Jones",
                             Phone = "04111111111"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "A List Ltd Address, NY USA",
+                            ContactEntityCategoryId = 7,
+                            ContactName = "A List Ltd.",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3225), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Steve@AListLtd.com",
+                            FirstName = "Steve",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Marriott",
+                            Phone = "05111144111"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Antonio's Address, Siville Spain",
+                            ContactEntityCategoryId = 7,
+                            ContactName = "MicroTech",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3230), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Antonio@MicroTech.com",
+                            FirstName = "Antonio",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Bolt",
+                            Phone = "06111111111"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "McKenzie Address, Clidesdale Scotland",
+                            ContactEntityCategoryId = 1,
+                            ContactName = "McKenzie Porter",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3231), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "McKenzie@Email.com",
+                            FirstName = "McKenzie",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Porter",
+                            Phone = "07111112211"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Barry's Address, St. Kitts",
+                            ContactEntityCategoryId = 1,
+                            ContactName = "Barry Holland",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3233), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Barry@Email.com",
+                            FirstName = "Barry",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Holland",
+                            Phone = "08111111111"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Millie's Address, Gre Ireland",
+                            ContactEntityCategoryId = 1,
+                            ContactName = "Millie Higgins",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3234), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Millie@Email.com",
+                            FirstName = "Millie",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Jones",
+                            Phone = "09111111111"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "The Artz Address, Canada",
+                            ContactEntityCategoryId = 7,
+                            ContactName = "The Artz",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3236), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Emma@TheArtz.com",
+                            FirstName = "Emma",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Pradas",
+                            Phone = "01011191111"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Clive's Address, Ilford UK",
+                            ContactEntityCategoryId = 4,
+                            ContactName = "Clive Hilton",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3238), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Clive@Email.com",
+                            FirstName = "Clive",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Hilton",
+                            Phone = "04111111112"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Sharon's Address, Barbados",
+                            ContactEntityCategoryId = 1,
+                            ContactName = "Sharon Clark",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3239), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Sharon@Email.com",
+                            FirstName = "Sharon",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Jones",
+                            Phone = "04171111113"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Tony's Address, London",
+                            ContactEntityCategoryId = 6,
+                            ContactName = "Tony Blaze",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3241), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Tony@Email.com",
+                            FirstName = "Tony",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Blaze",
+                            Phone = "09111111111"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Junie's Address, USA",
+                            ContactEntityCategoryId = 4,
+                            ContactName = "Junie Pascal",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3242), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Junie@Email.com",
+                            FirstName = "Junie",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Jones",
+                            Phone = "01011331111"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "Mark's Address, Canada",
+                            ContactEntityCategoryId = 6,
+                            ContactName = "Mark Landis",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3244), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Mark@Email.com",
+                            FirstName = "Mark",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "Jones",
+                            Phone = "04111117512"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Address = "Mygonne's Address, Jamaica",
+                            ContactEntityCategoryId = 1,
+                            ContactName = "Mygonne McNally",
+                            CreatedDate = new DateTimeOffset(new DateTime(2021, 8, 22, 11, 57, 23, 212, DateTimeKind.Unspecified).AddTicks(3245), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Mygonne@Email.com",
+                            FirstName = "Mygonne",
+                            Image = "https://localhost:5551/Images/UploadFiles/Default.png",
+                            IsChecked = false,
+                            LastName = "McNally",
+                            Phone = "04119111713"
                         });
                 });
 
@@ -331,28 +499,28 @@ namespace Lib_Database.Database.Migrations.ApplicationDbContextMigrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "e7dd2d83-3c07-4cb4-ad81-f738c4440677",
+                            ConcurrencyStamp = "5ecee26e-0f1e-4897-832c-71ed71abefc5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "3029ac2c-9f9d-4987-b5bf-73a9f245ae2a",
+                            ConcurrencyStamp = "a1db822d-d800-4dcd-8602-ace0cb3f8126",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "ba96b1f6-3d08-41ec-b63b-9eb01852bbe2",
+                            ConcurrencyStamp = "98f47ce2-06bc-4019-964a-16e396d2bd1d",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "b30a4757-7d65-402f-b5be-5e2bcbeb741d",
+                            ConcurrencyStamp = "5db46efd-c596-45d9-8cb7-3bfab099142a",
                             Name = "RegularUser",
                             NormalizedName = "REGULARUSER"
                         });
