@@ -13,7 +13,7 @@
 // Todo: test and update... BIS related features...
 // Todo: set time to add feature for HTML Table with all the various elements of a table such as TR...
 
-// Add the Lib_Blazor_UI project to this solution while I am working on Card, Grid and related features.
+// Add the Lib_Blazor_UI project to this solution while I am working on Card, Grid and related features. Second commit because Lib_Blazor_UI was not included in the commit.
 
 //==========================================================================
 // Migrations S (2021-08-22)
