@@ -5,7 +5,7 @@
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
 // Date: 2021-08-22
-// Stop: 21:00
+// Stop: 23:00
 //=================================================================
 
 // Todo: Finish Card styles so I can commit to GitHub... ExtraContent...
@@ -13,7 +13,7 @@
 // Todo: test and update... BIS related features...
 // Todo: set time to add feature for HTML Table with all the various elements of a table such as TR...
 
-// Update Repeater, Card and Grid
+// Add the Lib_Blazor_UI project to this solution while I am working on Card, Grid and related features.
 
 //==========================================================================
 // Migrations S (2021-08-22)
