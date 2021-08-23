@@ -9,13 +9,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <!--<PackageReference Include="Lib_Blazor_UI" Version="0.0.0.4" />-->
+        <!--<PackageReference Include="MAK.Lib.BlazorUI" Version="0.0.0.4" />-->
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.9" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Lib_Blazor_UI\Lib_Blazor_UI.csproj" />
+      <ProjectReference Include="..\Lib_Blazor_Uploader\Lib_Blazor_Uploader.csproj" />
       <ProjectReference Include="..\Lib_Contact_Book_Interface\Lib_Contact_Book_Interface.csproj" />
+      <ProjectReference Include="..\MAK.Lib.BlazorUI\MAK.Lib.BlazorUI.csproj" />
     </ItemGroup>
 
 </Project>

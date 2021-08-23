@@ -1,0 +1,12 @@
+﻿
+<nav class="pagination_container" aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <Repeater @key="this" TEntity="PagingLink" Entities="@this.links">
+            <Entity Context="item">
+                <li @onclick="() => this.SelectPageHandler(item)" class="page_item @(item.IsCursorPointer ? "cursor_pointer" : null) @(item.Enabled ? null : "disabled") @(item.Active ? "active" : null)">
+                    <span class="page_link" href="#">@item.Text</span>
+                </li>
+            </Entity>
+        </Repeater>
+    </ul>
+</nav>

@@ -1,0 +1,15 @@
+﻿
+@inherits CoreComponent
+
+<div class="@this.PositionCssClassCascadingParameter">
+    <select @onchange="this.ApplySort">
+        <option disabled selected value="-1">-- Sort --</option>
+
+        @for(int i = 0; i < this.SelectCascadingParameter.Options.Count(); i++)
+        {
+            <option value="@this.SelectCascadingParameter.Options[i].ToLower()">
+                @this.SelectCascadingParameter.OptionsDisplay[i]
+            </option>
+        }
+    </select>
+</div>

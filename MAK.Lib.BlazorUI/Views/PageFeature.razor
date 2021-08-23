@@ -1,0 +1,9 @@
+﻿@inherits CoreComponent
+
+<div class="container">
+    <CascadingValue Value="@this.PagerDataValue" Name="@nameof(this.PagerDataValue)">
+        <Search OnSearchChanged="@this.OnSearchChanged" />
+        <Sort OnSortChanged="@this.OnSortChanged" />
+        <Pagination OnSelectedPage="@this.OnSelectedPage" />
+    </CascadingValue>
+</div>

@@ -1,0 +1,28 @@
+﻿@typeparam TEntity
+
+@if(this.Entities != null)
+{
+    foreach(var item in this.Entities)
+    {
+        @this.Entity(item)
+    }
+}
+
+
+@*
+
+    Main-For
+
+    @if(this.Entities != null)
+    {
+        int i;
+
+        for(i = 0; i < this.Entities.Count(); i++)
+        {
+            var index = i;
+            var item = this.Entities.ElementAt(i);
+            @this.Entity(item)
+        }
+    }
+
+*@

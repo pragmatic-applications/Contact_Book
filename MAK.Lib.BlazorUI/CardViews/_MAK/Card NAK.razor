@@ -1,0 +1,23 @@
+﻿@*@inherits Component
+
+<div @attributes="Attributes" class="card text_dark bg_light">
+    @this.ChildContent
+</div>*@
+
+
+
+
+@*
+
+    Orig
+    @inherits Component
+
+    <div class="card text_dark bg_light">
+        <div class="@this.CardBodyCssCascadingParameter">
+
+            @CardBody
+
+        </div>
+    </div>
+
+*@

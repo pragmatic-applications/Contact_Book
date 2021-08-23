@@ -1,0 +1,14 @@
+﻿
+<div class="custom-control custom-switch RenderModeSwitch">
+    <input type="checkbox" class="custom-control-input" id="wasmSwitch" @bind="Server" />
+
+    @if(this.server)
+    {
+        <label class="custom-control-label" for="wasmSwitch">Use Wasm</label>
+    }
+    else
+    {
+        <label class="custom-control-label" for="wasmSwitch">Use Server</label>
+    }
+
+</div>

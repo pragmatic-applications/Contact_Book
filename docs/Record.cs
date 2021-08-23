@@ -4,8 +4,8 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-22
-// Stop: 23:00
+// Date: 2021-08-23
+// Stop: 03:00
 //=================================================================
 
 // Todo: Finish Card styles so I can commit to GitHub... ExtraContent...
@@ -13,7 +13,7 @@
 // Todo: test and update... BIS related features...
 // Todo: set time to add feature for HTML Table with all the various elements of a table such as TR...
 
-// Add the Lib_Blazor_UI project to this solution while I am working on Card, Grid and related features. Second commit because Lib_Blazor_UI was not included in the commit.
+// Replace Lib_Blazor_UI with Lib_Blazor_Repeater, Lib_Blazor_Uploader and MAK.Lib.BlazorUI to check if these will be added to GitHub.
 
 //==========================================================================
 // Migrations S (2021-08-22)

@@ -1,0 +1,47 @@
+﻿@typeparam TEntity
+
+@inherits ComponentBase
+@implements ICard<TEntity>
+@implements IHandleChildStateChange
+
+<CascadingValue Value=this>
+    @this.ChildContent
+
+    <div @attributes="Attributes">
+        @if(this.header != null)
+        {
+            @this.header.RenderContent
+        }
+
+        @foreach(var body in this.bodies)
+        {
+            @body.RenderContent
+        }
+
+        @if(this.footer != null)
+        {
+            @this.footer.RenderContent
+        }
+    </div>
+</CascadingValue>
+
+@*<CascadingValue Value=this>
+        @this.ChildContent
+
+        <div @attributes="Attributes" class="card text_dark bg_light border_success margin_top_10">
+            @if(this.header != null)
+            {
+                @this.header.RenderContent
+            }
+
+            @foreach(var body in this.bodies)
+            {
+                @body.RenderContent
+            }
+
+            @if(this.footer != null)
+            {
+                @this.footer.RenderContent
+            }
+        </div>
+    </CascadingValue>*@
