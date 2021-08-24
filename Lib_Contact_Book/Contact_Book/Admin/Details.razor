@@ -4,7 +4,8 @@
 
 <Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
 
-<div class="container_a">
+<div class="container_basic">
+
     @if(this.ContactEntityDto?.Id == 0)
     {
         <div class="card">
@@ -15,12 +16,17 @@
     }
     else
     {
-        <div class="card">
+        <div class="@CssData.CardCssThemeBlueB">
+
             <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
+
+            <div class="card_header">
+                Contact Name: @this.ContactEntityDto.ContactName
+            </div>
             <div class="card_body">
-                <h5 class="card_title">
-                    #@this.ContactEntityDto.Id: @this.ContactEntityDto.ContactName
-                </h5>
+                <p class="card_title">
+                    Done: @this.IsDone
+                </p>
                 <p class="card_text">
                     First Name: @this.ContactEntityDto.FirstName
                 </p>
@@ -37,30 +43,143 @@
                     Address: @this.ContactEntityDto.Address
                 </p>
                 <p class="card_text">
-                    Done: @this.IsDone
+                    Contact Category: @this.ContactEntityDto.ContactCategory
                 </p>
-
                 <p class="card_text">
                     Category Id: @this.ContactEntityDto.ContactEntityCategoryId
                 </p>
-                <p class="card_text">
-                    Contact Category: @this.ContactEntityDto.ContactCategory
-                </p>
-
-                <a class="btn btn_primary btn_sm" href="@PageRoute.ContactBookAdmin">
+                <a class="@CssData.CardLinkCssCascadingValueThemeBlueB" href="@PageRoute.ContactBookAdmin">
                     Back
                 </a>
-                <a class="btn btn_primary btn_sm" href="@this.UrlUpdate">
+                <a class="@CssData.CardLinkCssCascadingValueThemeBlueB" href="@this.UrlUpdate">
                     Edit
                 </a>
                 <a class="btn btn_danger btn_sm" href="@this.UrlDelete">
                     X
                 </a>
             </div>
+            <div class="card_footer">
+                <p>
+                    Id: #@this.ContactEntityDto.Id
+                </p>
+            </div>
         </div>
+
+        @*<Card TEntity="ContactEntityDto" class="@CssData.CardCssThemeBlueB">
+            <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
+            <CardHeader TEntity="ContactEntityDto">
+                @this.ContactEntityDto.ContactName
+            </CardHeader>
+            <CardBody TEntity="ContactEntityDto">
+                <CardText TEntity="ContactEntityDto">
+                    @this.ContactEntityDto.FirstName
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    @this.ContactEntityDto.LastName
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    @this.ContactEntityDto.Email
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    @this.ContactEntityDto.Phone
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    @this.ContactEntityDto.Address
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    Checked: @this.IsDone
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+                </CardText>
+                <CardText TEntity="ContactEntityDto">
+                    Contact Category: @this.ContactEntityDto.ContactCategory
+                </CardText>
+
+                <CardLink TEntity="ContactEntityDto" LinkUrl="@PageRoute.ContactBookAdmin" LinkCss="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                    Back
+                </CardLink>
+                <CardLink TEntity="ContactEntityDto" LinkUrl="@this.UrlUpdate" LinkCss="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                    Edit
+                </CardLink>
+                <CardLink TEntity="ContactEntityDto" LinkUrl="@this.UrlDelete" LinkCss="btn btn_danger btn_sm">
+                    X
+                </CardLink>
+            </CardBody>
+            <CardFooter TEntity="ContactEntityDto">
+                ID: #@this.ContactEntityDto.Id:
+            </CardFooter>
+        </Card>*@
     }
 </div>
-
 <div class="page-top">
     <NavLink href="@PageRoute.ContactBookAdminDetails" class="top"></NavLink>
 </div>
+
+
+@*@page "/ContactBook/admin/details/{Id:int}"
+
+    @inherits ItemBase
+
+    <Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+    <div class="container_a">
+        @if(this.ContactEntityDto?.Id == 0)
+        {
+            <div class="card">
+                <div class="card_body">
+                    <p class="card-text">No Item to show.</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="card">
+                <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
+                <div class="card_body">
+                    <h5 class="card_title">
+                        #@this.ContactEntityDto.Id: @this.ContactEntityDto.ContactName
+                    </h5>
+                    <p class="card_text">
+                        First Name: @this.ContactEntityDto.FirstName
+                    </p>
+                    <p class="card_text">
+                        Last Name: @this.ContactEntityDto.LastName
+                    </p>
+                    <p class="card_text">
+                        Email: @this.ContactEntityDto.Email
+                    </p>
+                    <p class="card_text">
+                        Phone: @this.ContactEntityDto.Phone
+                    </p>
+                    <p class="card_text">
+                        Address: @this.ContactEntityDto.Address
+                    </p>
+                    <p class="card_text">
+                        Done: @this.IsDone
+                    </p>
+
+                    <p class="card_text">
+                        Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+                    </p>
+                    <p class="card_text">
+                        Contact Category: @this.ContactEntityDto.ContactCategory
+                    </p>
+
+                    <a class="btn btn_primary btn_sm" href="@PageRoute.ContactBookAdmin">
+                        Back
+                    </a>
+                    <a class="btn btn_primary btn_sm" href="@this.UrlUpdate">
+                        Edit
+                    </a>
+                    <a class="btn btn_danger btn_sm" href="@this.UrlDelete">
+                        X
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="page-top">
+        <NavLink href="@PageRoute.ContactBookAdminDetails" class="top"></NavLink>
+    </div>*@

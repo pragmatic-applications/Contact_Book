@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Lib_Blazor_Repeater\Lib_Blazor_Repeater.csproj" />
+      <ProjectReference Include="..\MAK.Lib.Constant\MAK.Lib.Constant.csproj" />
     </ItemGroup>
 
 </Project>

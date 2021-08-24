@@ -4,11 +4,11 @@
 
 <Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
 
-<div class="container_a- max_width_lg">
+<div class="container_basic">
     <h5 class="text_center">@this.FormTitle</h5>
     <p>Add entries to create a list of tasks to do. After adding to the list you can check and remove what you do not wish to save. You can even undo and redo operations. When you have completed your list click Save to store your entries to the database.</p>
 
-    <div class="EditForm">
+    <div class="@CssData.CardCssThemeBlueB">
         <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.AddItem">
             <DataAnnotationsValidator />
 
@@ -70,16 +70,16 @@
             </div>
 
             <div class="form_group">
-                <button type="button" class="@this.PrimaryBtnCssClass" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
+                <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
                     Undo
                 </button>
-                <button type="button" class="@this.PrimaryBtnCssClass" disabled="@(!this.TaskService.CanRedo)" @onclick="this.TaskService.Redo">
+                <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@(!this.TaskService.CanRedo)" @onclick="this.TaskService.Redo">
                     Redo
                 </button>
-                <button type="button" class="@this.DangerBtnCssClass" disabled="@(!this.TaskService.CanRemove)" @onclick="this.TaskService.RemoveDone">
+                <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@(!this.TaskService.CanRemove)" @onclick="this.TaskService.RemoveDone">
                     Remove
                 </button>
-                <button type="submit" class="@this.PrimaryBtnCssClass" disabled="@this.CanAdd">
+                <button type="submit" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@this.CanAdd">
                     Add Entry
                 </button>
 
@@ -90,14 +90,17 @@
                 }
                 else
                 {
-                    <button type="button" class="@this.PrimaryBtnCssClass" @onclick="this.InsertAsync" disabled="@this.CanSave">
+                    <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" @onclick="this.InsertAsync" disabled="@this.CanSave">
                         Save
                     </button>
                 }
             </div>
         </EditForm>
 
-        <p>Entry List</p>
+        <div class="form_group">
+            <p>Entry List</p>
+        </div>
+        
 
         <div class="checkbox_list_container- checkboxes grid_col_repeat_4_1fr pad_bottom_20">
             @foreach(var item in this.TaskService.Items)

@@ -9,30 +9,82 @@
     color: #FFF;
 }
 
-.bg_secondary
+.text_theme_blue_b
 {
-    background: #6a757e;
-    border: solid 1px #FFF;
+    color: #002c50;
 }
-
-.btn_secondary_a
+.theme_blue_btn
 {
-    color: #FFF;
-    background: #788b9a;
-    background: #5c676f;
-
     outline: none;
     border: none;
     text-decoration: none;
     transition: all 0.5s ease;
 }
 
-.btn_secondary_a:active,
-.btn_secondary_a:hover,
-.btn_secondary_a:focus
+.theme_blue_a
 {
-    background: #61707a;
-    background: #505b63;
+    background: #8cafd0;
+    border: solid 1px #FFF;
+}
+.btn_theme_blue_a
+{
+    background: #678eb3;
+    color: #FFF;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.btn_theme_blue_a:active,
+.btn_theme_blue_a:hover,
+.btn_theme_blue_a:focus
+{
+    background: #7fa3bd;
+}
+
+.theme_blue_b
+{
+    background: #eaf1f7;
+    background: #d9eeff;
+    border: solid 1px #8cafd0;
+}
+.btn_theme_blue_b
+{
+    background: #d2e6f7;
+    border: solid 1px #8cafd0;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.btn_theme_blue_b:active,
+.btn_theme_blue_b:hover,
+.btn_theme_blue_b:focus
+{
+    background: #bed7e8;
+}
+
+.theme_green_a
+{
+    background: #bbca9b;
+    color: #FFF;
+    color: #000;
+    border: solid 1px #FFF;
+}
+.theme_green_a_btn
+{
+    background: #a9b78a;
+    color: #FFF;
+    color: #000;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.theme_green_a_btn:active,
+.theme_green_a_btn:hover,
+.theme_green_a_btn:focus
+{
+    background: #afbe8f;
     outline: none;
     border: none;
     text-decoration: none;

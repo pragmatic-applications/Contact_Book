@@ -1020,6 +1020,17 @@ a:focus
     border-color: #787e86;
     cursor: default;
 }
+.btn.btn_theme_blue_b:disabled, .btn.disabled
+{
+    background: #f1f7fc;
+    color: #49687e;
+    border: solid 1px #8cafd0;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
 
 /*.btn_secondary:disabled, .btn_secondary.disabled
 {

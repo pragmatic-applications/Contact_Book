@@ -4,7 +4,7 @@
 
 <Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
 
-<div class="container">
+<div class="container_basic">
     @if(this.ContactEntityDto?.Id == 0)
     {
         <h1>Nothing to Delete</h1>
@@ -13,12 +13,12 @@
     {
         <h5 class="text_center">@this.FormTitle</h5>
 
-        <div class="EditForm">
+        <div class="@CssData.CardCssThemeBlueB">
             <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.DeleteAsync">
                 <DataAnnotationsValidator />
                 <input type="hidden" @bind="this.ContactEntityDto.Id" />
 
-                <div class="form_group">
+                @*<div class="form_group">
                     <div class="card">
                         <div class="card-body">
                             <p class="card-title">
@@ -44,9 +44,48 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div>*@
+
+                <Card TEntity="ContactEntityDto" class="@CssData.CardCssThemeBlueB">
+
+                    <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
+
+                    <CardHeader TEntity="ContactEntityDto">
+                        @this.ContactEntityDto.ContactName
+                    </CardHeader>
+                    <CardBody TEntity="ContactEntityDto">
+                        <CardText TEntity="ContactEntityDto">
+                            @this.ContactEntityDto.FirstName
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            @this.ContactEntityDto.LastName
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            @this.ContactEntityDto.Email
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            @this.ContactEntityDto.Phone
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            @this.ContactEntityDto.Address
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            Checked: @this.IsDone
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            Contact Category: @this.ContactEntityDto.ContactCategory
+                        </CardText>
+                    </CardBody>
+                    <CardFooter TEntity="ContactEntityDto">
+                        ID: #@this.ContactEntityDto.Id:
+                    </CardFooter>
+                </Card>
+
                 <div class="form_group">
-                    <a class="btn btn_primary btn_sm" href="@PageRoute.ContactBookAdmin">Cancel</a>
+                    <a href="@PageRoute.ContactBookAdmin" class="@CssData.CardLinkCssCascadingValueThemeBlueB">Cancel</a>
                     <button type="submit" class="btn btn_danger btn_sm">Delete</button>
                 </div>
             </EditForm>

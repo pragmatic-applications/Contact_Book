@@ -3,16 +3,16 @@
 <p>@this.HttpImageUploaderService.Message</p>
 <div class="form_group">
     <div class="custom_file">
-        <InputFile OnChange="this.HandleSelected" accept="image/png, image/jpeg, image/gif" id="inputFile" class="file_input btn btn_primary btn_sm form_control" multiple />
+        <InputFile OnChange="this.HandleSelected" accept="image/png, image/jpeg, image/gif" id="inputFile" class="file_input btn btn_theme_blue_b btn_sm form_control" multiple />
     </div>
 </div>
 
-@if(ImgUrl != null)
+@if(this.ImgUrl != null)
 {
     <div class="card">
         <div class="card_body">
             <p class="card-text">
-                <img src="@ImgUrl" style="width:100px" />
+                <img src="@this.ImgUrl" style="width:100px" />
             </p>
         </div>
     </div>

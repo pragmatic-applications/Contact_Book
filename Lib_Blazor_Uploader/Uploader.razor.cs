@@ -12,9 +12,6 @@ namespace Lib_Blazor_Uploader
 {
     public partial class Uploader
     {
-    }
-    public partial class Uploader
-    {
         [Parameter] public string ImgUrl { get; set; }
         [Parameter] public EventCallback<string> OnChange { get; set; }
 

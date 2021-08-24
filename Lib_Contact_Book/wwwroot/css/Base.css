@@ -488,6 +488,13 @@ img.img-circle,
     max-width: 1200px;
 }
 
+.container_basic
+{
+    width: 100%;
+    max-width: 60rem;
+    margin: 1.0rem auto;
+    padding: 1.0rem;
+}
 
 .zero_auto
 {
