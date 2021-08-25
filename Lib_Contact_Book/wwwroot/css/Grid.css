@@ -346,7 +346,9 @@ body
 }
 
 .grid_col_repeat_1_1fr,
-.grid_card_xs
+.grid_card_xs,
+.grid_xs,
+.grid_edif_form_btn_container_xs
 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -359,7 +361,8 @@ body
 
 @media (min-width: 768px)
 {
-    .grid_card_md
+    .grid_card_md,
+    .grid_edif_form_btn_container_md
     {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -413,6 +416,11 @@ body
         justify-items: stretch;
         grid-gap: 0;
         margin: 0 auto;
+    }
+
+    .grid_edif_form_btn_container_lg
+    {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

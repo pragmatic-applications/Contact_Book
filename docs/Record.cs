@@ -4,10 +4,11 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-24
-// Stop: 20:00
+// Date: 2021-08-25
+// Stop: 22:00
 //=================================================================
 
+// Put Create and Update form buttons in grid for better layout management.
 // Current: Implemented BlazorCard to check that I could do it. Now that I have done it, I have reverted to using plain (HTML and CSS card class) because pragmatic programming is best.
 // Todo: Finish Card styles so I can commit to GitHub... ExtraContent...
 

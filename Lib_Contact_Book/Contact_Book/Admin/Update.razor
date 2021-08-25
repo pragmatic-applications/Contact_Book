@@ -16,188 +16,139 @@
     }
     else
     {
-        <div class="CardCssThemeBlueB">
+        <div class="EditForm">
             <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.UpdateAsync">
-                <DataAnnotationsValidator />
-                <input type="hidden" @bind="this.ContactEntityDto.Id" />
 
-                <div class="form_group">
-                    <label for="ContactName" class="control_label">Contact Name</label>
-                    <InputText @bind-Value="this.ContactEntityDto.ContactName" id="ContactName" class="form_control" placeholder="Contact Name"></InputText>
-                    <ValidationMessage For="@(() => this.ContactEntityDto.ContactName)" />
-                </div>
-                <div class="form_group">
-                    <label for="FirstName" class="control_label">First Name</label>
-                    <InputText @bind-Value="this.ContactEntityDto.FirstName" id="FirstName" class="form_control" placeholder="First Name"></InputText>
-                    <ValidationMessage For="@(() => this.ContactEntityDto.FirstName)" />
-                </div>
-                <div class="form_group">
-                    <label for="LastName" class="control_label">Last Name</label>
-                    <InputText @bind-Value="this.ContactEntityDto.LastName" id="LastName" class="form_control" placeholder="Last Name"></InputText>
-                    <ValidationMessage For="@(() => this.ContactEntityDto.LastName)" />
-                </div>
-                <div class="form_group">
-                    <label for="Email" class="control_label">Email</label>
-                    <InputText @bind-Value="this.ContactEntityDto.Email" id="Email" class="form_control" placeholder="Email"></InputText>
-                    <ValidationMessage For="@(() => this.ContactEntityDto.Email)" />
-                </div>
-                <div class="form_group">
-                    <label for="Phone" class="control_label">Phone</label>
-                    <InputText @bind-Value="this.ContactEntityDto.Phone" id="Phone" class="form_control" placeholder="Phone"></InputText>
-                    <ValidationMessage For="@(() => this.ContactEntityDto.Phone)" />
-                </div>
-                <div class="form_group">
-                    <label for="Address" class="control_label">Address</label>
-                    <InputTextArea @bind-Value="this.ContactEntityDto.Address" id="Address" class="form_control" rows="3" />
-                    <ValidationMessage For="@(() => this.ContactEntityDto.Address)" />
-                </div>
+                <div class="form_section margin_bottom_10">
+                    <DataAnnotationsValidator />
+                    <input type="hidden" @bind="this.ContactEntityDto.Id" />
 
-                <div class="form_group">
-                    <input type="hidden" @bind="this.CategoryId" />
-                    <label for="ContactEntityCategoryId" class="control_label">Category</label>
-                    <InputSelect @bind-Value="@this.CategoryId" id="ContactEntityCategoryId" class="form_control">
-                        <option value="0">-- Select a Category --</option>
+                    <div class="form_group">
+                        <label for="ContactName" class="control_label">Contact Name</label>
+                        <InputText @bind-Value="this.ContactEntityDto.ContactName" id="ContactName" class="form_control" placeholder="Contact Name"></InputText>
+                        <ValidationMessage For="@(() => this.ContactEntityDto.ContactName)" />
+                    </div>
+                    <div class="form_group">
+                        <label for="FirstName" class="control_label">First Name</label>
+                        <InputText @bind-Value="this.ContactEntityDto.FirstName" id="FirstName" class="form_control" placeholder="First Name"></InputText>
+                        <ValidationMessage For="@(() => this.ContactEntityDto.FirstName)" />
+                    </div>
 
-                        @foreach(var item in this.Categories)
-                            {
-                            <option value="@item.Id">@item.Name</option>
+                    <div class="form_group">
+                        <label for="LastName" class="control_label">Last Name</label>
+                        <InputText @bind-Value="this.ContactEntityDto.LastName" id="LastName" class="form_control" placeholder="Last Name"></InputText>
+                        <ValidationMessage For="@(() => this.ContactEntityDto.LastName)" />
+                    </div>
+                    <div class="form_group">
+                        <label for="Email" class="control_label">Email</label>
+                        <InputText @bind-Value="this.ContactEntityDto.Email" id="Email" class="form_control" placeholder="Email"></InputText>
+                        <ValidationMessage For="@(() => this.ContactEntityDto.Email)" />
+                    </div>
+                    <div class="form_group">
+                        <label for="Phone" class="control_label">Phone</label>
+                        <InputText @bind-Value="this.ContactEntityDto.Phone" id="Phone" class="form_control" placeholder="Phone"></InputText>
+                        <ValidationMessage For="@(() => this.ContactEntityDto.Phone)" />
+                    </div>
+                    <div class="form_group">
+                        <label for="Address" class="control_label">Address</label>
+                        <InputTextArea @bind-Value="this.ContactEntityDto.Address" id="Address" class="form_control" rows="3" />
+                        <ValidationMessage For="@(() => this.ContactEntityDto.Address)" />
+                    </div>
+
+                    <div class="form_group">
+                        <input type="hidden" @bind="this.CategoryId" />
+                        <label for="ContactEntityCategoryId" class="control_label">Category</label>
+                        <InputSelect @bind-Value="@this.CategoryId" id="ContactEntityCategoryId" class="form_control">
+                            <option value="0">-- Select a Category --</option>
+
+                            @foreach(var item in this.Categories)
+                                {
+                                <option value="@item.Id">@item.Name</option>
+                                }
+
+                            @{
+                                    this.ContactEntityDto.ContactEntityCategoryId = this.GetCategoryId(categoryId: this.CategoryId);
+                                    this.CurrentCategoryId = this.GetCategoryId(categoryId: this.CategoryId);
                             }
+                        </InputSelect>
+                    </div>
 
-                        @{
-                                this.ContactEntityDto.ContactEntityCategoryId = this.GetCategoryId(categoryId: this.CategoryId);
-                                this.CurrentCategoryId = this.GetCategoryId(categoryId: this.CategoryId);
-                        }
-                    </InputSelect>
-                </div>
-
-                <div class="form_group checkboxes grid_col_repeat_1_1fr">
-                    <label for="@this.ContactEntityDto.Id" class="control_label option_item">
-                        <InputCheckbox @bind-Value="this.ContactEntityDto.IsChecked" class="checkbox" id="@this.ContactEntityDto.Id" />
-                        <span class="option_inner theme">
-                            <span class="tickmark"></span>
-                            <span class="name">
-                                Check?
+                    <div class="form_group checkboxes grid_col_repeat_1_1fr">
+                        <label for="@this.ContactEntityDto.Id" class="control_label option_item">
+                            <InputCheckbox @bind-Value="this.ContactEntityDto.IsChecked" class="checkbox" id="@this.ContactEntityDto.Id" />
+                            <span class="option_inner theme">
+                                <span class="tickmark"></span>
+                                <span class="name">
+                                    Check?
+                                </span>
                             </span>
-                        </span>
 
-                        <ValidationMessage For="@(() => this.ContactEntityDto.IsChecked)" />
-                    </label>
-                </div>
-                <div class="form_group">
-                    <label for="Image" class="control_label">Image:</label>
-                    <div class="ToDo___">
-                        <Uploader OnChange="this.AssignImageUrl" />
+                            <ValidationMessage For="@(() => this.ContactEntityDto.IsChecked)" />
+                        </label>
+                    </div>
+
+                    <Uploader OnChange="this.AssignImageUrl" />
+
+                    <div class="form_group">
+                        <div class="grid_edif_form_btn_container_xs grid_edif_form_btn_container_md">
+                            <a class="@CssData.EditFormBtnThemeBlueDCss" href="@PageRoute.ContactBookAdmin">
+                                Cancel
+                            </a>
+                            <button type="submit" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@this.IsDisabled">
+                                Save
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="form_group">
-                    <a class="@CssData.CardLinkCssCascadingValueThemeBlueB" href="@PageRoute.ContactBookAdmin">
-                        Cancel
-                    </a>
-                    <button type="submit" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@this.IsDisabled">
-                        Save
-                    </button>
-                </div>
 
-                <Card TEntity="ContactEntityDto" class="@CssData.CardCssThemeBlueB">
-                    <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.CardImageTopCss" />
-                    <CardHeader TEntity="ContactEntityDto">
-                        @this.ContactEntityDto.ContactName
-                    </CardHeader>
-                    <CardBody TEntity="ContactEntityDto">
-                        <CardText TEntity="ContactEntityDto">
+                <div class="form_feedback_section margin_bottom_10">
+                    <div class="form_group">
+                        <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
+                    </div>
+
+                    <div class="form_group">
+                        <p>
+                            @this.ContactEntityDto.ContactName
+                        </p>
+                        <p>
                             @this.ContactEntityDto.FirstName
-                        </CardText>
-                        <CardText TEntity="ContactEntityDto">
+                        </p>
+                        <p>
                             @this.ContactEntityDto.LastName
-                        </CardText>
-                        <CardText TEntity="ContactEntityDto">
+                        </p>
+                    </div>
+
+                    <div class="form_group">
+                        <p>
                             @this.ContactEntityDto.Email
-                        </CardText>
-                        <CardText TEntity="ContactEntityDto">
+                        </p>
+                        <p>
                             @this.ContactEntityDto.Phone
-                        </CardText>
-                        <CardText TEntity="ContactEntityDto">
+                        </p>
+                        <p>
                             @this.ContactEntityDto.Address
-                        </CardText>
-                        <CardText TEntity="ContactEntityDto">
+                        </p>
+                    </div>
+
+                    <div class="form_group">
+                        <p>
                             Checked: @this.IsDone
-                        </CardText>
+                        </p>
+                    </div>
 
-                        @if(this.CurrentCategoryId > 0 && this.CurrentCategoryId < 8)
-                        {
-                            switch(this.CurrentCategoryId)
-                            {
-                                case 1:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Unspecified</p>
-                                break;
-                                case 2:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Owner</p>
-                                break;
-                                case 3:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Family</p>
-                                break;
-                                case 4:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Friend</p>
-                                break;
-                                case 5:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Home</p>
-                                break;
-                                case 6:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Work</p>
-                                break;
-                                case 7:
-                                <p>Category Id: @this.CurrentCategoryId</p>
-                                <p>Contact Category: Business</p>
-                                break;
-                            }
-                        }
-                    </CardBody>
-                    <CardFooter TEntity="ContactEntityDto">
-                        ID: #@this.ContactEntityDto.Id
-                    </CardFooter>
-                </Card>
-
-                <div class="form_group">
                     @if(this.CurrentCategoryId > 0 && this.CurrentCategoryId < 8)
                     {
-                        switch(this.CurrentCategoryId)
-                        {
-                            case 1:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Unspecified</p>
-                            break;
-                            case 2:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Owner</p>
-                            break;
-                            case 3:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Family</p>
-                            break;
-                            case 4:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Friend</p>
-                            break;
-                            case 5:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Home</p>
-                            break;
-                            case 6:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Work</p>
-                            break;
-                            case 7:
-                            <p>Category Id: @this.CurrentCategoryId</p>
-                            <p>Contact Category: Business</p>
-                            break;
-                        }
+                        <div class="form_group">
+                            <p>Category Id: @this.GetCategoryFeedback().Id</p>
+                            <p>Category: @this.GetCategoryFeedback().Category</p>
+                        </div>
                     }
+
+                    <div class="form_group">
+                        <p>
+                            ID: #@this.ContactEntityDto.Id
+                        </p>
+                    </div>
                 </div>
             </EditForm>
         </div>
@@ -207,41 +158,3 @@
 <div class="page-top">
     <NavLink href="@PageRoute.ContactBookAdminUpdate" class="top"></NavLink>
 </div>
-
-
-
-
-
-@*
-
-    <div class="card">
-        <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
-        <div class="card_body">
-            <p class="card_title">
-                Contact Name: @this.ContactEntityDto.ContactName
-            </p>
-            <p class="card_text">
-                First Name: @this.ContactEntityDto.FirstName
-            </p>
-            <p class="card_text">
-                Last Name: @this.ContactEntityDto.LastName
-            </p>
-            <p class="card_text">
-                Email: @this.ContactEntityDto.Email
-            </p>
-            <p class="card_text">
-                Phone: @this.ContactEntityDto.Phone
-            </p>
-            <p class="card_text">
-                Address: @this.ContactEntityDto.Address
-            </p>
-            <p class="card_text">
-                Done: @this.IsDone
-            </p>
-            <p class="card_text">
-                Id: #@this.ContactEntityDto.Id
-            </p>
-        </div>
-    </div>
-
-*@

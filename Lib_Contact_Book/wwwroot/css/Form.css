@@ -14,9 +14,19 @@
 
 .EditForm
 {
-    padding: 1.0rem;
-    padding: 0;
-    background: #d52f2f;
+    background: #FFF;
+}
+
+.form_section
+{
+    background: #f3f6fd;
+    border: solid 1px #a5bbce;
+}
+
+.form_feedback_section
+{
+    background: #f3f6fd;
+    border: solid 1px #a5bbce;
 }
 
 .CardBtn button

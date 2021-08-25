@@ -1,9 +1,9 @@
 ﻿
-<h5 class="">Add Image</h5>
 <p>@this.HttpImageUploaderService.Message</p>
 <div class="form_group">
     <div class="custom_file">
-        <InputFile OnChange="this.HandleSelected" accept="image/png, image/jpeg, image/gif" id="inputFile" class="file_input btn btn_theme_blue_b btn_sm form_control" multiple />
+        <h4 class="control_label">Add Image</h4>
+        <InputFile OnChange="this.HandleSelected" accept="image/png, image/jpeg, image/gif" id="inputFile" class="file_input btn edit_form_btn_theme_blue_d btn_sm width_100_pc" multiple />
     </div>
 </div>
 
@@ -11,7 +11,7 @@
 {
     <div class="card">
         <div class="card_body">
-            <p class="card-text">
+            <p class="card_text">
                 <img src="@this.ImgUrl" style="width:100px" />
             </p>
         </div>

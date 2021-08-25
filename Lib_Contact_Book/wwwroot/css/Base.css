@@ -134,11 +134,10 @@ img
     border-radius: 100%;
 }
 
-.HRuleA hr,
 .hr_a
 {
     width: 100%;
-    padding: 2px;
+    padding: 10px;
     border: 0;
     background-color: #cc4754;
     border-radius: 40%;
@@ -327,6 +326,9 @@ img.img-circle,
 }
 
 /*--- S Width ------------*/
+
+
+.form_feedback_image_max_width,
 .max_width_sm,
 .max_width_md,
 .max_width_lg,
@@ -354,6 +356,11 @@ img.img-circle,
 .max_width_xl
 {
     max-width: 1800px;
+}
+
+.form_feedback_image_max_width
+{
+    max-width: 100px;
 }
 
 .GridImage

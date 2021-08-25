@@ -62,45 +62,56 @@
                 </InputSelect>
             </div>
 
+            <Uploader OnChange="this.AssignImageUrl" />
+
             <div class="form_group">
-                <label for="Image" class="control_label">Image:</label>
-                <div class="form_control">
-                    <Uploader OnChange="this.AssignImageUrl" />
+                <div class="grid_edif_form_btn_container_xs grid_edif_form_btn_container_md grid_edif_form_btn_container_lg">
+                    <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
+                        Undo
+                    </button>
+                    <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanRedo)" @onclick="this.TaskService.Redo">
+                        Redo
+                    </button>
+                    <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanRemove)" @onclick="this.TaskService.RemoveDone">
+                        Remove
+                    </button>
+                    <button type="submit" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@this.CanAdd">
+                        Add Entry
+                    </button>
                 </div>
             </div>
 
             <div class="form_group">
-                <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
-                    Undo
-                </button>
-                <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@(!this.TaskService.CanRedo)" @onclick="this.TaskService.Redo">
-                    Redo
-                </button>
-                <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@(!this.TaskService.CanRemove)" @onclick="this.TaskService.RemoveDone">
-                    Remove
-                </button>
-                <button type="submit" class="@CssData.CardLinkCssCascadingValueThemeBlueB" disabled="@this.CanAdd">
-                    Add Entry
-                </button>
-
                 @if(this.TaskService.Items.Count < 1)
                 {
                     <h1>Add One or more Items to the list before saving.</h1>
                     <p>A save button will appear.</p>
+
+                    <a class="@CssData.EditFormBtnThemeBlueDCss" href="@PageRoute.ContactBookAdmin">
+                        Back to Admin Home
+                    </a>
                 }
-                else
+                else if(this.TaskService.Items.Count > 0)
                 {
-                    <button type="button" class="@CssData.CardLinkCssCascadingValueThemeBlueB" @onclick="this.InsertAsync" disabled="@this.CanSave">
-                        Save
-                    </button>
+                    <div class="grid_edif_form_btn_container_xs grid_edif_form_btn_container_md">
+                        <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" @onclick="this.InsertAsync" disabled="@this.CanSave">
+                            Save
+                        </button>
+                        <a class="@CssData.EditFormBtnThemeBlueD50PcCss" href="@PageRoute.ContactBookAdmin">
+                            Back to Admin Home
+                        </a>
+                    </div>
+
                 }
+
             </div>
+
         </EditForm>
 
         <div class="form_group">
             <p>Entry List</p>
         </div>
-        
+
 
         <div class="checkbox_list_container- checkboxes grid_col_repeat_4_1fr pad_bottom_20">
             @foreach(var item in this.TaskService.Items)
