@@ -20,6 +20,8 @@ namespace MAK.Lib.BlazorUI.Views
             }
 
             this.timer = new Timer(this.OnTimerElapsed, null, 500, 0);
+
+            this.StateHasChanged();
         }
 
         private void OnTimerElapsed(object sender)

@@ -64,6 +64,7 @@ namespace Domain
         protected override void ClearFields()
         {
             this.ContactEntityDto.Id = 0;
+            this.ContactEntityDto.ContactEntityCategoryId = 0;
             this.ContactEntityDto.ContactName = string.Empty;
             this.ContactEntityDto.FirstName = string.Empty;
             this.ContactEntityDto.LastName = string.Empty;
@@ -72,6 +73,8 @@ namespace Domain
             this.ContactEntityDto.Address = string.Empty;
             this.ContactEntityDto.Image = string.Empty;
             this.ContactEntityDto.IsChecked = false;
+
+            this.StateHasChanged();
         }
 
 
@@ -84,6 +87,8 @@ namespace Domain
             this.PagerData = data.PagerData;
             this.IsLoading = false;
             this.IsError = false;
+
+            this.StateHasChanged();
         }
 
 
@@ -92,6 +97,8 @@ namespace Domain
             this.Categories = data;
             this.IsLoading = false;
             this.IsError = false;
+
+            this.StateHasChanged();
         }
 
 
@@ -255,6 +262,8 @@ namespace Domain
 
             return result;
         }
+
+        public int CurrentCategoryId { get; set; }
 
         public void Dispose()
         {

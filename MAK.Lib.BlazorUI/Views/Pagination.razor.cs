@@ -34,6 +34,8 @@ namespace MAK.Lib.BlazorUI.Views
             }
 
             this.links.Add(new PagingLink(this.PagerData.CurrentPage + 1, this.PagerData.HasNext, ">>", true));
+
+            this.StateHasChanged();
         }
 
         private async Task SelectPageHandler(PagingLink link)
@@ -45,6 +47,8 @@ namespace MAK.Lib.BlazorUI.Views
 
             this.PagerData.CurrentPage = link.Page;
             await this.OnSelectedPage.InvokeAsync(link.Page);
+
+            this.StateHasChanged();
         }
     }
 }

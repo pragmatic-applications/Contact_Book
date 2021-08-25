@@ -12,5 +12,7 @@
         public const string CardCss = "card text_white theme_blue_a margin_top_10";
         public const string CardCssThemeBlueA = "card text_white theme_blue_a margin_top_10";
         public const string CardCssThemeBlueB = "card text_theme_blue_b theme_blue_b margin_top_10";
+
+        public const string CardImageTopCss = "max_width_sm card_img_top display_block";
     }
 }

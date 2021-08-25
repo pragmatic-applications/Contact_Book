@@ -21,6 +21,9 @@ namespace Lib_Contact_Book.Contact_Book.Admin
             this.FormMode = FormMode.Update;
             this.ButtonText = "Save";
             this.BannerTitleValue = "Admin - Update";
+
+            this.CurrentCategoryId = this.ContactEntityDto.ContactEntityCategoryId;
+            this.CategoryId = this.ContactEntityDto.ContactEntityCategoryId.ToString();
         }
     }
 }

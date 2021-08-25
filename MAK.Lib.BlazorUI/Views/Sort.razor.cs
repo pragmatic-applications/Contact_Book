@@ -18,12 +18,13 @@ namespace MAK.Lib.BlazorUI.Views
         [CascadingParameter(Name = nameof(CascadingData.PositionCssClassParameterValue))]
         public string PositionCssClassCascadingParameter { get; set; }
 
-
         private async Task ApplySort(ChangeEventArgs eventArgs)
         {
             if(eventArgs.Value.ToString() == "-1") { return; }
 
             await this.OnSortChanged.InvokeAsync(eventArgs.Value.ToString());
+
+            this.StateHasChanged();
         }
     }
 }

@@ -524,3 +524,8 @@ img.img-circle,
         display: block;
     }
 }
+
+.display_block
+{
+    display: block;
+}
