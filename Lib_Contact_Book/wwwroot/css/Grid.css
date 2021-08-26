@@ -345,6 +345,129 @@ body
     align-items: center;
 }
 
+
+.grid_auto_fit_min_200_px
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    grid-gap: 0;
+    justify-content: center;
+}
+
+.grid_auto_fit_card_body_xs,
+.grid_auto_fit_card_xs
+{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0;
+    justify-content: center;
+}
+
+@media (min-width: 576px)
+{
+    .grid_auto_fit_card_sm-
+    {
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+
+    .grid_sm_2
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px)
+{
+    .grid_auto_fit_card_md
+    {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .grid_md_2
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px)
+{
+    .grid_auto_fit_card_lg
+    {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .grid_lg_4
+    {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px)
+{
+    .grid_auto_fit_card_xl
+    {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .grid_xl_1
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid_xl_4
+    {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1400px)
+{
+    .grid_auto_fit_card_xxl
+    {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .grid_xxl_2
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid_xxl_4
+    {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/*-----
+
+grid_auto_fit_card_xs grid_auto_fit_card_sm grid_auto_fit_card_md grid_auto_fit_card_lg
+
+576px
+
+768px
+
+992px
+
+1200px
+
+1400px
+
+----*/
+
+
+
+.grid_auto_fit
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    grid-gap: 0;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
 .grid_col_repeat_1_1fr,
 .grid_card_xs,
 .grid_xs,

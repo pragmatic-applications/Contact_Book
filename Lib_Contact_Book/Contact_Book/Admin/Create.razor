@@ -65,7 +65,7 @@
             <Uploader OnChange="this.AssignImageUrl" />
 
             <div class="form_group">
-                <div class="grid_edif_form_btn_container_xs grid_edif_form_btn_container_md grid_edif_form_btn_container_lg">
+                <div class="grid_auto_fit">
                     <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
                         Undo
                     </button>
@@ -93,7 +93,7 @@
                 }
                 else if(this.TaskService.Items.Count > 0)
                 {
-                    <div class="grid_edif_form_btn_container_xs grid_edif_form_btn_container_md">
+                    <div class="grid_auto_fit">
                         <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" @onclick="this.InsertAsync" disabled="@this.CanSave">
                             Save
                         </button>
