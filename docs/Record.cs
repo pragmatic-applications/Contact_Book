@@ -5,7 +5,7 @@
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
 // Date: 2021-08-27
-// Stop: 16:00
+// Stop: 17:00
 //=================================================================
 
 // Remove BlazorCard; using plain HTML and CSS (Grid) for the card feature.

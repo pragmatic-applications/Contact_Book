@@ -19,7 +19,7 @@
                 <input type="hidden" @bind="this.ContactEntityDto.Id" />
 
                 <div class="card">
-                    <ImageContainer ImageParameter="@this.ContactEntityDto.Image" MaxWidthParameter="max_width_sm card_img_top" />
+                    <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
                     <div class="card_header">
                         @this.ContactEntityDto.ContactName
                     </div>
@@ -61,10 +61,6 @@
                     </div>
                 </div>
 
-                @*<div class="form_group">
-                    <a href="@PageRoute.ContactBookAdmin" class="@CssData.CardLinkCssCascadingValueThemeBlueB">Cancel</a>
-                    <button type="submit" class="btn btn_danger btn_sm">Delete</button>
-                </div>*@
             </EditForm>
         </div>
     }

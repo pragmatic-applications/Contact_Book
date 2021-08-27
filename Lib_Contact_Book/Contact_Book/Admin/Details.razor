@@ -17,6 +17,7 @@
     else
     {
         <div class="card">
+            <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
             <div class="card_header">
                 @this.ContactEntityDto.ContactName
             </div>
@@ -62,54 +63,6 @@
                 ID: #@this.ContactEntityDto.Id
             </div>
         </div>
-
-
-        @*with Card component
-            <Card TEntity="ContactEntityDto" class="@CssData.CardCssThemeBlueB">
-                <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.CardImageTopCss" />
-                <CardHeader TEntity="ContactEntityDto">
-                    @this.ContactEntityDto.ContactName
-                </CardHeader>
-                <CardBody TEntity="ContactEntityDto">
-                    <CardText TEntity="ContactEntityDto">
-                        @this.ContactEntityDto.FirstName
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        @this.ContactEntityDto.LastName
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        @this.ContactEntityDto.Email
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        @this.ContactEntityDto.Phone
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        @this.ContactEntityDto.Address
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        Checked: @this.IsDone
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        Category Id: @this.ContactEntityDto.ContactEntityCategoryId
-                    </CardText>
-                    <CardText TEntity="ContactEntityDto">
-                        Contact Category: @this.ContactEntityDto.ContactCategory
-                    </CardText>
-
-                    <CardLink TEntity="ContactEntityDto" LinkUrl="@PageRoute.ContactBookAdmin" LinkCss="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                        Back
-                    </CardLink>
-                    <CardLink TEntity="ContactEntityDto" LinkUrl="@this.UrlUpdate" LinkCss="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                        Edit
-                    </CardLink>
-                    <CardLink TEntity="ContactEntityDto" LinkUrl="@this.UrlDelete" LinkCss="btn btn_danger btn_sm">
-                        X
-                    </CardLink>
-                </CardBody>
-                <CardFooter TEntity="ContactEntityDto">
-                    ID: #@this.ContactEntityDto.Id:
-                </CardFooter>
-            </Card>*@
     }
 </div>
 <div class="page-top">
