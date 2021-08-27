@@ -11,7 +11,8 @@
     
 }
 
-<div class="card_group- margin_top_bottom_5">
+<div class="card_group margin_top_bottom_5">
+
     <div class="@CssData.CardGroupCss">
 
         <Repeater TEntity="ContactEntityDto" Entities="@this.EntitiesCascadingParameter">
@@ -32,70 +33,3 @@
 
     </div>
 </div>
-
-@*========= BKP ===========*@
-
-@*@if(this.IsPageAdminCascadingParameter)
-    {
-        <p class="text table">
-            <a class="btn btn_primary btn_sm" href="@PageRoute.ContactBookAdminCreate">
-                Create
-            </a>
-        </p>
-    }
-
-    <div class="small_screen_container- zero_auto-  grid_col_repeat_4_1fr">
-
-        <div class="card_group">
-
-            <Repeater TEntity="ContactEntityDto" Entities="@this.EntitiesCascadingParameter">
-                <Entity Context="item">
-                    <CascadingValue Value="@item" Name="@nameof(CascadingData.EntityParameterValue)" IsFixed="false">
-                        <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(this.IsCrudValue)" IsFixed="false">
-                            <CascadingValue Value="@this.CardBodyCss" Name="@nameof(CascadingData.CardBodyCssCascadingValue)" IsFixed="false">
-
-                                <ItemCard />
-
-                                XXX Below
-                                @{
-                                        var currentId = item.Id;
-
-                                        if(this.IsCrudCascadingParameter)
-                                        {
-                                            this.UrlDetail = $"{PageRoute.S_AdminDetails}/{currentId}";
-                                            this.UrlEdit = $"{PageRoute.S_AdminUpdate}/{item.Id}";
-                                            this.UrlDelete = $"{PageRoute.S_AdminDelete}/{item.Id}";
-                                        }
-                                    }
-
-                                    <CascadingValue Value="this.UrlDetail" Name="@nameof(CascadingData.CardLinkCascadingValue)" IsFixed="false">
-                                        <Card>
-                                            <CardBody>
-                                                <CardTitle>
-                                                    #@item.Id: @item.ContactName
-                                                </CardTitle>
-                                                <CardText>
-                                                    Email: @item.Email
-                                                </CardText>
-                                                <CardText>
-                                                    Checked: @item.IsChecked
-                                                </CardText>
-                                                <CardLink>
-                                                    Detail
-                                                </CardLink>
-                                            </CardBody>
-                                        </Card>
-                                    </CascadingValue>
-
-                            </CascadingValue>
-                        </CascadingValue>
-                    </CascadingValue>
-                </Entity>
-            </Repeater>
-
-        </div>
-    </div>*@
-
-
-
-

@@ -13,6 +13,7 @@
 @import url('Spacing.css');
 @import url('Sort.css');
 @import url('Theme.css');
+@import url('Sizing.css');
 
 /*--- S NN ------------  -----*/
 /*@import url('PageFeature.css');*/
@@ -104,11 +105,6 @@ hr
 {
     width: 100%;
     margin: 0 auto;
-    /* background-color: var(--BannerLowerTint); */
-    background-color: rgba(255, 255, 255, 0.5);
-    background-color: rgb(134 134 134 / 75%);
-    background-color: rgb(39 39 39 / 80%);
-    background-color: rgb(93 93 93 / 85%);
     background-color: rgb(189 189 189 / 75%);
 }
 
@@ -362,4 +358,12 @@ h4.guest
     padding-bottom: 15px;
     font-family: 'Segoe UI Light';
     border-bottom: 1px solid #fff;
+}
+
+.card_item
+{
+    width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }

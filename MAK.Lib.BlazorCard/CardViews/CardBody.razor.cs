@@ -47,7 +47,7 @@ namespace MAK.Lib.BlazorCard.CardViews
         {
             var i = 0;
             builder.OpenElement(i++, "div");
-            builder.AddAttribute(i++, "class", $"card_body {this.CardBodyCssCascadingParameter}");
+            builder.AddAttribute(i++, "class", this.CardBodyCssCascadingParameter);
 
             if(this.title != null)
             {

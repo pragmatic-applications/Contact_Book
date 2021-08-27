@@ -1053,18 +1053,3 @@ a:focus
     opacity: 0.25;
     opacity: 0.35;
 }
-
-.width_100_pc
-{
-    width: 100%;
-}
-
-.width_50_pc
-{
-    width: 50%;
-}
-
-.width_25_pc
-{
-    width: 25%;
-}

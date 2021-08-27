@@ -1,7 +1,8 @@
 ﻿
 @import url('Variables.css');
 
-*
+*,
+div
 {
     margin: 0;
     padding: 0;
@@ -318,7 +319,6 @@ ol li span
     }
 }
 
-img.img-circle,
 .img_circle
 {
     margin: 0 auto;
@@ -326,42 +326,6 @@ img.img-circle,
 }
 
 /*--- S Width ------------*/
-
-
-.form_feedback_image_max_width,
-.max_width_sm,
-.max_width_md,
-.max_width_lg,
-.max_width_xl
-{
-    width: 100%;
-    margin: 0 auto;
-}
-
-.max_width_sm
-{
-    max-width: 400px;
-}
-
-.max_width_md
-{
-    max-width: 768px;
-}
-
-.max_width_lg
-{
-    max-width: 1600px;
-}
-
-.max_width_xl
-{
-    max-width: 1800px;
-}
-
-.form_feedback_image_max_width
-{
-    max-width: 100px;
-}
 
 .GridImage
 {

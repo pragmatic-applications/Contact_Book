@@ -10,7 +10,6 @@
         public const string SpreadValue = "SpreadValue";
         public const string SelectParameterValue = "SelectParameterValue";
 
-        //
         public const string CardBodyCssCascadingValue = "CardBodyCssCascadingValue";
         public const string IdCascadingValue = "IdCascadingValue";
         public const string ToggleSwitchCascadingValue = "ToggleSwitchCascadingValue";
@@ -18,7 +17,6 @@
         public const string TargetUrlCascadingValue = "TargetUrlCascadingValue";
         public const string TextContentCascadingValue = "TextContentCascadingValue";
         public const string CardLinkCssCascadingValue = "CardLinkCssCascadingValue";
-
-        //TargetUrlCascadingValue
+        public const string CardHeaderCssCascadingValue = "CardHeaderCssCascadingValue";
     }
 }

@@ -44,18 +44,27 @@
 
 .theme_blue_b
 {
-    background: #eaf1f7;
-    background: #d9eeff;
-    border: solid 1px #8cafd0;
+    background: #f3f6fd;
+    /*border: solid 1px #a5bbce;*/
 }
-.btn_theme_blue_b
+
+/*.btn_theme_blue_b
 {
     background: #d2e6f7;
     border: solid 1px #8cafd0;
     outline: none;
     text-decoration: none;
     transition: all 0.5s ease;
+}*/
+
+.btn_theme_blue_b
+{
+    background: #dfe3ec;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.5s ease;
 }
+
 .btn_theme_blue_b:active,
 .btn_theme_blue_b:hover,
 .btn_theme_blue_b:focus

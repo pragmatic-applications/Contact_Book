@@ -4,11 +4,11 @@
 // Programmer: Maurice Antonio Kelly @MAKMaurice
 // Description: A Contact Book App with undo, redo and database CRUD features.
 // ASP.NET Core 5.0
-// Date: 2021-08-26
-// Stop: 13:00
+// Date: 2021-08-27
+// Stop: 16:00
 //=================================================================
 
-//
+// Remove BlazorCard; using plain HTML and CSS (Grid) for the card feature.
 
 //==========================================================================
 // Migrations S (2021-08-22)
@@ -35,12 +35,6 @@
 
 /*
 
-// To style...
-<CardHeader TEntity="ContactEntityDto">
-    Header Text
-</CardHeader>
-<CardFooter TEntity="ContactEntityDto">
-    (An ID: @this.EntityCascadingParameter.Id)
-</CardFooter>
+
 
 //*/

@@ -19,7 +19,7 @@
         <div class="EditForm">
             <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.UpdateAsync">
 
-                <div class="form_section margin_bottom_10">
+                <div class="@CssData.CardCssThemeBlueB form_section- margin_bottom_10">
                     <DataAnnotationsValidator />
                     <input type="hidden" @bind="this.ContactEntityDto.Id" />
 
