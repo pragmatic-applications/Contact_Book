@@ -14,11 +14,6 @@ namespace Lib_Contact_Book.Contact_Book.Admin
             base.OnInitialized();
 
             this.BannerTitleValue = "Admin";
-
-            this.IsCrudValue = true;
-            this.IsPageAdminValue = true;
-            this.IsPageAdminCascadingParameter = true;
-            this.IsCrudCascadingParameter = true;
         }
     }
 }

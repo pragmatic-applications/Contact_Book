@@ -1,0 +1,29 @@
+﻿
+@*@inherits ItemDataBase
+
+<div class="card">
+    <div class="card_header">
+        @this.EntityCascadingParameter.ContactName
+    </div>
+    <div class="card_body">
+        <div class="card_text">
+            @this.EntityCascadingParameter.FirstName
+        </div>
+        <div class="card_text">
+            @this.EntityCascadingParameter.Email
+        </div>
+        <div class="card_text">
+            Checked: @this.IsDone
+        </div>
+    </div>
+
+    <div class="card_link_group_xs">
+        <a href="@this.ItemLink" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
+            Detail
+        </a>
+    </div>
+
+    <div class="card_footer">
+        ID: #@this.EntityCascadingParameter.Id
+    </div>
+</div>*@

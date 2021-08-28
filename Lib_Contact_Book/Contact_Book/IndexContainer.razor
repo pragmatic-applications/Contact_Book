@@ -1,0 +1,39 @@
+﻿@inherits Component
+
+<div class="card_group margin_top_bottom_5">
+    <div class="@CssData.CardGroupCss">
+
+        <Repeater TEntity="ContactEntityDto" Entities="@this.EntitiesCascadingParameter">
+            <Entity Context="item">
+                <div class="card">
+                    <div class="card_header">
+                        @item.ContactName
+                    </div>
+
+                    <div class="card_body">
+                        <div class="card_text">
+                            @item.FirstName
+                        </div>
+                        <div class="card_text">
+                            @item.Email
+                        </div>
+                        <div class="card_text">
+                            Checked: @this.GetIsChecked(item)
+                        </div>
+                    </div>
+
+                    <div class="card_link_group_xs">
+                        <a href="@this.GetLink(item)" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                            Detail
+                        </a>
+                    </div>
+
+                    <div class="card_footer">
+                        ID: #@this.GetId(item)
+                    </div>
+                </div>
+            </Entity>
+        </Repeater>
+
+    </div>
+</div>

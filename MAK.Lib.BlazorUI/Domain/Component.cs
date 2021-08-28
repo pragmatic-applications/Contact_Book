@@ -66,21 +66,6 @@ namespace Domain
         [CascadingParameter] public string TitleCascadingParameter { get; set; }
 
         [Parameter] public bool IsPageIndexParameter { get; set; } = false;
-        [Parameter] public bool IsCrudParameter { get; set; } = false;
-        [Parameter] public bool IsPageAdminParameter { get; set; } = false;
-
-        protected bool IsPageAdminValue { get; set; } = true;
-
-        [CascadingParameter(Name = nameof(IsPageAdminValue))]
-        public bool IsPageAdminCascadingParameter { get; set; }
-
-        protected bool IsCrudValue { get; set; } = true;
-
-        [CascadingParameter(Name = nameof(IsCrudValue))]
-        public bool IsCrudCascadingParameter { get; set; }
-
-        public string GridCssClass => this.IsCrudCascadingParameter ? "grid_col_repeat_4_1fr" : "grid_col_repeat_3_1fr";
-        public string CardBodyCss => "grid_col_repeat_2_1fr";
 
         public string UrlUpdate { get; set; }
         public string UrlDelete { get; set; }

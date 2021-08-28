@@ -14,11 +14,7 @@
     else
     {
         <CascadingValue Value="@this.ContactEntityDtos" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
-            <CascadingValue Value="@this.IsCrudCascadingParameter" Name="@nameof(this.IsCrudValue)" IsFixed="true">
-                <CascadingValue Value="@this.IsPageAdminCascadingParameter" Name="@nameof(this.IsPageAdminValue)" IsFixed="true">
-                    <IndexContainer />
-                </CascadingValue>
-            </CascadingValue>
+            <AdminIndexContainer />
         </CascadingValue>
     }
 

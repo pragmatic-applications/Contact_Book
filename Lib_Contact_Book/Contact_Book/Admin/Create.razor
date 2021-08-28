@@ -80,7 +80,6 @@
                     </button>
                 </div>
             </div>
-
             <div class="form_group">
                 @if(this.TaskService.Items.Count < 1)
                 {
@@ -101,18 +100,12 @@
                             Back to Admin Home
                         </a>
                     </div>
-
                 }
-
             </div>
-
         </EditForm>
-
         <div class="form_group">
             <p>Entry List</p>
         </div>
-
-
         <div class="checkbox_list_container- checkboxes grid_col_repeat_4_1fr pad_bottom_20">
             @foreach(var item in this.TaskService.Items)
             {
@@ -131,7 +124,6 @@
         </div>
     </div>
 </div>
-
 <div class="page-top">
     <NavLink href="@PageRoute.ContactBookAdminCreate" class="top"></NavLink>
 </div>

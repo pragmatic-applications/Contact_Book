@@ -10,11 +10,6 @@ namespace Lib_Contact_Book.Contact_Book
             base.OnInitialized();
 
             this.BannerTitleValue = "ContactBook";
-
-            this.IsCrudValue = false;
-            this.IsPageAdminValue = false;
-            this.IsCrudCascadingParameter = false;
-            this.IsPageAdminCascadingParameter = false;
         }
     }
 }

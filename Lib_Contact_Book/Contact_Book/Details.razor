@@ -1,0 +1,59 @@
+﻿@page "/ContactBook/details/{Id:int}"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="container_basic">
+
+    @if(this.ContactEntityDto?.Id == 0)
+    {
+        <div class="card">
+            <div class="card_body">
+                <p class="card-text">No Item to show.</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
+            <div class="card_header">
+                @this.ContactEntityDto.ContactName
+            </div>
+            <div class="card_body">
+                <div class="card_text">
+                    @this.ContactEntityDto.FirstName
+                </div>
+                <div class="card_text">
+                    @this.ContactEntityDto.LastName
+                </div>
+                <div class="card_text">
+                    @this.ContactEntityDto.Email
+                </div>
+                <div class="card_text">
+                    @this.ContactEntityDto.Phone
+                </div>
+                <div class="card_text">
+                    @this.ContactEntityDto.Address
+                </div>
+                <div class="card_text">
+                    Checked: @this.IsDone
+                </div>
+                <div class="card_text">
+                    Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+                </div>
+                <div class="card_text">
+                    Contact Category: @this.ContactEntityDto.ContactCategory
+                </div>
+            </div>
+
+            <div class="card_footer">
+                ID: #@this.ContactEntityDto.Id
+            </div>
+        </div>
+    }
+</div>
+<div class="page-top">
+    <NavLink href="@PageRoute.ContactBookDetails" class="top"></NavLink>
+</div>

@@ -36,36 +36,6 @@ namespace Lib_Contact_Book.Views
                 }
             };
 
-
-            //this.PageLinks = new List<PageLink>
-            //{
-            //    new PageLink
-            //    {
-            //        Route = "/",
-            //        Link = "Home"
-            //    },
-            //    new PageLink
-            //    {
-            //        Route = PageRoute.ContactBook,
-            //        Link = "Contact Book"
-            //    },
-            //    new PageLink
-            //    {
-            //        Route = PageRoute.MicroTech,
-            //        Link = "MicroTech"
-            //    },
-            //    new PageLink
-            //    {
-            //        Route = @PageRoute.ContactBookAdmin,
-            //        Link = "ContactBook Admin"
-            //    },
-            //    new PageLink
-            //    {
-            //        Route = @PageRoute.MicroTechAbout,
-            //        Link = "MicroTech About"
-            //    }
-            //};
-
             this.FooterPageLinks = new List<PageLink>
             {
                 new PageLink
@@ -85,7 +55,7 @@ namespace Lib_Contact_Book.Views
                 }
             };
 
-            this.MainCascadingValue = new MainCascadingValue(new ItemSelect(), "banner_background_image", "sort_container", "card_body grid_card_3", SharedData.Spread);
+            this.MainCascadingValue = new MainCascadingValue(new ItemSelect(), "banner_background_image", "sort_container", SharedData.Spread);
         }
 
         public MainCascadingValue MainCascadingValue { get; set; }

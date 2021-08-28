@@ -27,6 +27,10 @@
         public const string S_AdminDelete = "/ContactBook/Admin/Delete";
         public const string S_AdminDelete_S = "/ContactBook/Admin/Delete/";
 
+        public const string ContactBookDetails = "ContactBook/Details/{id:int}";
+        public const string S_Details = "/ContactBook/Details";
+        public const string S_Details_S = "/ContactBook/Details/";
+
         public const string ContactBookAdminDetails = "ContactBook/Admin/Details/{id:int}";
         public const string S_AdminDetails = "/ContactBook/Admin/Details";
         public const string S_AdminDetails_S = "/ContactBook/Admin/Details/";
