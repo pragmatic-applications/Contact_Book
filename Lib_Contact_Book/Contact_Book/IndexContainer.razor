@@ -7,29 +7,29 @@
             <Entity Context="item">
                 <div class="card">
                     <div class="card_header">
-                        @item.ContactName
+                        ID: #@this.GetId(item)
                     </div>
-
-                    <div class="card_body">
+                    <div class="card_body_1">
                         <div class="card_text">
-                            @item.FirstName
+                            Contact: @item.ContactName
                         </div>
                         <div class="card_text">
-                            @item.Email
+                            First Name: @item.FirstName
                         </div>
                         <div class="card_text">
-                            Checked: @this.GetIsChecked(item)
+                            Email: @item.Email
+                        </div>
+                        <div class="card_text">
+                            Tel: @item.Phone
                         </div>
                     </div>
-
                     <div class="card_link_group_xs">
                         <a href="@this.GetLink(item)" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
                             Detail
                         </a>
                     </div>
-
                     <div class="card_footer">
-                        ID: #@this.GetId(item)
+                        Checked: @this.GetIsChecked(item)
                     </div>
                 </div>
             </Entity>

@@ -19,32 +19,32 @@
         <div class="card">
             <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
             <div class="card_header">
-                @this.ContactEntityDto.ContactName
+                ID: #@this.ContactEntityDto.Id
             </div>
-            <div class="card_body">
+            <div class="card_body_1 card_body_2">
                 <div class="card_text">
-                    @this.ContactEntityDto.FirstName
+                    ID Name: @this.ContactEntityDto.ContactName
                 </div>
                 <div class="card_text">
-                    @this.ContactEntityDto.LastName
+                    Category: @this.ContactEntityDto.ContactCategory
                 </div>
                 <div class="card_text">
-                    @this.ContactEntityDto.Email
+                    First Name: @this.ContactEntityDto.FirstName
                 </div>
                 <div class="card_text">
-                    @this.ContactEntityDto.Phone
+                    Last Name: @this.ContactEntityDto.LastName
                 </div>
                 <div class="card_text">
-                    @this.ContactEntityDto.Address
+                    Email: @this.ContactEntityDto.Email
                 </div>
                 <div class="card_text">
-                    Checked: @this.IsDone
+                    Tel: @this.ContactEntityDto.Phone
+                </div>
+                <div class="card_text">
+                    Address: @this.ContactEntityDto.Address
                 </div>
                 <div class="card_text">
                     Category Id: @this.ContactEntityDto.ContactEntityCategoryId
-                </div>
-                <div class="card_text">
-                    Contact Category: @this.ContactEntityDto.ContactCategory
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                 </a>
             </div>
             <div class="card_footer">
-                ID: #@this.ContactEntityDto.Id
+                Checked: @this.IsDone
             </div>
         </div>
     }

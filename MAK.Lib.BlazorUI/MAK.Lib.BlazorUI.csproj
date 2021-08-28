@@ -17,8 +17,4 @@
         <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\MAK.Lib.Constant\MAK.Lib.Constant.csproj" />
-    </ItemGroup>
-
 </Project>
