@@ -84,14 +84,14 @@
                 }
                 else if(this.TaskService.Items.Count > 0)
                 {
-            <div class="grid_auto_fit">
-                <Button OnClick="this.InsertAsync" Condition="@this.CanSave" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Save" />
-                <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                    <UrlLink>
-                        Cancel
-                    </UrlLink>
-                </LinkButton>
-            </div>
+                    <div class="grid_auto_fit">
+                        <Button OnClick="this.InsertAsync" Condition="@this.CanSave" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Save" />
+                        <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                            <UrlLink>
+                                Cancel
+                            </UrlLink>
+                        </LinkButton>
+                    </div>
                 }
             </div>
         </EditForm>

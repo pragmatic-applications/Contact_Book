@@ -12,6 +12,35 @@
     }
     else
     {
+        <CascadingValue Value="this.ContactEntityDtos" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
+            <IndexContainer />
+        </CascadingValue>
+    }
+
+    <PageFeature OnSelectedPage="this.SelectedPage" OnSortChanged="this.SortChanged" OnSearchChanged="SearchChanged" PagerDataParameter="@this.PagerData" />
+
+</div>
+
+<div class="page-top">
+    <NavLink href="@PageRoute.ContactBook" class="top"></NavLink>
+</div>
+
+
+@*
+@page "/ContactBook"
+
+@inherits ItemBase
+
+<Banner BannerTitleParameter="@this.BannerTitleValue" AppNameParameter="@this.AppNameValue" />
+
+<div class="center_max_width_lg">
+
+    @if(this.ContactEntityDtos == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
         <CascadingValue Value="@this.ContactEntityDtos" Name="@nameof(CascadingData.EntitiesParameterValue)" IsFixed="false">
             <IndexContainer />
         </CascadingValue>
@@ -24,3 +53,6 @@
 <div class="page-top">
     <NavLink href="@PageRoute.ContactBook" class="top"></NavLink>
 </div>
+*@
+
+

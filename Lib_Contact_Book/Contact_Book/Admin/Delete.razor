@@ -13,56 +13,6 @@
     {
         <h5 class="text_center">@this.FormTitle</h5>
 
-        @*<div class="card">
-            <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.DeleteAsync">
-                <DataAnnotationsValidator />
-                <input type="hidden" @bind="this.ContactEntityDto.Id" />
-
-                <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
-                <div class="card_header">
-                    ID: #@this.ContactEntityDto.Id
-                </div>
-                <div class="card_body">
-                    <div class="card_text">
-                        Contact: @this.ContactEntityDto.ContactName
-                    </div>
-                    <div class="card_text">
-                        @this.ContactEntityDto.FirstName
-                    </div>
-                    <div class="card_text">
-                        @this.ContactEntityDto.LastName
-                    </div>
-                    <div class="card_text">
-                        @this.ContactEntityDto.Email
-                    </div>
-                    <div class="card_text">
-                        @this.ContactEntityDto.Phone
-                    </div>
-                    <div class="card_text">
-                        @this.ContactEntityDto.Address
-                    </div>
-                    <div class="card_text">
-                        Category Id: @this.ContactEntityDto.ContactEntityCategoryId
-                    </div>
-                    <div class="card_text">
-                        Category: @this.ContactEntityDto.ContactCategory
-                    </div>
-                </div>
-                <div class="card_footer">
-                    Checked: @this.IsDone
-                </div>
-                <div class="card_link_group_xs card_link_group_md_2">
-                    <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                        <UrlLink>
-                            Cancel
-                        </UrlLink>
-                    </LinkButton>
-
-                    <Submit Css="btn btn_danger btn_sm" LinkText="Delete" />
-                </div>
-            </EditForm>
-        </div>*@
-
         <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.DeleteAsync">
             <DataAnnotationsValidator />
             <input type="hidden" @bind="this.ContactEntityDto.Id" />
@@ -116,3 +66,60 @@
 <div class="page-top">
     <NavLink href="@PageRoute.ContactBookAdminDelete" class="top"></NavLink>
 </div>
+
+
+
+@*
+<div class="card">
+    <EditForm Model="@this.ContactEntityDto" OnValidSubmit="@this.DeleteAsync">
+        <DataAnnotationsValidator />
+        <input type="hidden" @bind="this.ContactEntityDto.Id" />
+
+        <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
+        <div class="card_header">
+            ID: #@this.ContactEntityDto.Id
+        </div>
+        <div class="card_body">
+            <div class="card_text">
+                Contact: @this.ContactEntityDto.ContactName
+            </div>
+            <div class="card_text">
+                @this.ContactEntityDto.FirstName
+            </div>
+            <div class="card_text">
+                @this.ContactEntityDto.LastName
+            </div>
+            <div class="card_text">
+                @this.ContactEntityDto.Email
+            </div>
+            <div class="card_text">
+                @this.ContactEntityDto.Phone
+            </div>
+            <div class="card_text">
+                @this.ContactEntityDto.Address
+            </div>
+            <div class="card_text">
+                Category Id: @this.ContactEntityDto.ContactEntityCategoryId
+            </div>
+            <div class="card_text">
+                Category: @this.ContactEntityDto.ContactCategory
+            </div>
+        </div>
+        <div class="card_footer">
+            Checked: @this.IsDone
+        </div>
+        <div class="card_link_group_xs card_link_group_md_2">
+            <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                <UrlLink>
+                    Cancel
+                </UrlLink>
+            </LinkButton>
+
+            <Submit Css="btn btn_danger btn_sm" LinkText="Delete" />
+        </div>
+    </EditForm>
+</div>
+*@
+
+
+

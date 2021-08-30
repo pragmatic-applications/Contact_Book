@@ -3,17 +3,12 @@ using System.Threading.Tasks;
 
 using Domain;
 
-using Microsoft.AspNetCore.Components;
-
 namespace Lib_Contact_Book.Contact_Book.Admin
 {
     public partial class Update : ItemBase
     {
-        [Parameter] public int Id { get; set; }
-
         protected override async Task OnInitializedAsync()
         {
-            await base.OnInitializedAsync();
             await this.GetAsync(id: this.Id);
 
             CoreComponent.EntityId = this.Id;
@@ -74,11 +69,11 @@ namespace Lib_Contact_Book.Contact_Book.Admin
 
             return data;
         }
-    }
 
-    public class CategoryFeedback
-    {
-        public int Id { get; set; }
-        public string Category { get; set; }
+        protected override async Task UpdateAsync()
+        {
+            await this.HttpContactEntityService.PutEntityAsync(this.ContactEntityDto.Id, this.ContactEntityDto);
+            this.Reload();
+        }
     }
 }
