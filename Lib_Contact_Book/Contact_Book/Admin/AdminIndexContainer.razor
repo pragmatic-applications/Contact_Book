@@ -12,33 +12,62 @@
 
         <Repeater TEntity="ContactEntityDto" Entities="@this.EntitiesCascadingParameter">
             <Entity Context="item">
-                <div class="card">
-                    <div class="card_header">
-                        ID: #@this.GetId(item)
-                    </div>
-                    <div class="card_body_1">
-                        <div class="card_text">
-                            Contact: @item.ContactName
-                        </div>
-                        <div class="card_text">
-                            First Name: @item.FirstName
-                        </div>
-                        <div class="card_text">
-                            Email: @item.Email
-                        </div>
-                        <div class="card_text">
-                            Tel: @item.Phone
-                        </div>
-                    </div>
-                    <div class="card_link_group_xs">
-                        <a href="@this.GetLink(item)" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                            Detail
-                        </a>
-                    </div>
-                    <div class="card_footer">
-                        Checked: @this.GetIsChecked(item)
-                    </div>
+
+                @*<div class="card">
+            <div class="card_header">
+                ID: #@this.GetId(item)
+            </div>
+            <div class="card_body_1">
+                <div class="card_text">
+                    Contact: @item.ContactName
                 </div>
+                <div class="card_text">
+                    First Name: @item.FirstName
+                </div>
+                <div class="card_text">
+                    Email: @item.Email
+                </div>
+                <div class="card_text">
+                    Tel: @item.Phone
+                </div>
+            </div>
+            <div class="card_link_group_xs">
+                <a href="@this.GetLink(item)" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                    Detail
+                </a>
+            </div>
+            <div class="card_footer">
+                Checked: @this.GetIsChecked(item)
+            </div>
+        </div>*@
+
+
+
+                <Card TEntity="ContactEntityDto" class="card">
+                    <CardHeader TEntity="ContactEntityDto" Css="card_header">
+                        ID: #@this.GetId(item)
+                    </CardHeader>
+                    <CardBody TEntity="ContactEntityDto" Css="card_body_1">
+                        <CardText TEntity="ContactEntityDto">
+                            Contact: @item.ContactName
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            First Name: @item.FirstName
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            Email: @item.Email
+                        </CardText>
+                        <CardText TEntity="ContactEntityDto">
+                            Tel: @item.Phone
+                        </CardText>
+                        <CardLink TEntity="ContactEntityDto" LinkUrl="@this.GetLink(item)" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                            Detail
+                        </CardLink>
+                    </CardBody>
+                    <CardFooter TEntity="ContactEntityDto" Css="card_footer">
+                        Checked: @this.GetIsChecked(item)
+                    </CardFooter>
+                </Card>
             </Entity>
         </Repeater>
 

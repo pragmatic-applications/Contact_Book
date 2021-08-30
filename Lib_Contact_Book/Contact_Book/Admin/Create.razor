@@ -13,7 +13,7 @@
             <DataAnnotationsValidator />
 
             <div class="form_group">
-                <label for="Name" class="control_label">Contact Name</label>
+                <label for="Name" class="control_label">Contact</label>
                 <InputText @bind-Value="this.ContactEntityDto.ContactName" class="form_control" id="ContactName" placeholder="Contact Name: Jane Doe or Health Medical Practice" @onchange="(_) => this.HandleContactNameFormField()" />
                 <ValidationMessage For="@(() => this.ContactEntityDto.ContactName)" />
             </div>
@@ -66,18 +66,10 @@
 
             <div class="form_group">
                 <div class="grid_auto_fit">
-                    <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanUndo)" @onclick="this.TaskService.Undo">
-                        Undo
-                    </button>
-                    <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanRedo)" @onclick="this.TaskService.Redo">
-                        Redo
-                    </button>
-                    <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@(!this.TaskService.CanRemove)" @onclick="this.TaskService.RemoveDone">
-                        Remove
-                    </button>
-                    <button type="submit" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@this.CanAdd">
-                        Add Entry
-                    </button>
+                    <Button OnClick="this.TaskService.Undo" Condition="@(!this.TaskService.CanUndo)" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Undo" />
+                    <Button OnClick="this.TaskService.Redo" Condition="@(!this.TaskService.CanRedo)" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Redo" />
+                    <Button OnClick="this.TaskService.RemoveDone" Condition="@(!this.TaskService.CanRemove)" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Remove" />
+                    <Submit Condition="@this.CanAdd" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Add" />
                 </div>
             </div>
             <div class="form_group">
@@ -92,14 +84,14 @@
                 }
                 else if(this.TaskService.Items.Count > 0)
                 {
-                    <div class="grid_auto_fit">
-                        <button type="button" class="@CssData.EditFormBtnThemeBlueDCss" @onclick="this.InsertAsync" disabled="@this.CanSave">
-                            Save
-                        </button>
-                        <a class="@CssData.EditFormBtnThemeBlueD50PcCss" href="@PageRoute.ContactBookAdmin">
-                            Back to Admin Home
-                        </a>
-                    </div>
+            <div class="grid_auto_fit">
+                <Button OnClick="this.InsertAsync" Condition="@this.CanSave" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Save" />
+                <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                    <UrlLink>
+                        Cancel
+                    </UrlLink>
+                </LinkButton>
+            </div>
                 }
             </div>
         </EditForm>

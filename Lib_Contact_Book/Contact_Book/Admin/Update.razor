@@ -10,7 +10,7 @@
     {
         <div class="card">
             <div class="card_body">
-                <p class="card-text">No Item to edit.</p>
+                <p class="card_text">No Item to edit.</p>
             </div>
         </div>
     }
@@ -33,7 +33,6 @@
                         <InputText @bind-Value="this.ContactEntityDto.FirstName" id="FirstName" class="form_control" placeholder="First Name"></InputText>
                         <ValidationMessage For="@(() => this.ContactEntityDto.FirstName)" />
                     </div>
-
                     <div class="form_group">
                         <label for="LastName" class="control_label">Last Name</label>
                         <InputText @bind-Value="this.ContactEntityDto.LastName" id="LastName" class="form_control" placeholder="Last Name"></InputText>
@@ -54,7 +53,6 @@
                         <InputTextArea @bind-Value="this.ContactEntityDto.Address" id="Address" class="form_control" rows="3" />
                         <ValidationMessage For="@(() => this.ContactEntityDto.Address)" />
                     </div>
-
                     <div class="form_group">
                         <input type="hidden" @bind="this.CategoryId" />
                         <label for="ContactEntityCategoryId" class="control_label">Category</label>
@@ -91,12 +89,13 @@
 
                     <div class="form_group">
                         <div class="grid_auto_fit">
-                            <a class="@CssData.EditFormBtnThemeBlueDCss" href="@PageRoute.ContactBookAdmin">
-                                Cancel
-                            </a>
-                            <button type="submit" class="@CssData.EditFormBtnThemeBlueDCss" disabled="@this.IsDisabled">
-                                Save
-                            </button>
+                            <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.EditFormBtnThemeBlueDCss">
+                                <UrlLink>
+                                    Cancel
+                                </UrlLink>
+                            </LinkButton>
+
+                            <Submit Condition="@this.IsDisabled" Css="@CssData.EditFormBtnThemeBlueDCss" LinkText="Save" />
                         </div>
                     </div>
                 </div>

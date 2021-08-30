@@ -16,6 +16,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Lib_Blazor_Uploader\Lib_Blazor_Uploader.csproj" />
       <ProjectReference Include="..\Lib_Contact_Book_Interface\Lib_Contact_Book_Interface.csproj" />
+      <ProjectReference Include="..\MAK.Lib.BlazorCard\MAK.Lib.BlazorCard.csproj" />
       <!--<ProjectReference Include="..\MAK.Lib.BlazorCard\MAK.Lib.BlazorCard.csproj" />-->
       <ProjectReference Include="..\MAK.Lib.BlazorUI\MAK.Lib.BlazorUI.csproj" />
     </ItemGroup>

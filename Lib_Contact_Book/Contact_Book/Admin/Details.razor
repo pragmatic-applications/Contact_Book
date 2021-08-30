@@ -23,7 +23,7 @@
             </div>
             <div class="card_body_1 card_body_2">
                 <div class="card_text">
-                    ID Name: @this.ContactEntityDto.ContactName
+                    Contact: @this.ContactEntityDto.ContactName
                 </div>
                 <div class="card_text">
                     Category: @this.ContactEntityDto.ContactCategory
@@ -47,20 +47,25 @@
                     Category Id: @this.ContactEntityDto.ContactEntityCategoryId
                 </div>
             </div>
-
-            <div class="card_link_group_xs card_link_group_md">
-                <a href="@PageRoute.ContactBookAdmin" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                    Back
-                </a>
-                <a href="@this.UrlUpdate" class="@CssData.CardLinkCssCascadingValueThemeBlueB">
-                    Edit
-                </a>
-                <a href="@this.UrlDelete" class="btn btn_danger btn_sm">
-                    X
-                </a>
-            </div>
             <div class="card_footer">
                 Checked: @this.IsDone
+            </div>
+            <div class="card_link_group_xs card_link_group_md">
+                <LinkButton Url="@PageRoute.ContactBookAdmin" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                    <UrlLink>
+                        Back
+                    </UrlLink>
+                </LinkButton>
+                <LinkButton Url="@this.UrlUpdate" Css="@CssData.CardLinkCssCascadingValueThemeBlueB">
+                    <UrlLink>
+                        Edit
+                    </UrlLink>
+                </LinkButton>
+                <LinkButton Url="@this.UrlDelete" Css="btn btn_danger btn_sm">
+                    <UrlLink>
+                        X
+                    </UrlLink>
+                </LinkButton>
             </div>
         </div>
     }

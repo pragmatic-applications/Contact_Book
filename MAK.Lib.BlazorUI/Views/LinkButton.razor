@@ -1,0 +1,13 @@
+
+@if(this.UrlLink != null)
+{
+    <NavLink href="@this.Url" class="@this.Css" alt="@(this.Alt != null ? this.Alt : "")" title="@(this.Title != null ? this.Title : "")">
+        @this.UrlLink
+    </NavLink>
+}
+else
+{
+<NavLink href="@this.Url" class="@this.Css" alt="@(this.Alt != null ? this.Alt : "")" title="@(this.Title != null ? this.Title : "")">
+    @this.LinkText
+</NavLink>
+}

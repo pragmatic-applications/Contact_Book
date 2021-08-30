@@ -1,0 +1,43 @@
+﻿@*@typeparam TItem
+
+<div class="card">
+    <ImageContainer ImageParameter="@this.ContactEntityDto.Image" class="@CssData.FormFeedbackImageCss" />
+
+    @if(this.Header != null)
+    {
+        <div class="card_header">
+            ID: #@this.ContactEntityDto.Id
+        </div>
+    }
+
+    @if(this.Body != null)
+    {
+        <div class="card_body_1 card_body_2">
+            @foreach(var item in collection)
+            {
+                <div class="card_text">
+                    Text...
+                </div>
+            }
+        </div>
+    }
+    @if(this.Footer != null)
+    {
+        <div>
+            Footer...
+        </div>
+    }
+    @if(this.Footer != null)
+    {
+        <div class="card_link_group_xs card_link_group_md">
+            foreach(var item in collection)
+            {
+                <LinkButton Url="#" Css="css">
+                    <UrlLink>
+                        Back
+                    </UrlLink>
+                </LinkButton>
+            }
+        </div>
+    }
+</div>*@

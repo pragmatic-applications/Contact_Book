@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib_Blazor_Uploader", "Lib_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAK.Lib.BlazorUI", "MAK.Lib.BlazorUI\MAK.Lib.BlazorUI.csproj", "{F803E766-041E-403A-B905-E1E59DF71342}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAK.Lib.BlazorCard", "MAK.Lib.BlazorCard\MAK.Lib.BlazorCard.csproj", "{94B31E17-066D-4447-B98F-2748648BCAA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{F803E766-041E-403A-B905-E1E59DF71342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F803E766-041E-403A-B905-E1E59DF71342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F803E766-041E-403A-B905-E1E59DF71342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B31E17-066D-4447-B98F-2748648BCAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B31E17-066D-4447-B98F-2748648BCAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B31E17-066D-4447-B98F-2748648BCAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B31E17-066D-4447-B98F-2748648BCAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{7064FD33-0B61-48BC-B7A1-CAF440BD3D4D} = {4A61ADDF-33B3-4A35-8BDD-72B5979A4DC7}
 		{7E3703AB-8DAA-477C-B5D7-84EA53ABFC57} = {4A61ADDF-33B3-4A35-8BDD-72B5979A4DC7}
 		{F803E766-041E-403A-B905-E1E59DF71342} = {4A61ADDF-33B3-4A35-8BDD-72B5979A4DC7}
+		{94B31E17-066D-4447-B98F-2748648BCAA1} = {4A61ADDF-33B3-4A35-8BDD-72B5979A4DC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECC7250C-D7C6-4E12-81A2-8523AD5C4E40}

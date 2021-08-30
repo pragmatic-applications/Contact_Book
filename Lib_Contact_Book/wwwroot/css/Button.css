@@ -235,6 +235,12 @@ a:focus
     border-radius: 0.2rem;
 }
 
+button,
+submit
+{
+    cursor: pointer;
+}
+
 .btn
 {
     display: inline-block;
